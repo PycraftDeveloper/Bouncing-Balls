@@ -31,9 +31,36 @@ Level 1
 
 [Level transition must have animation and "You WIN"]
 [Score carried over to next level]
+
+Color Spread:
+	BLUE: 25 (30.864%)
+	RED: 28 (34.568%)
+	YELLOW: 28 (34.568%)
+[Conclusion: RANDOM as not spread far from the expected 33%]
+
 Level 2
 +++++++
-...
+* 1000tn weight moving slowly down. Game ends if balls trapped below reach the bottom.
+* Cannon with current ball color ready to fire.
+* Cannon on top of next ball.
+* The balls are arranged in 8 rows and 13/14 columns (interlocking)
+* Cannon points towards mouse cursor.
+* Cannon can fire from 10* to 170* \_/
+* Balls that hit the walls on the side bounce with their x value inverted by y stays the same.
+* Ball has no limit on number of bounces.
+* Ball stops immediately upon touching a ball in the grid and groups of 3, but any more than balls of 3 are also
+	destroyed.
+* Balls have 3 different colors (BLUE (rgb(51, 102, 255)), RED (rgb(255, 0, 0)), YELLOW (rgb(255, 255, 50))) COLORS
+	APPROXIMATE.
+* On destruction, balls fall to bottom of the screen.
+
+[Level transition must have animation and "You WIN"]
+
+Color Spread:
+	BLUE: 39 (36.111%)
+	RED: 32 (29.6230%)
+	YELLOW: 37 (34.259%)
+[Conclusion: RANDOM as not spread far from the expected 33%]
 
 End screen
 ++++++++++
