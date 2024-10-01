@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\University Assignments\\CSY1079 - Programming 2D Computer Games\\AS1-Bouncing-Balls\\AS1 - Bouncing Balls - Visual Studio Project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5E50C8E6-1E26-4D1D-AE28-681ACA4C2279}|AS1 - Bouncing Balls\\AS1 - Bouncing Balls.vcxproj|G:\\University Assignments\\CSY1079 - Programming 2D Computer Games\\AS1-Bouncing-Balls\\AS1 - Bouncing Balls - Visual Studio Project\\AS1 - Bouncing Balls\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5E50C8E6-1E26-4D1D-AE28-681ACA4C2279}|AS1 - Bouncing Balls\\AS1 - Bouncing Balls.vcxproj|solutionrelative:AS1 - Bouncing Balls\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "G:\\University Assignments\\CSY1079 - Programming 2D Computer Games\\AS1-Bouncing-Balls\\AS1 - Bouncing Balls - Visual Studio Project\\AS1 - Bouncing Balls\\main.cpp",
+              "RelativeDocumentMoniker": "AS1 - Bouncing Balls\\main.cpp",
+              "ToolTip": "G:\\University Assignments\\CSY1079 - Programming 2D Computer Games\\AS1-Bouncing-Balls\\AS1 - Bouncing Balls - Visual Studio Project\\AS1 - Bouncing Balls\\main.cpp",
+              "RelativeToolTip": "AS1 - Bouncing Balls\\main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-01T11:26:15.033Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
