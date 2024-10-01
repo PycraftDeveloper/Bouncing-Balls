@@ -1,0 +1,52 @@
+REFERENCES
+==========
+
+https://www.novelgames.com/en/bouncing/ - 01/10/2024 - 11:56
+
+GAME EXTRACTION
+===============
+
+Main screen 
++++++++++++
+* Contains the game name: "Bouncing Balls"
+* Contains a start button: "START"
+* Contains a leaderboard button: "Leaderboard" ## do this bit last
+[Include an introduction to the game rules too in the main screen]
+
+Level 1
++++++++
+* 1000tn weight moving slowly down. Game ends if balls trapped below reach the bottom.
+* Cannon with current ball color ready to fire.
+* Cannon on top of next ball.
+* The balls are arranged in 6 rows and 13/14 columns (interlocking)
+* Cannon points towards mouse cursor.
+* Cannon can fire from 10* to 170* \_/
+* Balls that hit the walls on the side bounce with their x value inverted by y stays the same.
+* Ball has no limit on number of bounces.
+* Ball stops immediately upon touching a ball in the grid and groups of 3, but any more than balls of 3 are also
+	destroyed.
+* Balls have 3 different colors (BLUE (rgb(51, 102, 255)), RED (rgb(255, 0, 0)), YELLOW (rgb(255, 255, 50))) COLORS
+	APPROXIMATE.
+* On destruction, balls fall to bottom of the screen.
+
+[Level transition must have animation and "You WIN"]
+[Score carried over to next level]
+Level 2
++++++++
+...
+
+End screen
+++++++++++
+* must have a play again menu: "Play Again"
+* must have a quit menu: "exit"
+
+Game Over screen
+++++++++++++++++
+* must have a very clear "game over"
+* must have a play again menu: "Play Again"
+* must have a quit ment: "exit"
+
+GAME EXTENSIONS
+===============
+Leaderboard scoring / SQL database.
+	name, date, score
