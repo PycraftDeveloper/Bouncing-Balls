@@ -71,9 +71,26 @@ Game Over screen
 ++++++++++++++++
 * must have a very clear "game over"
 * must have a play again menu: "Play Again"
-* must have a quit ment: "exit"
+* must have a quit menu: "exit"
 
 GAME EXTENSIONS
 ===============
 Leaderboard scoring / SQL database.
-	name, date, score
+	name, date, score, pword (w/ encryption)
+
+GAME PLAN
+=========
+Using Kanban board on GitHub (titled: Game Plan): https://github.com/users/PycraftDeveloper/projects/1
+
+The Game Plan was written prior to starting a single line of code.
+
+BACKLOG: Things left to do - "EX - EXtension" and "EXx - EXtension eXtended" define things to do last if time allows to extend the original game.
+READY: Things that are next to complete once IN PROGRESS is empty.
+IN PROGRESS: Things that are currently being added into the game project.
+IN REVIEW: Things that have been added since the last review with Anastasios - that need to be discussed before they are finished.
+DONE: Things that have been signed off by Anastasios and are now complete.
+
+I am using the AGILE project management structure, so that we can go back after a review or change and make sure that everything works as intended and add new features if needed.
+
+1. Defined core features of plan in the Game Plan.
+2. Moved: "Link SFML into C++ project" from BACKLOG into READY
