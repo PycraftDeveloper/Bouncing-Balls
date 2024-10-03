@@ -115,6 +115,9 @@ IN REVIEW: Things that have been added since the last review with Anastasios - t
 DONE: Things that have been signed off by Anastasios and are now complete.
 
 Aim to finish game loop & most rendering by week 10. After week 10, focus on collisions, rendering enhancements, bug fixes and extensions week 10 to 16.
+Week 1 - 30/09/2024
+Week 10 - 02/12/2024
+Week 16 - 12/01/2024
 Game needs to maintain the arcade theme, without becoming too modern in appearance.
 
 I am using the AGILE project management structure, so that we can go back after a review or change and make sure that everything works as intended and add new features if needed.
