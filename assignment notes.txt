@@ -125,10 +125,12 @@ Create gannt chart and also release versions.
 3. Completed game.
 4. Possible extension if time allows.
 ----
-1. Defined core features of plan in the Game Plan.
-2. Moved: "Link SFML into C++ project" from BACKLOG into READY
-3. Moved: "Link SFML into C++ project" from BACKLOG into IN PROGRESS
-3. Moved: "Link SFML into C++ project" from IN PROGRESS into IN REVIEW
+1. Defined core features of plan in the Game Plan. 01/10/2024
+2. Moved: "Link SFML into C++ project" from BACKLOG into READY. 02/10/2024
+3. Moved: "Link SFML into C++ project" from BACKLOG into IN PROGRESS. 02/10/2024
+3. Moved: "Link SFML into C++ project" from IN PROGRESS into IN REVIEW. 02/10/2024
+4. Moved: "Setup Project Outline" from BACKLOG into READY. 03/10/2024
+5. Moved: "Setup Project Outline" from READY into IN PROGRESS. 02/10/2024
 
 PROGRAM NOTES
 =============

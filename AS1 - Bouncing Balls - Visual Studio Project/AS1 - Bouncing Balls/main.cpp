@@ -1,4 +1,13 @@
 #include <SFML/Graphics.hpp>
+#include <string>
+#include <iostream>
+
+#define MAIN_MENU "main menu"
+#define LEVEL_ONE "level one"
+#define LEVEL_TWO "level two"
+#define END_MENU "end menu"
+
+using namespace std;
 
 int main()
 {
