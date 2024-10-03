@@ -2,6 +2,7 @@ REFERENCES
 ==========
 
 https://www.novelgames.com/en/bouncing/ - 01/10/2024 - 11:56
+https://www.sfml-dev.org/documentation/2.6.1/index.php - 03/10/2024 - 14:48
 
 GAME EXTRACTION
 ===============
@@ -128,3 +129,12 @@ Create gannt chart and also release versions.
 2. Moved: "Link SFML into C++ project" from BACKLOG into READY
 3. Moved: "Link SFML into C++ project" from BACKLOG into IN PROGRESS
 3. Moved: "Link SFML into C++ project" from IN PROGRESS into IN REVIEW
+
+PROGRAM NOTES
+=============
+None yet.
+
+THINGS TO DO
+============
+Identify a good gantt chart generator (excel perhaps)
+Start work on SFML research: (clocks, drawing, events, mouse, window management)
