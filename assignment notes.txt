@@ -75,8 +75,31 @@ Game Over screen
 
 GAME EXTENSIONS
 ===============
+Unsure as yet if to go ahead with this... its a low priority thing and will be asked in first presentation. DO NOT EVEN THINK MUCH ABOUT THIS IN THE MEANTIME.
+
 Leaderboard scoring / SQL database.
 	name, date, score, pword (w/ encryption)
+Game is currently finite, with two levels and a distinct start and end point.
+To make the game infinite and interesting consider adding in solid obstacles to work around. Adding in more varying ball colors would make the game harder, but after a while the game would still get repetitive and less exciting as you get further away from the original look and feel of the game.
+
+WRITE UP PLAN
+=============
+1,000 words. (Proportions approximate)
+
+What's the game about?
+Objectives of the game and victory conditions? (Group these together) 100 words
+
+Mechanics of the game. (single) 200 words
+
+Overall screen flow diagrams.
+Overall UI design. (Group these together) 150 words
+
+Pseudocode for character/NPC objects. (single) * length subject to game complexity * 200 words
+
+Testing w/ suitable testing table. [wait until game somewhat complete (around 1st presentation) identify issues and do some testing, then do the testing again and write up extensively after testing lesson has been taught near the end of the course] (single) * get feedback from room mates? again subject to complexity * 150 words
+
+Evidence of planning process. 100 words
+Game optimization (Group these together). 100 words
 
 GAME PLAN
 =========
@@ -90,7 +113,18 @@ IN PROGRESS: Things that are currently being added into the game project.
 IN REVIEW: Things that have been added since the last review with Anastasios - that need to be discussed before they are finished.
 DONE: Things that have been signed off by Anastasios and are now complete.
 
+Aim to finish game loop & most rendering by week 10. After week 10, focus on collisions, rendering enhancements, bug fixes and extensions week 10 to 16.
+Game needs to maintain the arcade theme, without becoming too modern in appearance.
+
 I am using the AGILE project management structure, so that we can go back after a review or change and make sure that everything works as intended and add new features if needed.
 
+Create gannt chart and also release versions.
+1. Initial concepts there, component for intro, exit and levels in rough stages.
+2. Finesse this idea and add in pause menu.
+3. Completed game.
+4. Possible extension if time allows.
+----
 1. Defined core features of plan in the Game Plan.
 2. Moved: "Link SFML into C++ project" from BACKLOG into READY
+3. Moved: "Link SFML into C++ project" from BACKLOG into IN PROGRESS
+3. Moved: "Link SFML into C++ project" from IN PROGRESS into IN REVIEW
