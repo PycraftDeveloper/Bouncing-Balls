@@ -31,6 +31,7 @@ Level 1
 * Balls have 3 different colors (BLUE (rgb(51, 102, 255)), RED (rgb(255, 0, 0)), YELLOW (rgb(255, 255, 50))) COLORS
 	APPROXIMATE.
 * On destruction, balls fall to bottom of the screen.
+* Approximate ball radius: 30
 
 [Level transition must have animation and "You WIN"]
 [Score carried over to next level]
@@ -56,6 +57,7 @@ Level 2
 * Balls have 3 different colors (BLUE (rgb(51, 102, 255)), RED (rgb(255, 0, 0)), YELLOW (rgb(255, 255, 50))) COLORS
 	APPROXIMATE.
 * On destruction, balls fall to bottom of the screen.
+* Approximate ball radius: 30
 
 [Level transition must have animation and "You WIN"]
 
@@ -142,7 +144,7 @@ Create gannt chart and also release versions.
 
 PROGRAM NOTES
 =============
-None yet.
+I have written an email to NovelGames asking them to send over any information that could be useful as a part of the writeup process!
 
 THINGS TO DO
 ============
