@@ -141,6 +141,7 @@ Create gannt chart and also release versions.
 6. Moved: "Setup Project Outline" from IN PROGRESS into IN REVIEW. 06/10/2024
 7. Moved: "Create C++ Game Loop" from BACKLOG into READY. 06/10/2024
 8. Moved: "Create C++ Game Loop" from READY into IN PROGRESS. 06/10/2024
+9. Moved: "Create C++ Game Loop" from IN PROGRESS into IN REVIEW. 08/10/2024
 
 PROGRAM NOTES
 =============
