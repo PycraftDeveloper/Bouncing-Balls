@@ -5,6 +5,10 @@ https://www.novelgames.com/en/bouncing/ - 01/10/2024 - 11:56
 https://www.sfml-dev.org/documentation/2.6.1/index.php - 03/10/2024 - 14:48
 https://www.geeksforgeeks.org/cpp-functions-pass-by-reference/ - 06/10/2024 - 16:14
 https://www.geeksforgeeks.org/c-classes-and-objects/ - 06/10/2024 - 16:28
+https://www.mobygames.com/game/5518/bust-a-move/ - 12/10/2024 - 20:49
+https://www.arcade-museum.com/Videogame/puzzle-bobble - 12/10/2024 - 20:45
+https://fonts.google.com/download/next-steps?preview.text=Bouncing%20Balls - 12/10/2024 - 21:38
+https://emojidb.org/bullet-emojis - 12/10/2024 - 21:43
 
 GAME EXTRACTION
 ===============
@@ -150,3 +154,8 @@ I have written an email to NovelGames asking them to send over any information t
 THINGS TO DO
 ============
 See Gannnnnnnnntttttttttt chart
+
+Final points
+============
+
+Lil' easter egg where clicking the dragon causes it to fire the cannon and the cannon ball bounces around the other balls in the main menu. The other balls move slightly away when they collide.
