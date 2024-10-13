@@ -24,7 +24,9 @@ string path_builder(string (&args)[50]) {
     string resultant_path = PROJECT_RESOURCES_DIRECTORY;
     int length_of_input_array = sizeof(args) / sizeof(args[0]);
     for (int i = 0; i < length_of_input_array; i++) {
-        if (args[i] == "") break;
+        if (args[i] == "") {
+            break;
+        }
         resultant_path += "\\" + args[i];
     }
     return resultant_path;
@@ -35,6 +37,9 @@ void play_random_pop_sounds(sf::Music* pop_sounds, int count) {
         int sound_index = rand() % 15;
         pop_sounds[sound_index].play();
     }
+    // it is possible to do this serially. By creating custom music objects with a play function that mimmiks the music.play function and then updating these objects every frame with custom delays.
+    // Note: doing this would require that the audio isnt already in its delay state which could easily be added in. This limits max number of sounds to 15, as thats how many unique files we have,
+    // however clever sound design should be able to mask this limitation.
 }
 
 sf::Color pick_ball_color() {
@@ -172,9 +177,9 @@ public:
     }
 };
 
-class EndMenu {
+class GameEndMenu {
 public:
-    EndMenu() {
+    GameEndMenu() {
     }
 
     string run_menu(sf::RenderWindow& window) {
@@ -217,7 +222,7 @@ int main()
     MainMenu main_menu = MainMenu();
     LevelOne level_one = LevelOne();
     LevelTwo level_two = LevelTwo();
-    EndMenu end_menu = EndMenu();
+    GameEndMenu end_menu = GameEndMenu();
     PauseMenu pause_menu = PauseMenu();
 
     // create window (do last so not unresponsive whilst the game loads)
@@ -236,7 +241,7 @@ int main()
         pop_sounds[i].openFromFile(file_path);
     }
 
-    play_random_pop_sounds(pop_sounds, 13);
+    play_random_pop_sounds(pop_sounds, rand() % 15);
 
     while (window.isOpen())
     {
