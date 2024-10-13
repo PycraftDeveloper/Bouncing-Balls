@@ -1,9 +1,36 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.8 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.8">
   <diagram name="Page-1" id="VU0wAAJKyWoEYl_5dnAN">
-    <mxGraphModel dx="1098" dy="820" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2793" dy="1729" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="80DLN9vCJlW8v7wF73-j-7" value="&lt;span style=&quot;font-family: -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Noto Sans&amp;quot;, &amp;quot;Liberation Sans&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; text-align: left; background-color: rgb(250, 250, 250);&quot;&gt;&lt;font color=&quot;#e6e6e6&quot; style=&quot;font-size: 500px;&quot;&gt;パズルボブル&lt;/font&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=-15;" vertex="1" parent="1">
+          <mxGeometry x="-1165" y="107" width="3096" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="80DLN9vCJlW8v7wF73-j-1" value="" style="rounded=0;whiteSpace=wrap;html=1;glass=0;fillStyle=auto;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-382" y="-163" width="1280" height="720" as="geometry" />
+        </mxCell>
+        <mxCell id="80DLN9vCJlW8v7wF73-j-2" value="&lt;font face=&quot;Lilita One&quot; style=&quot;font-size: 36px;&quot;&gt;Bouncing Balls!&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="27" y="-119" width="462" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="80DLN9vCJlW8v7wF73-j-3" value="Text for title in same position for main menu, pause menu &amp;amp; end menu&lt;div&gt;Same applies for &quot;PLAY&quot;, &quot;RETURN TO GAME&quot; and &quot;RETURN TO START&quot; on levels in that order&lt;/div&gt;&lt;div&gt;Same applies for exit button&lt;/div&gt;&lt;div&gt;Button underlines when hovered&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-45" y="-236" width="606" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="80DLN9vCJlW8v7wF73-j-4" value="&lt;font face=&quot;Play&quot;&gt;&lt;span style=&quot;font-size: 24px;&quot;&gt;RETURN TO START&lt;/span&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="146" y="144" width="224" height="41" as="geometry" />
+        </mxCell>
+        <mxCell id="80DLN9vCJlW8v7wF73-j-5" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;exit&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="235" y="493" width="46" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="80DLN9vCJlW8v7wF73-j-6" value="Final Score: 130" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="207" y="-41" width="102" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="80DLN9vCJlW8v7wF73-j-8" value="&lt;font face=&quot;Play&quot; style=&quot;font-size: 36px;&quot; color=&quot;#ff0000&quot;&gt;YOU FAILED!!!&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="132" y="-71" width="252" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="80DLN9vCJlW8v7wF73-j-9" value="Crying dragon?" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="622" y="419" width="60" height="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
