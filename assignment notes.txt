@@ -140,6 +140,12 @@ PROGRAM NOTES
 =============
 I have written an email to NovelGames asking them to send over any information that could be useful as a part of the writeup process!
 
+Given font size X, and text size Y, the relationship for the JP text can be defined as follows:
+y=0.9013x+2.0953
+
+Therefore for window size K:
+x = (K - 2.0953) / 0.9013
+
 THINGS TO DO
 ============
 See Gannnnnnnnntttttttttt chart
