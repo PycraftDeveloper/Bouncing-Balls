@@ -13,6 +13,9 @@
 #define END_MENU "end menu"
 #define PAUSE_MENU "pause menu"
 
+#define FONT_PLAY "play font"
+#define FONT_REGULAR "play regular"
+
 using namespace std;
 
 // define global CONSTANTS
@@ -227,26 +230,151 @@ public:
 class Challengeradius {
 };
 
-class Button {
+class Text {
+public:
+    sf::Font font;
+    sf::Text text;
+    string text_attributes[5] = {};
+    string font_face = FONT_PLAY;
+    int position[2] = { 0, 0 };
+
+    Text(string font_face=FONT_PLAY) {
+        set_font_face(font_face);
+    }
+
+    void set_font_face(string new_font_face = FONT_PLAY) {
+        // used to set the font for the button
+        font_face = new_font_face;
+        if (font_face == FONT_PLAY) {
+            string path_components[50] = { "resources", "fonts", "Lilita_One Play", "Play-Regular.ttf" };
+            font.loadFromFile(path_builder(path_components));
+            text.setFont(font);
+        }
+        else if (font_face == FONT_REGULAR) {
+            string path_components[50] = { "resources", "fonts", "Lilita_One", "LilitaOne-Regular.ttf" };
+            font.loadFromFile(path_builder(path_components));
+            text.setFont(font);
+        }
+        else {
+            cout << "This is not a known font!";
+        }
+    }
+
+    sf::Text get_text() {
+        // used to get the text for button integration
+        return text;
+    }
+
+    void set_position(int x_position, int y_position) {
+        // sets the button position on screen. This is separate from render so it can be called without redering the text
+        position[0] = x_position;
+        position[1] = y_position;
+    }
+
+    void render(sf::RenderWindow& window, string text_content, int text_size, sf::Color text_fill_color, bool text_is_bold = false, bool text_is_underlined = false) {
+        // used to draw the text on screen efficiently
+        bool text_changed = false;
+        if (text_content != text_attributes[0]) {
+            text_changed = true;
+            text_attributes[0] = text_content;
+        }
+        if (to_string(text_size) != text_attributes[1]) {
+            text_changed = true;
+            text_attributes[1] = to_string(text_size);
+        }
+        if (to_string(text_fill_color.toInteger()) != text_attributes[2]) {
+            text_changed = true;
+            text_attributes[2] = to_string(text_fill_color.toInteger());
+        }
+        if (to_string(text_is_bold) != text_attributes[3]) {
+            text_changed = true;
+            text_attributes[3] = to_string(text_is_bold);
+        }
+        if (to_string(text_is_underlined) != text_attributes[4]) {
+            text_changed = true;
+            text_attributes[4] = to_string(text_is_underlined);
+        }
+
+        if (text_changed) {
+            text.setString(text_content);
+            text.setCharacterSize(text_size);
+            text.setFillColor(text_fill_color);
+            text.setStyle(sf::Text::Regular);
+            if (text_is_bold) {
+                text.setStyle(sf::Text::Bold);
+            }
+            if (text_is_underlined) {
+                text.setStyle(sf::Text::Underlined);
+            }
+        }
+        text.setPosition(position[0], position[1]);
+        window.draw(text);
+    }
+
 };
 
-class Text {
+class Button {
+public:
+    Text content = Text();
+    sf::RectangleShape background;
+    string font_face = FONT_PLAY;
+    bool hovering = false;
+
+    Button(string font_face=FONT_PLAY) {
+        content.set_font_face(font_face);
+        background.setOutlineColor(sf::Color::Black);
+        background.setOutlineThickness(1);
+    }
+
+    void render(sf::RenderWindow& window, int button_x_position, int button_y_position, string button_content, int button_text_size, sf::Color button_color, int button_padding=50) {
+        // Used to actually create the button on-screen every frame
+        content.render(window, button_content, button_text_size, sf::Color::Black); // get text dimensions
+        int button_x_size = content.get_text().getLocalBounds().width + button_padding;
+        int button_y_size = content.get_text().getLocalBounds().height + button_padding;
+        background.setSize(sf::Vector2f(button_x_size, button_y_size));
+        background.setPosition(button_x_position, button_y_position);
+        background.setFillColor(button_color);
+        content.set_position(button_x_position + button_padding/2, button_y_position + button_padding/2 - content.get_text().getLocalBounds().top);
+        window.draw(background); // draw button rect
+        content.render(window, button_content, button_text_size, sf::Color::Black, false, hovering); // draw text in front of button rect
+    }
+
+    bool update(PlayerInput& player_input) {
+        // Used to actually detect collisions and mouse inputs with the button
+        hovering = false;
+        int button_position[2] = { player_input.get_mouse_position()[0], player_input.get_mouse_position()[1] };
+        if (button_position[0] > background.getGlobalBounds().getPosition().x && button_position[0] < background.getGlobalBounds().getPosition().x + background.getGlobalBounds().width) {
+            if (button_position[1] > background.getGlobalBounds().getPosition().y && button_position[1] < background.getGlobalBounds().getPosition().y + background.getGlobalBounds().height) {
+                hovering = true;
+                if (player_input.get_player_button_input()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 };
 
 class MainMenu {
     int rotation;
     string game_rules = "AIM AT BUBBLES OF THE SAME COLOR AND SHOOT!";
+    Text title = Text(FONT_REGULAR);
+    Button play = Button();
 public:
     MainMenu() {
         rotation = (rand() % 90) - 45;
     }
 
-    string run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
+    string run_menu(sf::RenderWindow& window, PlayerInput& player_input) { // this runs once every frame
         int score = 0;
         sf::CircleShape shape(100.f);
         shape.setFillColor(pick_ball_color());
         shape.setPosition({ 100, 200 });
+        title.render(window, "Bouncing Balls", 24, sf::Color::Black, true);
         window.draw(shape);
+        play.update(player_input);
+        play.render(window, 200, 10, "Play!", 24, sf::Color::Red, 5);
+
         return MAIN_MENU;
     }
 
@@ -258,7 +386,7 @@ public:
     LevelOne() {
     }
 
-    string run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
+    string run_menu(sf::RenderWindow& window, PlayerInput& player_input) { // this runs once every frame
         window.draw(cannon_object.cannon_sprite);
         cannon_object.update(window, player_input);
         return LEVEL_ONE;
@@ -274,7 +402,7 @@ public:
     LevelTwo() {
     }
 
-    string run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
+    string run_menu(sf::RenderWindow& window, PlayerInput& player_input) { // this runs once every frame
         return LEVEL_TWO;
     }
 
@@ -287,7 +415,7 @@ public:
     GameEndMenu() {
     }
 
-    string run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
+    string run_menu(sf::RenderWindow& window, PlayerInput& player_input) { // this runs once every frame
         return END_MENU;
     }
 };
@@ -297,7 +425,7 @@ public:
     PauseMenu() {
     }
 
-    string run_menu(sf::RenderWindow& window, string* menu_navigation, PlayerInput& player_input) {
+    string run_menu(sf::RenderWindow& window, string* menu_navigation, PlayerInput& player_input) { // this runs once every frame
         return menu_navigation[1]; // go to previous level
         return PAUSE_MENU; // stay on current window alternate between these for menu navigation
     }
