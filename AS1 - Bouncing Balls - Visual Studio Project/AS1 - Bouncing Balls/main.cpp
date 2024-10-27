@@ -45,7 +45,9 @@ int calculate_point_count(int radius, float shape_quality = 0.75) {
     return point_count;
 }
 
-string path_builder(string(&args)[50]) { // currently length 50, lower this to match longest path for memory savings.
+string path_builder(string(&args)[50]) { // currently length 50, lower
+    // this to match longest path for memory savings.
+
     string resultant_path = PROJECT_RESOURCES_DIRECTORY;
     int length_of_input_array = sizeof(args) / sizeof(args[0]);
     for (int i = 0; i < length_of_input_array; i++) {
@@ -62,8 +64,12 @@ void play_random_pop_sounds(sf::Music* pop_sounds, int count) {
         int sound_index = rand() % 15;
         pop_sounds[sound_index].play();
     }
-    // it is possible to do this serially. By creating custom music objects with a play function that mimics the music.play function and then updating these objects every frame with custom delays.
-    // Note: doing this would require that the audio isn't already in its delay state which could easily be added in. This limits max number of sounds to 15, as that's how many unique files we have,
+    // it is possible to do this serially. By creating custom music objects 
+    // with a play function that mimics the music.play function and then 
+    // updating these objects every frame with custom delays.
+    // Note: doing this would require that the audio isn't already in its 
+    // delay state which could easily be added in. This limits max number 
+    // of sounds to 15, as that's how many unique files we have,
     // however clever sound design should be able to mask this limitation.
 }
 
@@ -122,7 +128,12 @@ public:
     float x_speed, y_speed;
     sf::CircleShape shape;
 
-    Ball(float x, float y, float radius, sf::Color color) : x(x), y(y), radius(radius), color(color) {
+    Ball(
+            float x,
+            float y,
+            float radius,
+            sf::Color color) : x(x), y(y), radius(radius), color(color) {
+
         x_speed = (rand() % 15) + 1;
         y_speed = (rand() % 15) + 1;
 
@@ -155,12 +166,14 @@ public:
         // Calculate the distance between the two balls
         float distance = pythagorean_distance(x, y, ball.x, ball.y);
         if (distance < radius + ball.radius) {
-            // Calculate the angle for the collision by assuming a tangent to each ball, then basic trig
+            // Calculate the angle for the collision by assuming a tangent 
+            // to each ball, then basic trig
             float angle = atan2(y - ball.y, x - ball.x);
             float sin_angle = sin(angle);
             float cos_angle = cos(angle);
 
-            // Make sure that when the balls collide they are split apart so they dont stick together, or appear to be inside each other
+            // Make sure that when the balls collide they are split apart so 
+            // they dont stick together, or appear to be inside each other
             float overlap = 0.5f * (radius + ball.radius - distance + 1);
             x += cos_angle * overlap;
             y += sin_angle * overlap;
@@ -223,7 +236,9 @@ public:
         if (rotation < 170 && rotation > 10) {
             cannon_sprite.setRotation(rotation);
         }
-        cannon_sprite.setPosition(window_size[0] / 2.0, window_size[1] - unrotated_cannon_height / 2);
+        cannon_sprite.setPosition(
+            window_size[0] / 2.0,
+            window_size[1] - unrotated_cannon_height / 2);
     }
 };
 
@@ -246,12 +261,21 @@ public:
         // used to set the font for the button
         font_face = new_font_face;
         if (font_face == FONT_PLAY) {
-            string path_components[50] = { "resources", "fonts", "Lilita_One Play", "Play-Regular.ttf" };
+            string path_components[50] = {
+                "resources",
+                "fonts",
+                "Lilita_One Play",
+                "Play-Regular.ttf" };
+
             font.loadFromFile(path_builder(path_components));
             text.setFont(font);
         }
         else if (font_face == FONT_REGULAR) {
-            string path_components[50] = { "resources", "fonts", "Lilita_One", "LilitaOne-Regular.ttf" };
+            string path_components[50] = { "resources",
+                "fonts",
+                "Lilita_One",
+                "LilitaOne-Regular.ttf" };
+
             font.loadFromFile(path_builder(path_components));
             text.setFont(font);
         }
@@ -265,13 +289,34 @@ public:
         return text;
     }
 
-    void set_position(int x_position, int y_position) {
-        // sets the button position on screen. This is separate from render so it can be called without redering the text
+    void set_position(
+            sf::RenderWindow& window,
+            int x_position,
+            int y_position) {
+
+        // sets the button position on screen. This is separate from render so 
+        // it can be called without rendering the text
+
+        if (x_position < 0) { // centre in x
+            x_position = -(x_position - 1) + (window.getSize().x - text.getGlobalBounds().width) / 2;
+        }
+
+        if (y_position < 0) { // centre in y
+            y_position = -(y_position - 1) + (window.getSize().y - text.getGlobalBounds().height) / 2;
+        }
+
         position[0] = x_position;
         position[1] = y_position;
     }
 
-    void render(sf::RenderWindow& window, string text_content, int text_size, sf::Color text_fill_color, bool text_is_bold = false, bool text_is_underlined = false) {
+    void render(
+            sf::RenderWindow& window,
+            string text_content,
+            int text_size,
+            sf::Color text_fill_color,
+            bool text_is_bold = false,
+            bool text_is_underlined = false) {
+
         // used to draw the text on screen efficiently
         bool text_changed = false;
         if (text_content != text_attributes[0]) {
@@ -326,25 +371,72 @@ public:
         background.setOutlineThickness(1);
     }
 
-    void render(sf::RenderWindow& window, int button_x_position, int button_y_position, string button_content, int button_text_size, sf::Color button_color, int button_padding=50) {
+    void render(
+            sf::RenderWindow& window, 
+            int button_x_position,
+            int button_y_position,
+            string button_content,
+            int button_text_size,
+            sf::Color button_color,
+            int button_padding=50) {
+
         // Used to actually create the button on-screen every frame
-        content.render(window, button_content, button_text_size, sf::Color::Black); // get text dimensions
+        content.render(
+            window,
+            button_content,
+            button_text_size,
+            sf::Color::Black); // get text dimensions
+
+        // get the button size with the rect as a bounding box
         int button_x_size = content.get_text().getLocalBounds().width + button_padding;
         int button_y_size = content.get_text().getLocalBounds().height + button_padding;
         background.setSize(sf::Vector2f(button_x_size, button_y_size));
+
+        // if the button position is negative, I can use this as a way of indicating a central position
+        if (button_x_position < 0) { // centre in x
+            button_x_position = -(button_x_position - 1) + (window.getSize().x - button_x_size) / 2;
+        }
+
+        if (button_y_position < 0) { // centre in y
+            button_y_position = -(button_y_position - 1) + (window.getSize().y - button_y_size) / 2;
+        }
+
+        // set-up button background - so the player knows where to hit
         background.setPosition(button_x_position, button_y_position);
         background.setFillColor(button_color);
-        content.set_position(button_x_position + button_padding/2, button_y_position + button_padding/2 - content.get_text().getLocalBounds().top);
-        window.draw(background); // draw button rect
-        content.render(window, button_content, button_text_size, sf::Color::Black, false, hovering); // draw text in front of button rect
+
+        // set the text position centred in the button
+        content.set_position(
+            window,
+            button_x_position + button_padding/2,
+            button_y_position + button_padding/2 - content.get_text().getLocalBounds().top);
+
+        // draw the button rectangle to the window
+        window.draw(background);
+
+        // draw the text inside the button at the position we specified earlier.
+        // Remember to think about layering so needs to be done last to appear first
+        content.render(
+            window,
+            button_content,
+            button_text_size,
+            sf::Color::Black,
+            false,
+            hovering);
     }
 
     bool update(PlayerInput& player_input) {
         // Used to actually detect collisions and mouse inputs with the button
         hovering = false;
-        int button_position[2] = { player_input.get_mouse_position()[0], player_input.get_mouse_position()[1] };
-        if (button_position[0] > background.getGlobalBounds().getPosition().x && button_position[0] < background.getGlobalBounds().getPosition().x + background.getGlobalBounds().width) {
-            if (button_position[1] > background.getGlobalBounds().getPosition().y && button_position[1] < background.getGlobalBounds().getPosition().y + background.getGlobalBounds().height) {
+        int button_position[2] = {
+            player_input.get_mouse_position()[0],
+            player_input.get_mouse_position()[1] };
+
+        if (button_position[0] > background.getGlobalBounds().getPosition().x &&
+                button_position[0] < background.getGlobalBounds().getPosition().x + background.getGlobalBounds().width) {
+
+            if (button_position[1] > background.getGlobalBounds().getPosition().y &&
+                    button_position[1] < background.getGlobalBounds().getPosition().y + background.getGlobalBounds().height) {
                 hovering = true;
                 if (player_input.get_player_button_input()) {
                     return true;
@@ -356,25 +448,31 @@ public:
 };
 
 class MainMenu {
-    int rotation;
     string game_rules = "AIM AT BUBBLES OF THE SAME COLOR AND SHOOT!";
-    Text title = Text(FONT_REGULAR);
-    Button play = Button();
+    Text title_text = Text(FONT_REGULAR);
+    Button play_button = Button();
+    Button quit_button = Button();
+
 public:
     MainMenu() {
-        rotation = (rand() % 90) - 45;
     }
 
-    string run_menu(sf::RenderWindow& window, PlayerInput& player_input) { // this runs once every frame
-        int score = 0;
-        sf::CircleShape shape(100.f);
-        shape.setFillColor(pick_ball_color());
-        shape.setPosition({ 100, 200 });
-        title.render(window, "Bouncing Balls", 24, sf::Color::Black, true);
-        window.draw(shape);
-        play.update(player_input);
-        play.render(window, 200, 10, "Play!", 24, sf::Color::Red, 5);
+    string run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
+        // this runs once every frame
+        // top to bottom rendering here where layering doesn't matter
+        // render game title
+        title_text.set_position(window, -1, 0);
+        title_text.render(window, "Bouncing Balls", 100, sf::Color::Black, true);
 
+        // render play button
+        play_button.update(player_input);
+        play_button.render(window, -1, -1, "Play!", 24, sf::Color::Red, 30);
+
+        // render quit button
+        quit_button.update(player_input);
+        quit_button.render(window, -1, -101, "quit", 24, sf::Color::Red, 20);
+
+        // by default return to this menu on next run
         return MAIN_MENU;
     }
 
@@ -386,7 +484,8 @@ public:
     LevelOne() {
     }
 
-    string run_menu(sf::RenderWindow& window, PlayerInput& player_input) { // this runs once every frame
+    string run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
+        // this runs once every frame
         window.draw(cannon_object.cannon_sprite);
         cannon_object.update(window, player_input);
         return LEVEL_ONE;
@@ -402,7 +501,8 @@ public:
     LevelTwo() {
     }
 
-    string run_menu(sf::RenderWindow& window, PlayerInput& player_input) { // this runs once every frame
+    string run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
+        // this runs once every frame
         return LEVEL_TWO;
     }
 
@@ -415,7 +515,8 @@ public:
     GameEndMenu() {
     }
 
-    string run_menu(sf::RenderWindow& window, PlayerInput& player_input) { // this runs once every frame
+    string run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
+        // this runs once every frame
         return END_MENU;
     }
 };
@@ -425,9 +526,15 @@ public:
     PauseMenu() {
     }
 
-    string run_menu(sf::RenderWindow& window, string* menu_navigation, PlayerInput& player_input) { // this runs once every frame
+    string run_menu(
+            sf::RenderWindow& window,
+            string* menu_navigation,
+            PlayerInput& player_input) {
+
+        // this runs once every frame
         return menu_navigation[1]; // go to previous level
-        return PAUSE_MENU; // stay on current window alternate between these for menu navigation
+        return PAUSE_MENU; // stay on current window alternate between 
+        // these for menu navigation
     }
 };
 
@@ -459,7 +566,10 @@ int main()
     PauseMenu pause_menu = PauseMenu();
 
     // create window (do last so not unresponsive whilst the game loads)
-    sf::RenderWindow window(sf::VideoMode(window_size[0], window_size[1]), "Bouncing Balls!");
+    sf::RenderWindow window(
+        sf::VideoMode(window_size[0], window_size[1]),
+        "Bouncing Balls!");
+
     window.setVerticalSyncEnabled(true); // v-sync is our frame limiter here.
     // No need for clocks!
 
@@ -499,7 +609,8 @@ int main()
                     player_input.set_player_button_input(true);
                     break;
                 case sf::Keyboard::Escape:
-                    menu_navigation[1], menu_navigation[0] = menu_navigation[0], MAIN_MENU; // cheeky element switch
+                    menu_navigation[1], menu_navigation[0] = menu_navigation[0], MAIN_MENU;
+                    // cheeky element switch
                     break;
                 case sf::Keyboard::Num1: // [temporary] forced switching between levels
                     menu_navigation[0] = MAIN_MENU;
@@ -562,7 +673,11 @@ int main()
             }
         }
         else if (menu_navigation[0] == PAUSE_MENU) {
-            next_component = pause_menu.run_menu(window, menu_navigation, player_input);
+            next_component = pause_menu.run_menu(
+                window,
+                menu_navigation,
+                player_input);
+
             if (next_component != PAUSE_MENU) {
                 menu_navigation[0] = next_component;
                 menu_navigation[1] = PAUSE_MENU;
