@@ -13,6 +13,8 @@
 #define END_MENU "end menu"
 #define PAUSE_MENU "pause menu"
 
+#define QUIT "quit"
+
 #define FONT_PLAY "play font"
 #define FONT_REGULAR "play regular"
 
@@ -91,6 +93,7 @@ private:
     int mouse_position[2] = { 0, 0 };
     sf::Mouse mouse;
     bool player_button_input = false;
+    bool player_continual_interation = false;
 
 
 public:
@@ -105,6 +108,27 @@ public:
         mouse_position[1] = internal_position.y;
         player_button_input = mouse.isButtonPressed(
             sf::Mouse::Button::Left);
+
+        // enforce that when the player is not releasing the input quickly enough
+        // the player input will be reset to false until the player releases the
+        // input. This is to prevent the illusion of clicking through an object
+        // on one menu through another when two clickable objects are in the same place
+        // on different levels but clicking one causes the other to also be pressed.
+        // for example: clicking the "play again" button in the end screen resets the menu
+        // system back to the main menu. But if the player isn't fast enough this same input
+        // causes the "play" button, which is in the same place on-screen, to also then
+        // get pressed meaning to the end user, pressing the play again button dumps
+        // you right to the start of level 1, instead of the main menu.
+
+        if (player_button_input && player_continual_interation) {
+            player_button_input = false;
+        }
+        else if (player_button_input) {
+            player_continual_interation = true;
+        }
+        else {
+            player_continual_interation = false;
+        }
     }
 
     int* get_mouse_position() {
@@ -173,7 +197,7 @@ public:
             float cos_angle = cos(angle);
 
             // Make sure that when the balls collide they are split apart so 
-            // they dont stick together, or appear to be inside each other
+            // they don't stick together, or appear to be inside each other
             float overlap = 0.5f * (radius + ball.radius - distance + 1);
             x += cos_angle * overlap;
             y += sin_angle * overlap;
@@ -465,13 +489,22 @@ public:
         title_text.render(window, "Bouncing Balls", 100, sf::Color::Black, true);
 
         // render play button
-        play_button.update(player_input);
+        bool play_button_result;
+        play_button_result = play_button.update(player_input);
         play_button.render(window, -1, -1, "Play!", 24, sf::Color::Red, 30);
 
         // render quit button
-        quit_button.update(player_input);
+        bool quit_button_result;
+        quit_button_result = quit_button.update(player_input);
         quit_button.render(window, -1, -101, "quit", 24, sf::Color::Red, 20);
 
+        // identify what menu to transition to next
+        if (quit_button_result) {
+            return QUIT;
+        }
+        else if (play_button_result) {
+            return LEVEL_ONE;
+        }
         // by default return to this menu on next run
         return MAIN_MENU;
     }
@@ -511,12 +544,56 @@ public:
 };
 
 class GameEndMenu {
+    Text title_text = Text(FONT_REGULAR);
+    Text game_win_state = Text(FONT_PLAY);
+
+    Button play_again_button = Button();
+    Button quit_button = Button();
 public:
     GameEndMenu() {
     }
 
-    string run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
+    string run_menu(sf::RenderWindow& window, PlayerInput& player_input, bool game_won) {
         // this runs once every frame
+        // render game title
+        title_text.set_position(window, -1, 0);
+        title_text.render(window, "Bouncing Balls", 100, sf::Color::Black, true);
+
+        // render game win state (win/loose)
+        game_win_state.set_position(window, -1, 200);
+
+        string game_win_state_text_content;
+        sf::Color game_win_state_text_color;
+        if (game_won) {
+            game_win_state_text_content = "You WIN!!!";
+            game_win_state_text_color = sf::Color::Green;
+        }
+        else {
+            game_win_state_text_content = "You Lost!!!";
+            game_win_state_text_color = sf::Color::Red;
+        }
+
+        game_win_state.render(window, game_win_state_text_content, 50, game_win_state_text_color, true);
+
+        // render play again button
+        bool play_again_button_result;
+        play_again_button_result = play_again_button.update(player_input);
+        play_again_button.render(window, -1, -1, "Play Again!", 24, sf::Color::Red, 30);
+
+        // render quit button
+        bool quit_button_result;
+        quit_button_result = quit_button.update(player_input);
+        quit_button.render(window, -1, -101, "quit", 24, sf::Color::Red, 20);
+
+        // identify what menu to transition to next
+        if (quit_button_result) {
+            return QUIT;
+        }
+        else if (play_again_button_result) {
+            return MAIN_MENU;
+        }
+
+        // by default return to this menu on next run
         return END_MENU;
     }
 };
@@ -553,6 +630,8 @@ int main()
     * but I am keeping this relatively simple and small.
     */
     int score = 0;
+    bool game_won = false;
+
     string next_component;
 
     // set-up game componentry
@@ -666,7 +745,11 @@ int main()
             }
         }
         else if (menu_navigation[0] == END_MENU) {
-            next_component = end_menu.run_menu(window, player_input);
+            next_component = end_menu.run_menu(
+                window,
+                player_input,
+                game_won);
+
             if (next_component != END_MENU) {
                 menu_navigation[0] = next_component;
                 menu_navigation[1] = END_MENU;
@@ -682,6 +765,9 @@ int main()
                 menu_navigation[0] = next_component;
                 menu_navigation[1] = PAUSE_MENU;
             }
+        }
+        else if (menu_navigation[0] == QUIT) {
+            break;
         }
         else {
             cout << "Current level not recognised!!!";
