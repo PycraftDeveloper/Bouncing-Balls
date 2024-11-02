@@ -665,6 +665,13 @@ int main()
 
     play_random_pop_sounds(pop_sounds, rand() % 15);
 
+    sf::Music main_theme;
+    string path_components[50] = { "resources", "music", "main theme [extended].ogg"};
+    main_theme.openFromFile(path_builder(path_components));
+    main_theme.setLoop(true);
+    main_theme.setVolume(15);
+    main_theme.play();
+
     while (window.isOpen())
     {
         sf::Event event;
