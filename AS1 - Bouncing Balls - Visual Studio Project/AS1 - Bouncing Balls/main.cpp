@@ -226,7 +226,7 @@ public:
     int window_size[2] = { 0, 0 };
     int unrotated_cannon_height = 0;
     Cannon() {
-        string path_components[50] = { "resources", "images", "cannon", "head2.png" };
+        string path_components[50] = { "resources", "images", "cannon.png" };
         cannon_texture.loadFromFile(path_builder(path_components));
         cannon_sprite.setTexture(cannon_texture);
         cannon_sprite.setPosition(500, 500);
