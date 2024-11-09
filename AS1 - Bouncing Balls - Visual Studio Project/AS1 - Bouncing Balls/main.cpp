@@ -18,16 +18,23 @@
 #define FONT_PLAY "play font"
 #define FONT_REGULAR "play regular"
 
+#define WIN "won"
+#define LOST "lost"
+
+#define BALL_SPEED 3
+
 using namespace std;
 
 // define global CONSTANTS
 string PROJECT_RESOURCES_DIRECTORY = "G:\\University\\Assignments\\Simester 1\\CSY1079 - Programming 2D Computer Games\\AS1 - Bouncing Balls - Visual Studio Project";
 const float PI = 3.14159265358979323;
 const float TAU = PI * 2;
-const float RADIANS_TO_DEGREES_CONVERSION_CONSTANT = 360 / (2 * PI);
+const float RADIANS_TO_DEGREES_CONVERSION_CONSTANT = 180 / PI;
+const float DEGREES_TO_RADIANS_CONVERSION_CONSTANT = PI / 180;
 
 // define global VARIABLES
 int window_size[] = { 1280, 720 };
+bool game_end_state = "won";
 
 float pythagorean_distance(float x1, float y1, float x2, float y2) {
     return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
@@ -144,105 +151,196 @@ public:
     }
 };
 
+class Mass {
+public:
+    sf::Texture mass_texture;
+    sf::Sprite mass;
+    float x_position;
+    float y_position;
+    float mass_sprite_x_size;
+    float mass_sprite_y_size;
+
+    Mass() {
+        string path_components[50] = { "resources", "images", "anvil.png" };
+        mass_texture.loadFromFile(path_builder(path_components));
+        mass.setTexture(mass_texture);
+        mass_sprite_x_size = mass.getGlobalBounds().width;
+        mass_sprite_y_size = mass.getGlobalBounds().height;
+        y_position = -mass.getGlobalBounds().height; // start above the window!!!
+    }
+
+    int get_game_ceiling() {
+        return y_position + mass_sprite_y_size;
+    }
+
+    bool compute(sf::RenderWindow& window) {
+        float x_scale = window.getSize().y / mass_sprite_x_size;
+        mass.setScale(x_scale, 1);
+
+        x_position = (window.getSize().x - mass.getGlobalBounds().width) / 2;
+        y_position += 0.1;
+
+        if (y_position + mass_sprite_y_size > window.getSize().y) {
+            return true;
+        }
+        return false;
+    }
+
+    void render(sf::RenderWindow& window) {
+        mass.setPosition(x_position, y_position);
+        window.draw(mass);
+    }
+};
+
 class Ball {
 public:
     float x, y;
     float radius;
     sf::Color color;
-    float x_speed, y_speed;
+    float shape_x_velocity = 0;
+    float shape_y_velocity = 0;
     sf::CircleShape shape;
+    bool popped = false;
 
     Ball(
             float x,
             float y,
-            float radius,
-            sf::Color color) : x(x), y(y), radius(radius), color(color) {
+            float radius) : x(x), y(y), radius(radius) {
 
-        x_speed = (rand() % 15) + 1;
-        y_speed = (rand() % 15) + 1;
-
+        color = pick_ball_color();
         shape.setFillColor(color);
         shape.setRadius(radius);
         shape.setOrigin(radius, radius); // centre of circle is its position
         shape.setPointCount(calculate_point_count(radius));
     }
 
-    void compute() {
-        x += x_speed;
-        y += y_speed;
+    void set_velocity(float x_velocity, float y_velocity) {
+        shape_x_velocity = x_velocity;
+        shape_y_velocity = y_velocity;
+    }
 
+    void set_position(float new_x, float new_y) {
+        x = new_x;
+        y = new_y;
+    }
+
+    void compute(Mass& mass) {
         // check for a collision with the 'walls' of the game
-        if ((x - radius <= 0 && x_speed < 0) || (x + radius >= window_size[0] && x_speed > 0)) {
-            x_speed = -x_speed;
+        int game_y_minimum = mass.get_game_ceiling();
+
+        if ((x - radius <= 0 && shape_x_velocity < 0) || (x + radius >= window_size[0] && shape_x_velocity > 0)) {
+            shape_x_velocity *= -1;
         }
-        if ((y - radius <= 0 && y_speed < 0) || (y + radius >= window_size[1] && y_speed > 0)) {
-            y_speed = -y_speed;
+        if ((y - radius <= game_y_minimum && shape_y_velocity < 0)) {
+            shape_y_velocity = 0;
+            shape_x_velocity = 0;
         }
 
         // Keep the ball inside the place it needs to be
-        if (x - radius < 0) x = radius;
-        if (x + radius > window_size[0]) x = window_size[0] - radius;
-        if (y - radius < 0) y = radius;
-        if (y + radius > window_size[1]) y = window_size[1] - radius;
+        if (x - radius < 0) {
+            x = radius;
+        }
+        if (x + radius > window_size[0]) {
+            x = window_size[0] - radius;
+        }
+        if (y - radius < game_y_minimum) {
+            y = radius + game_y_minimum;
+        }
+        if (y > window_size[1]) {
+            popped = true;
+            y = -100;
+            shape_x_velocity = 0;
+            shape_y_velocity = 0;
+        }
+
+        x += shape_x_velocity;
+        y += shape_y_velocity;
     }
 
     void collision(Ball& ball) {
-        // Calculate the distance between the two balls
-        float distance = pythagorean_distance(x, y, ball.x, ball.y);
-        if (distance < radius + ball.radius) {
-            // Calculate the angle for the collision by assuming a tangent 
-            // to each ball, then basic trig
-            float angle = atan2(y - ball.y, x - ball.x);
-            float sin_angle = sin(angle);
-            float cos_angle = cos(angle);
+        if (ball.popped == false) {
+            // Calculate the distance between the two balls
+            float distance = pythagorean_distance(x, y, ball.x, ball.y);
+            if (distance < radius + ball.radius) {
+                // Calculate the angle for the collision by assuming a tangent 
+                // to each ball, then basic trig
+                float angle = atan2(y - ball.y, x - ball.x);
+                float sin_angle = sin(angle);
+                float cos_angle = cos(angle);
 
-            // Make sure that when the balls collide they are split apart so 
-            // they don't stick together, or appear to be inside each other
-            float overlap = 0.5f * (radius + ball.radius - distance + 1);
-            x += cos_angle * overlap;
-            y += sin_angle * overlap;
-            ball.x -= cos_angle * overlap;
-            ball.y -= sin_angle * overlap;
+                // Make sure that when the balls collide they are split apart so 
+                // they don't stick together, or appear to be inside each other
+                float overlap = 0.5f * (radius + ball.radius - distance + 1);
+                x += cos_angle * overlap;
+                y += sin_angle * overlap;
+                ball.x -= cos_angle * overlap;
+                ball.y -= sin_angle * overlap;
 
-            // Remove their velocity so the balls stop moving.
-            x_speed = 0;
-            y_speed = 0;
-            ball.x_speed = 0;
-            ball.y_speed = 0;
+                // Remove their velocity so the balls stop moving.
+                shape_x_velocity = 0;
+                shape_y_velocity = 0;
+                ball.shape_x_velocity = 0;
+                ball.shape_y_velocity = 0;
+            }
         }
     }
 
-    void draw(sf::RenderWindow& window) {
+    void render(sf::RenderWindow& window) {
         shape.setPosition(x, y);
-        window.draw(shape);
+        if (popped == false) {
+            window.draw(shape);
+        }
     }
 };
 
 class Cannon {
 public:
     sf::Texture cannon_texture;
-    sf::Sprite cannon_sprite;
+    sf::Sprite cannon;
     float rotation = 0;
     int window_size[2] = { 0, 0 };
     int unrotated_cannon_height = 0;
-    Cannon() {
+    float cannon_x_position = 0;
+    float cannon_y_position = 0;
+
+    Cannon(vector<Ball>& game_balls) {
         string path_components[50] = { "resources", "images", "cannon.png" };
         cannon_texture.loadFromFile(path_builder(path_components));
-        cannon_sprite.setTexture(cannon_texture);
-        cannon_sprite.setPosition(500, 500);
-        cannon_sprite.setScale(0.168, 0.168);
+        cannon.setTexture(cannon_texture);
+        cannon.setPosition(500, 500);
+        cannon.setScale(0.168, 0.168);
+
+        load_cannon_with_ball(game_balls);
+        load_cannon_with_ball(game_balls);
     }
 
-    void update(sf::RenderWindow& window, PlayerInput& player_input) {
+    void set_position(float new_x, float new_y, vector<Ball>& game_balls) {
+        cannon_x_position = new_x;
+        cannon_y_position = new_y;
+
+        cannon.setPosition(new_x, new_y);
+
+        if (game_balls.size() >= 2) {
+            for (int i = game_balls.size() - 2; i < game_balls.size(); ++i) {
+                game_balls[i].set_position(new_x, new_y);
+            }
+        }
+    }
+
+    void load_cannon_with_ball(vector<Ball>& game_balls) {
+        Ball game_ball = Ball(cannon.getPosition().x, cannon.getPosition().y, 20);
+        game_balls.emplace_back(game_ball);
+    }
+
+    void compute(sf::RenderWindow& window, PlayerInput& player_input, vector<Ball>& game_balls) {
         // define local variables
         int new_window_size[2] = { window.getSize().x, window.getSize().y };
-        int cannon_width = cannon_sprite.getGlobalBounds().width;
-        int cannon_height = cannon_sprite.getGlobalBounds().height;
-
+        int cannon_width = cannon.getGlobalBounds().width;
+        int cannon_height = cannon.getGlobalBounds().height;
 
         // mouse targeting!
-        float opposite = player_input.get_mouse_position()[0] - cannon_sprite.getPosition().x;
-        float adjacent = abs(player_input.get_mouse_position()[1] - cannon_sprite.getPosition().y);
+        float opposite = player_input.get_mouse_position()[0] - cannon.getPosition().x;
+        float adjacent = abs(player_input.get_mouse_position()[1] - cannon.getPosition().y);
         rotation = 90 + atan(opposite / adjacent) * RADIANS_TO_DEGREES_CONVERSION_CONSTANT;
 
         // handle changes when display size changes
@@ -250,23 +348,27 @@ public:
             window_size[0] = new_window_size[0];
             window_size[1] = new_window_size[1];
             float window_scale = window_size[1] / 720.0;
-            cannon_sprite.setScale(0.168 * window_scale, 0.168 * window_scale);
-            cannon_sprite.setOrigin(366, 366);
-            cannon_sprite.setRotation(0);
-            unrotated_cannon_height = cannon_sprite.getGlobalBounds().height;
+            cannon.setScale(0.168 * window_scale, 0.168 * window_scale);
+            cannon.setOrigin(366, 366);
+            cannon.setRotation(0);
+            unrotated_cannon_height = cannon.getGlobalBounds().height;
         }
 
         // update cannon translation and rotation
         if (rotation < 170 && rotation > 10) {
-            cannon_sprite.setRotation(rotation);
+            cannon.setRotation(rotation);
         }
-        cannon_sprite.setPosition(
-            window_size[0] / 2.0,
-            window_size[1] - unrotated_cannon_height / 2);
-    }
-};
 
-class Challengeradius {
+        set_position(window_size[0] / 2.0, window_size[1] - unrotated_cannon_height / 2, game_balls);
+    }
+
+    float get_rotation() {
+        return rotation;
+    }
+
+    void render(sf::RenderWindow& window) {
+        window.draw(cannon);
+    }
 };
 
 class Text {
@@ -449,7 +551,7 @@ public:
             hovering);
     }
 
-    bool update(PlayerInput& player_input) {
+    bool compute(PlayerInput& player_input) {
         // Used to actually detect collisions and mouse inputs with the button
         hovering = false;
         int button_position[2] = {
@@ -490,12 +592,12 @@ public:
 
         // render play button
         bool play_button_result;
-        play_button_result = play_button.update(player_input);
+        play_button_result = play_button.compute(player_input);
         play_button.render(window, -1, -1, "Play!", 24, sf::Color::Red, 30);
 
         // render quit button
         bool quit_button_result;
-        quit_button_result = quit_button.update(player_input);
+        quit_button_result = quit_button.compute(player_input);
         quit_button.render(window, -1, -101, "quit", 24, sf::Color::Red, 20);
 
         // identify what menu to transition to next
@@ -512,15 +614,62 @@ public:
 };
 
 class LevelOne {
-    Cannon cannon_object = Cannon();
+    vector<Ball> game_balls; // last 2 ALWAYS belong to the cannon for firing.
+    Cannon cannon_object = Cannon(game_balls);
+    Mass mass_object = Mass();
+    bool level_lost = false;
 public:
     LevelOne() {
+        // set-up balls here...
     }
 
     string run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         // this runs once every frame
-        window.draw(cannon_object.cannon_sprite);
-        cannon_object.update(window, player_input);
+        float angle = 0;
+
+        cannon_object.render(window);
+        cannon_object.compute(window, player_input, game_balls);
+
+        vector<int> garbage_ball_elements = {};
+
+        int index = 0;
+        for (auto& game_ball : game_balls) {
+            game_ball.compute(mass_object);
+            game_ball.render(window);
+            if (game_ball.popped) {
+                garbage_ball_elements.emplace_back(index);
+            }
+            index++;
+        }
+
+        for (int& garbage_ball : garbage_ball_elements) {
+            game_balls.erase(game_balls.begin() + garbage_ball);
+        }
+
+        mass_object.render(window);
+        level_lost = mass_object.compute(window);
+
+        if (player_input.get_player_button_input()) {
+            //game_balls[game_balls.size() - 2], game_balls[game_balls.size() - 1] = game_balls[game_balls.size() - 1], game_balls[game_balls.size() - 2];
+            swap(game_balls[game_balls.size() - 2], game_balls[game_balls.size() - 1]);
+
+            // get the angle the cannon is pointing at and fire the ball in that same direction
+            angle = (cannon_object.get_rotation() - 90) * DEGREES_TO_RADIANS_CONVERSION_CONSTANT;
+
+            float x_velocity = sin(angle) * BALL_SPEED;
+            float y_velocity = -cos(angle) * BALL_SPEED;
+
+            game_balls[game_balls.size() - 2].set_velocity(x_velocity, y_velocity);
+            //game_balls[game_balls.size() - 2].set_position(0, 0);
+
+            cannon_object.load_cannon_with_ball(game_balls);
+        }
+
+        if (level_lost) {
+            game_end_state = LOST;
+            return END_MENU;
+        }
+
         return LEVEL_ONE;
     }
 
@@ -530,12 +679,27 @@ public:
 };
 
 class LevelTwo {
+    vector<Ball> game_balls;
+    Cannon cannon_object = Cannon(game_balls);
+    Mass mass_object = Mass();
+    bool level_lost = false;
 public:
     LevelTwo() {
     }
 
     string run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         // this runs once every frame
+        cannon_object.render(window);
+        cannon_object.compute(window, player_input, game_balls);
+
+        mass_object.render(window);
+        level_lost = mass_object.compute(window);
+
+        if (level_lost) {
+            game_end_state = LOST;
+            return END_MENU;
+        }
+
         return LEVEL_TWO;
     }
 
@@ -577,12 +741,12 @@ public:
 
         // render play again button
         bool play_again_button_result;
-        play_again_button_result = play_again_button.update(player_input);
+        play_again_button_result = play_again_button.compute(player_input);
         play_again_button.render(window, -1, -1, "Play Again!", 24, sf::Color::Red, 30);
 
         // render quit button
         bool quit_button_result;
-        quit_button_result = quit_button.update(player_input);
+        quit_button_result = quit_button.compute(player_input);
         quit_button.render(window, -1, -101, "quit", 24, sf::Color::Red, 20);
 
         // identify what menu to transition to next
@@ -631,6 +795,8 @@ int main()
     */
     int score = 0;
     bool game_won = false;
+    bool window_full_screen = false;
+    bool game_running = true;
 
     string next_component;
 
@@ -644,14 +810,6 @@ int main()
     GameEndMenu end_menu = GameEndMenu();
     PauseMenu pause_menu = PauseMenu();
 
-    // create window (do last so not unresponsive whilst the game loads)
-    sf::RenderWindow window(
-        sf::VideoMode(window_size[0], window_size[1]),
-        "Bouncing Balls!");
-
-    window.setVerticalSyncEnabled(true); // v-sync is our frame limiter here.
-    // No need for clocks!
-
     // Load pop sounds. Using music here means files aren't actually loaded
     // and instead streamed as needed, meaning this isn't actually that
     // inefficient!
@@ -663,7 +821,7 @@ int main()
         pop_sounds[i].openFromFile(file_path);
     }
 
-    play_random_pop_sounds(pop_sounds, rand() % 15);
+    play_random_pop_sounds(pop_sounds, rand() % 15); // temporary!!!
 
     sf::Music main_theme;
     string path_components[50] = { "resources", "music", "main theme [extended].ogg"};
@@ -672,13 +830,23 @@ int main()
     main_theme.setVolume(15);
     main_theme.play();
 
-    while (window.isOpen())
+    // create window (do last so not unresponsive whilst the game loads)
+    sf::RenderWindow window;
+    window.create(
+        sf::VideoMode(window_size[0], window_size[1]),
+        "Bouncing Balls!");
+
+    window.setVerticalSyncEnabled(true); // v-sync is our frame limiter here.
+    // No need for clocks!
+
+    while (game_running)
     {
         sf::Event event;
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed) {
                 window.close();
+                game_running = false;
                 break;
             }
             else if (event.type == sf::Event::Resized) // https://stackoverflow.com/questions/38466518/sfml-center-view-after-window-resize#:~:text=Just%20use%20another%20constructor%20and%20pass%20the%20center,window%20and%20keep%20the%20center%20window.setView%28sf%3A%3AView%28window.getView%28%29.getCenter%28%29%2C%20sf%3A%3AVector2f%28%28float%29event.size.width%2C%20%28float%29event.size.height%29%29%29%3B - 21/10/24 @ 16:59
@@ -697,6 +865,26 @@ int main()
                 case sf::Keyboard::Escape:
                     menu_navigation[1], menu_navigation[0] = menu_navigation[0], MAIN_MENU;
                     // cheeky element switch
+                    break;
+                case sf::Keyboard::F11:
+                    window_full_screen = !window_full_screen;
+                    if (window_full_screen) {
+                        // create window (do last so not unresponsive whilst the game loads)
+                        window.create(
+                            sf::VideoMode::getDesktopMode(),
+                            "Bouncing Balls!",
+                            sf::Style::Fullscreen);
+                    }
+                    else {
+                        // create window (do last so not unresponsive whilst the game loads)
+                        window.create(
+                            sf::VideoMode(window_size[0], window_size[1]),
+                            "Bouncing Balls!");
+                    }
+
+                    window.setVerticalSyncEnabled(true); // v-sync is our frame limiter here.
+                    // No need for clocks!
+
                     break;
                 case sf::Keyboard::Num1: // [temporary] forced switching between levels
                     menu_navigation[0] = MAIN_MENU;
