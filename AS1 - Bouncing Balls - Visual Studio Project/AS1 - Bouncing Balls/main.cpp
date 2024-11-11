@@ -173,14 +173,14 @@ public:
         return y_position + mass_sprite_y_size;
     }
 
-    bool compute(sf::RenderWindow& window) {
+    bool compute(sf::RenderWindow& window, float cannon_y_position) {
         float x_scale = window.getSize().y / mass_sprite_x_size;
         mass.setScale(x_scale, 1);
 
         x_position = (window.getSize().x - mass.getGlobalBounds().width) / 2;
-        y_position += 0.1;
+        y_position += 2;//0.1;
 
-        if (y_position + mass_sprite_y_size > window.getSize().y) {
+        if (y_position + mass_sprite_y_size > cannon_y_position) {
             return true;
         }
         return false;
@@ -228,7 +228,7 @@ public:
         // check for a collision with the 'walls' of the game
         int game_y_minimum = mass.get_game_ceiling();
 
-        if ((x - radius <= 0 && shape_x_velocity < 0) || (x + radius >= window_size[0] && shape_x_velocity > 0)) {
+        if ((x - radius <= mass.x_position && shape_x_velocity < 0) || (x + radius >= mass.x_position + mass.mass.getGlobalBounds().width && shape_x_velocity > 0)) {
             shape_x_velocity *= -1;
         }
         if ((y - radius <= game_y_minimum && shape_y_velocity < 0)) {
@@ -341,7 +341,7 @@ public:
         // mouse targeting!
         float opposite = player_input.get_mouse_position()[0] - cannon.getPosition().x;
         float adjacent = abs(player_input.get_mouse_position()[1] - cannon.getPosition().y);
-        rotation = 90 + atan(opposite / adjacent) * RADIANS_TO_DEGREES_CONVERSION_CONSTANT;
+        float new_rotation = 90 + atan(opposite / adjacent) * RADIANS_TO_DEGREES_CONVERSION_CONSTANT;
 
         // handle changes when display size changes
         if (window_size[0] != new_window_size[0] || window_size[1] != new_window_size[1]) {
@@ -355,7 +355,8 @@ public:
         }
 
         // update cannon translation and rotation
-        if (rotation < 170 && rotation > 10) {
+        if (new_rotation < 170 && new_rotation > 10) {
+            rotation = new_rotation;
             cannon.setRotation(rotation);
         }
 
@@ -639,6 +640,11 @@ public:
             if (game_ball.popped) {
                 garbage_ball_elements.emplace_back(index);
             }
+            else if (game_ball.shape_x_velocity == 0 && game_ball.shape_y_velocity == 0 && index < game_balls.size() - 2) {
+                for (auto& collision_game_ball : game_balls) {
+                    game_ball.collision(collision_game_ball);
+                }
+            }
             index++;
         }
 
@@ -647,7 +653,7 @@ public:
         }
 
         mass_object.render(window);
-        level_lost = mass_object.compute(window);
+        level_lost = mass_object.compute(window, cannon_object.cannon_y_position - cannon_object.cannon.getGlobalBounds().height / 2);
 
         if (player_input.get_player_button_input()) {
             //game_balls[game_balls.size() - 2], game_balls[game_balls.size() - 1] = game_balls[game_balls.size() - 1], game_balls[game_balls.size() - 2];
@@ -693,7 +699,7 @@ public:
         cannon_object.compute(window, player_input, game_balls);
 
         mass_object.render(window);
-        level_lost = mass_object.compute(window);
+        level_lost = mass_object.compute(window, cannon_object.cannon_y_position - cannon_object.cannon.getGlobalBounds().height / 2);
 
         if (level_lost) {
             game_end_state = LOST;
@@ -828,7 +834,7 @@ int main()
     main_theme.openFromFile(path_builder(path_components));
     main_theme.setLoop(true);
     main_theme.setVolume(15);
-    main_theme.play();
+    //main_theme.play();
 
     // create window (do last so not unresponsive whilst the game loads)
     sf::RenderWindow window;
