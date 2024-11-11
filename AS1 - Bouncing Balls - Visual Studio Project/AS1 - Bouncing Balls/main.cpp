@@ -82,7 +82,7 @@ void play_random_pop_sounds(sf::Music* pop_sounds, int count) {
     // however clever sound design should be able to mask this limitation.
 }
 
-sf::Color pick_ball_color() {
+sf::Color pick_ball_color() { // 2 lines with pointers and dyamic color changing
     int randomly_chosen_color = rand() % 3;
     if (randomly_chosen_color == 0) {
         return sf::Color::Blue;
@@ -178,7 +178,7 @@ public:
         mass.setScale(x_scale, 1);
 
         x_position = (window.getSize().x - mass.getGlobalBounds().width) / 2;
-        y_position += 2;//0.1;
+        y_position += 0.1;//0.1; // this translates into space covered (down) onscreen.
 
         if (y_position + mass_sprite_y_size > cannon_y_position) {
             return true;
