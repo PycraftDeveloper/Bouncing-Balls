@@ -34,7 +34,7 @@ const float DEGREES_TO_RADIANS_CONVERSION_CONSTANT = PI / 180;
 
 // define global VARIABLES
 int window_size[] = { 1280, 720 };
-bool game_end_state = "won";
+string game_end_state = "won";
 
 float pythagorean_distance(float x1, float y1, float x2, float y2) {
     return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
@@ -82,7 +82,7 @@ void play_random_pop_sounds(sf::Music* pop_sounds, int count) {
     // however clever sound design should be able to mask this limitation.
 }
 
-sf::Color pick_ball_color() { // 2 lines with pointers and dyamic color changing
+sf::Color pick_ball_color() {
     int randomly_chosen_color = rand() % 3;
     if (randomly_chosen_color == 0) {
         return sf::Color::Blue;
@@ -627,6 +627,7 @@ public:
     string run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         // this runs once every frame
         float angle = 0;
+        bool ball_in_motion = false;
 
         cannon_object.render(window);
         cannon_object.compute(window, player_input, game_balls);
@@ -648,6 +649,13 @@ public:
             index++;
         }
 
+        for (auto& game_ball : game_balls) {
+            if (game_ball.shape_x_velocity != 0 || game_ball.shape_y_velocity != 0) {
+                ball_in_motion = true;
+                break;
+            }
+        }
+
         for (int& garbage_ball : garbage_ball_elements) {
             game_balls.erase(game_balls.begin() + garbage_ball);
         }
@@ -655,7 +663,7 @@ public:
         mass_object.render(window);
         level_lost = mass_object.compute(window, cannon_object.cannon_y_position - cannon_object.cannon.getGlobalBounds().height / 2);
 
-        if (player_input.get_player_button_input()) {
+        if (player_input.get_player_button_input() && ball_in_motion == false) {
             //game_balls[game_balls.size() - 2], game_balls[game_balls.size() - 1] = game_balls[game_balls.size() - 1], game_balls[game_balls.size() - 2];
             swap(game_balls[game_balls.size() - 2], game_balls[game_balls.size() - 1]);
 
