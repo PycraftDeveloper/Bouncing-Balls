@@ -12,7 +12,8 @@
 #include "Constants.h"
 #include "Registry.h"
 
-int main()
+int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc-170 17.412 KB of stack!!!
+// ~ 2660 lines, PMMA is: 226511 lines or ~ 1482710 Bytes of stack or 1.48271 MB!!!
 {
     srand(time(0)); // enforces random values using seed of current time.
 
