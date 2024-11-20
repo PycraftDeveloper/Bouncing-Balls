@@ -15,7 +15,7 @@ float random_float(float minimum, float maximum) {
     return minimum + random * (maximum - minimum);
 }
 
-int calculate_point_count(int radius, float shape_quality = 0.75) {
+int calculate_point_count(int radius, float shape_quality) {
     if (radius < 1) {
         return 3;
     }

@@ -1,7 +1,11 @@
+#pragma once
+
 #include <SFML/Graphics.hpp>
 
 #include "Constants.h"
 #include "Registry.h"
+#include "UtilityObjects.h"
+#include "GameObjects.h"
 
 class MainMenu {
     string game_rules = "AIM AT BUBBLES OF THE SAME COLOR AND SHOOT!";

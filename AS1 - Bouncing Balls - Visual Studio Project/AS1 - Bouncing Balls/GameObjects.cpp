@@ -47,8 +47,8 @@ Ball::Ball(
 
     color = pick_ball_color();
     shape.setFillColor(color);
-    radius = BALL_RADIUS;
-    shape.setRadius(BALL_RADIUS);
+    radius = Registry::BALL_RADIUS;
+    shape.setRadius(Registry::BALL_RADIUS);
     shape.setOrigin(radius, radius); // centre of circle is its position
     shape.setPointCount(calculate_point_count(radius));
     shape.setPosition(x, y);
@@ -70,8 +70,8 @@ void Ball::compute(Mass& mass) {
     int game_surface_max_x = mass.x_position + mass.mass.getGlobalBounds().width;
     int game_surface_min_x = mass.x_position;
 
-    radius = BALL_RADIUS;
-    shape.setRadius(BALL_RADIUS);
+    radius = Registry::BALL_RADIUS;
+    shape.setRadius(Registry::BALL_RADIUS);
 
     if ((x - radius <= game_surface_min_x && shape_x_velocity < 0) || (x + radius >= game_surface_max_x && shape_x_velocity > 0)) {
         shape_x_velocity *= -1;
@@ -91,7 +91,7 @@ void Ball::compute(Mass& mass) {
     if (y - radius < game_y_minimum) {
         //y = radius + game_y_minimum;
     }
-    if (y > window_size[1]) {
+    if (y > Registry::window_size[1]) {
         popped = true;
         y = -100;
         shape_x_velocity = 0;
@@ -150,7 +150,7 @@ Cannon::Cannon(vector<Ball>& game_balls) {
     cannon.setPosition(500, 500);
     cannon.setScale(0.168, 0.168);
 
-    float window_scale = window_size[1] / 720.0;
+    float window_scale = Registry::window_size[1] / 720.0;
     cannon.setScale(0.168 * window_scale, 0.168 * window_scale);
     cannon.setOrigin(366, 366);
     cannon.setRotation(0);
@@ -191,7 +191,7 @@ void Cannon::compute(sf::RenderWindow& window, PlayerInput& player_input, vector
         cannon.setRotation(rotation);
     }
 
-    set_position(window_size[0] / 2.0, window_size[1] - unrotated_cannon_height / 2, game_balls);
+    set_position(Registry::window_size[0] / 2.0, Registry::window_size[1] - unrotated_cannon_height / 2, game_balls);
 }
 
 float Cannon::get_rotation() {

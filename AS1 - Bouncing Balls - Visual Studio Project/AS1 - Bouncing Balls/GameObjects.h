@@ -1,7 +1,10 @@
+#pragma once
+
 #include <SFML/Graphics.hpp>
 
 #include "Constants.h"
 #include "Registry.h"
+#include "UtilityObjects.h"
 
 class Mass {
 public:

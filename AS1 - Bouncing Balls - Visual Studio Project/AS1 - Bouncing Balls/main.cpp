@@ -3,9 +3,6 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include <thread>
-#include <windows.h>
-#include <cmath>
 
 #include "GameObjects.h"
 #include "GameMenus.h"

@@ -143,6 +143,7 @@
     <ClCompile Include="GameMenus.cpp" />
     <ClCompile Include="GameObjects.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Registry.cpp" />
     <ClCompile Include="UtilityFunctions.cpp" />
     <ClCompile Include="UtilityObjects.cpp" />
   </ItemGroup>
