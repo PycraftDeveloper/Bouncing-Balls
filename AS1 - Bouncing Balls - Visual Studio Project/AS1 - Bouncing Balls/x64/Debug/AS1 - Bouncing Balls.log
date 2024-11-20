@@ -1,99 +1,715 @@
-﻿  main.cpp
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(32,18): warning C4305: 'initializing': truncation from 'double' to 'float'
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(40,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(45,16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(123,19): warning C4930: 'sf::Mouse mouse(void)': prototyped function not called (was a variable definition intended?)
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(189,27): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(199,28): warning C4305: '+=': truncation from 'double' to 'float'
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(231,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(248,32): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(249,32): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(283,18): warning C4305: '+=': truncation from 'double' to 'float'
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(300,31): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(339,32): warning C4305: 'argument': truncation from 'double' to 'float'
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(339,25): warning C4305: 'argument': truncation from 'double' to 'float'
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(341,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(342,53): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(342,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(345,59): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(345,59): warning C4244:         with
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(345,59): warning C4244:         [
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(345,59): warning C4244:             T=float
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(345,59): warning C4244:         ]
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(355,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(368,26): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(368,26): warning C4244:         with
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(368,26): warning C4244:         [
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(368,26): warning C4244:             T=float
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(368,26): warning C4244:         ]
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(369,27): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(369,27): warning C4244:         with
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(369,27): warning C4244:         [
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(369,27): warning C4244:             T=float
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(369,27): warning C4244:         ]
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(382,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(382,37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(447,44): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(447,44): warning C4244:         with
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(447,44): warning C4244:         [
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(447,44): warning C4244:             T=float
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(447,44): warning C4244:         ]
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(451,44): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(451,44): warning C4244:         with
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(451,44): warning C4244:         [
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(451,44): warning C4244:             T=float
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(451,44): warning C4244:         ]
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(501,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(501,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(536,27): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(536,27): warning C4244:         with
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(536,27): warning C4244:         [
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(536,27): warning C4244:             T=float
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(536,27): warning C4244:         ]
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(537,27): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(537,27): warning C4244:         with
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(537,27): warning C4244:         [
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(537,27): warning C4244:             T=float
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(537,27): warning C4244:         ]
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(538,56): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(538,56): warning C4244:         with
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(538,56): warning C4244:         [
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(538,56): warning C4244:             T=float
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(538,56): warning C4244:         ]
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(538,41): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(538,41): warning C4244:         with
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(538,41): warning C4244:         [
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(538,41): warning C4244:             T=float
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(538,41): warning C4244:         ]
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(550,51): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(550,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(557,50): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(557,50): warning C4244:         with
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(557,50): warning C4244:         [
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(557,50): warning C4244:             T=float
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(557,50): warning C4244:         ]
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(651,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(652,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(656,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(660,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(663,71): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(665,38): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(667,35): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(783,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(784,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(788,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(792,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(795,71): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(797,38): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(799,35): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(982,29): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(983,46): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(985,30): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(986,30): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(987,30): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(988,30): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(992,38): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(993,31): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(1007,49): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(1026,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  AS1 - Bouncing Balls.vcxproj -> G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\x64\Debug\AS1 - Bouncing Balls.exe
+﻿  GameGraphics.cpp
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(20,38): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameGraphics.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(23,25): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameGraphics.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(24,26): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameGraphics.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(25,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameGraphics.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(26,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameGraphics.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Registry.h(12,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'GameGraphics.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameGraphics.cpp(12,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameGraphics.cpp(13,52): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameGraphics.cpp(15,26): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameGraphics.cpp(16,26): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameGraphics.cpp(17,26): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameGraphics.cpp(18,26): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameGraphics.cpp(22,34): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameGraphics.cpp(23,27): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameGraphics.cpp(37,45): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+  GameMenus.cpp
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(20,38): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(23,25): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(24,26): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(25,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(26,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Registry.h(12,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(8,10): error C3646: 'title_text': unknown override specifier
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(8,21): error C2059: syntax error: '='
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(8,52): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(9,12): error C3646: 'play_button': unknown override specifier
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(9,24): error C2059: syntax error: '='
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(9,34): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(10,12): error C3646: 'quit_button': unknown override specifier
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(10,24): error C2059: syntax error: '='
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(10,34): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(15,47): error C2061: syntax error: identifier 'PlayerInput'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(20,12): error C2065: 'Ball': undeclared identifier
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(20,5): error C2923: 'std::vector': 'Ball' is not a valid template type argument for parameter '_Ty'
+  (compiling source file 'GameMenus.cpp')
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(20,12):
+      see declaration of 'Ball'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(20,5): error C2976: 'std::vector': too few template arguments
+  (compiling source file 'GameMenus.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vector(429,7):
+      see declaration of 'std::vector'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(21,12): error C3646: 'cannon_object': unknown override specifier
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(21,26): error C2059: syntax error: '='
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(21,46): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(22,10): error C3646: 'mass_object': unknown override specifier
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(22,22): error C2059: syntax error: '='
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(22,30): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(27,34): error C2065: 'Ball': undeclared identifier
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(27,27): error C2923: 'std::vector': 'Ball' is not a valid template type argument for parameter '_Ty'
+  (compiling source file 'GameMenus.cpp')
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(27,34):
+      see declaration of 'Ball'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(27,27): error C2976: 'std::vector': too few template arguments
+  (compiling source file 'GameMenus.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vector(429,7):
+      see declaration of 'std::vector'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(29,47): error C2061: syntax error: identifier 'PlayerInput'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(35,12): error C2065: 'Ball': undeclared identifier
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(35,5): error C2923: 'std::vector': 'Ball' is not a valid template type argument for parameter '_Ty'
+  (compiling source file 'GameMenus.cpp')
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(35,12):
+      see declaration of 'Ball'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(35,5): error C2976: 'std::vector': too few template arguments
+  (compiling source file 'GameMenus.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vector(429,7):
+      see declaration of 'std::vector'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(36,12): error C3646: 'cannon_object': unknown override specifier
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(36,26): error C2059: syntax error: '='
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(36,46): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(37,10): error C3646: 'mass_object': unknown override specifier
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(37,22): error C2059: syntax error: '='
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(37,30): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(42,34): error C2065: 'Ball': undeclared identifier
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(42,27): error C2923: 'std::vector': 'Ball' is not a valid template type argument for parameter '_Ty'
+  (compiling source file 'GameMenus.cpp')
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(42,34):
+      see declaration of 'Ball'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(42,27): error C2976: 'std::vector': too few template arguments
+  (compiling source file 'GameMenus.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vector(429,7):
+      see declaration of 'std::vector'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(44,47): error C2061: syntax error: identifier 'PlayerInput'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(50,10): error C3646: 'title_text': unknown override specifier
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(50,21): error C2059: syntax error: '='
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(50,52): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(51,10): error C3646: 'game_win_state': unknown override specifier
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(51,25): error C2059: syntax error: '='
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(51,53): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(53,12): error C3646: 'play_again_button': unknown override specifier
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(53,30): error C2059: syntax error: '='
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(53,40): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(54,12): error C3646: 'quit_button': unknown override specifier
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(54,24): error C2059: syntax error: '='
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(54,34): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(58,47): error C2061: syntax error: identifier 'PlayerInput'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(68,9): error C2061: syntax error: identifier 'PlayerInput'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(16,18): error C2511: 'std::string MainMenu::run_menu(sf::RenderWindow &,PlayerInput &)': overloaded member function not found in 'MainMenu'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(6,7):
+      see declaration of 'MainMenu'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(20,5): error C2065: 'title_text': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(21,5): error C2065: 'title_text': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(25,26): error C2065: 'play_button': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(26,5): error C2065: 'play_button': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(30,26): error C2065: 'quit_button': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(31,5): error C2065: 'quit_button': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(44,46): error C2512: 'std::vector': no appropriate default constructor available
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vector(429,7):
+      see declaration of 'std::vector'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(45,5): error C2065: 'mass_object': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(48,5): error C2065: 'cannon_object': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(49,5): error C2065: 'cannon_object': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(52,16): error C2511: 'void LevelOne::create_ball_grid(std::vector<Ball,std::allocator<Ball>> &)': overloaded member function not found in 'LevelOne'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(19,7):
+      see declaration of 'LevelOne'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(54,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(55,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(59,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(63,43): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(66,43): error C2065: 'mass_object': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(66,34): error C2440: '<function-style-cast>': cannot convert from 'int' to 'Ball'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(66,34):
+      'Ball::Ball': no overloaded function could convert all the argument types
+          G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.h(50,1):
+          could be 'Ball::Ball(Ball &&)'
+              G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(66,34):
+              'Ball::Ball(Ball &&)': cannot convert argument 1 from 'int' to 'Ball &&'
+                  G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(66,67):
+                  Reason: cannot convert from 'int' to 'Ball'
+          G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.h(50,1):
+          or       'Ball::Ball(const Ball &)'
+              G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(66,34):
+              'Ball::Ball(const Ball &)': cannot convert argument 1 from 'int' to 'const Ball &'
+                  G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(66,67):
+                  Reason: cannot convert from 'int' to 'const Ball'
+          G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(66,34):
+          while trying to match the argument list '(int)'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(66,28): error C2512: 'Ball': no appropriate default constructor available
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.h(27,7):
+      see declaration of 'Ball'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(68,44): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(70,41): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(74,18): error C2511: 'std::string LevelOne::run_menu(sf::RenderWindow &,PlayerInput &)': overloaded member function not found in 'LevelOne'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(19,7):
+      see declaration of 'LevelOne'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(79,5): error C2065: 'cannon_object': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(80,5): error C2065: 'cannon_object': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(80,49): error C2597: illegal reference to non-static member 'LevelOne::game_balls'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(20,18):
+      see declaration of 'LevelOne::game_balls'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28): error C2597: illegal reference to non-static member 'LevelOne::game_balls'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(20,18):
+      see declaration of 'LevelOne::game_balls'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28): error C3535: cannot deduce type for 'auto &&' from 'unknown'
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28): error C2440: 'initializing': cannot convert from 'unknown' to 'int &&'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28):
+      Reason: cannot convert from 'unknown' to 'int'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28):
+      ill-formed reference to a non-static member
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28): error C2672: 'begin': no matching overloaded function found
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1962,27):
+      could be '_Ty *std::begin(_Ty (&)[_Size]) noexcept'
+          G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28):
+          '_Ty *std::begin(_Ty (&)[_Size]) noexcept': could not deduce template argument for '_Ty (&)[_Size]' from 'int'
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1944,30):
+      or       'unknown-type std::begin(const _Container &) noexcept(<expr>)'
+          G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28):
+          Failed to specialize function template 'unknown-type std::begin(const _Container &) noexcept(<expr>)'
+              G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28):
+              With the following template arguments:
+                  G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28):
+                  '_Container=int'
+              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1945,23):
+              left of '.begin' must have class/struct/union
+                  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1945,23):
+                  type is 'const _Container'
+          with
+          [
+              _Container=int
+          ]
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1938,30):
+      or       'unknown-type std::begin(_Container &) noexcept(<expr>)'
+          G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28):
+          Failed to specialize function template 'unknown-type std::begin(_Container &) noexcept(<expr>)'
+              G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28):
+              With the following template arguments:
+                  G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28):
+                  '_Container=int'
+              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1939,23):
+              left of '.begin' must have class/struct/union
+                  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1939,23):
+                  type is '_Container'
+          with
+          [
+              _Container=int
+          ]
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\initializer_list(54,35):
+      or       'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept'
+          G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28):
+          'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept': could not deduce template argument for 'std::initializer_list<_Elem>' from 'int'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28): error C2672: 'end': no matching overloaded function found
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1967,27):
+      could be '_Ty *std::end(_Ty (&)[_Size]) noexcept'
+          G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28):
+          '_Ty *std::end(_Ty (&)[_Size]) noexcept': could not deduce template argument for '_Ty (&)[_Size]' from 'int'
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1956,30):
+      or       'unknown-type std::end(const _Container &) noexcept(<expr>)'
+          G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28):
+          Failed to specialize function template 'unknown-type std::end(const _Container &) noexcept(<expr>)'
+              G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28):
+              With the following template arguments:
+                  G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28):
+                  '_Container=int'
+              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1957,23):
+              left of '.end' must have class/struct/union
+                  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1957,23):
+                  type is 'const _Container'
+          with
+          [
+              _Container=int
+          ]
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1950,30):
+      or       'unknown-type std::end(_Container &) noexcept(<expr>)'
+          G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28):
+          Failed to specialize function template 'unknown-type std::end(_Container &) noexcept(<expr>)'
+              G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28):
+              With the following template arguments:
+                  G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28):
+                  '_Container=int'
+              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1951,23):
+              left of '.end' must have class/struct/union
+                  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1951,23):
+                  type is '_Container'
+          with
+          [
+              _Container=int
+          ]
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\initializer_list(59,35):
+      or       'const _Elem *std::end(std::initializer_list<_Elem>) noexcept'
+          G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28):
+          'const _Elem *std::end(std::initializer_list<_Elem>) noexcept': could not deduce template argument for 'std::initializer_list<_Elem>' from 'int'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28): error C3536: '<begin>$L0': cannot be used before it is initialized
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,28): error C3536: '<end>$L0': cannot be used before it is initialized
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(85,38): error C2100: you cannot dereference an operand of type 'int'
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(87,22): error C2065: 'cannon_object': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(91,36): error C2065: 'cannon_object': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(91,82): error C2065: 'cannon_object': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(94,27): error C2065: 'mass_object': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46): error C2597: illegal reference to non-static member 'LevelOne::game_balls'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(20,18):
+      see declaration of 'LevelOne::game_balls'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46): error C3535: cannot deduce type for 'auto &&' from 'unknown'
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46): error C2440: 'initializing': cannot convert from 'unknown' to 'int &&'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46):
+      Reason: cannot convert from 'unknown' to 'int'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46):
+      ill-formed reference to a non-static member
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46): error C2672: 'begin': no matching overloaded function found
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1962,27):
+      could be '_Ty *std::begin(_Ty (&)[_Size]) noexcept'
+          G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46):
+          '_Ty *std::begin(_Ty (&)[_Size]) noexcept': could not deduce template argument for '_Ty (&)[_Size]' from 'int'
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1944,30):
+      or       'unknown-type std::begin(const _Container &) noexcept(<expr>)'
+          G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46):
+          Failed to specialize function template 'unknown-type std::begin(const _Container &) noexcept(<expr>)'
+              G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46):
+              With the following template arguments:
+                  G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46):
+                  '_Container=int'
+              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1945,23):
+              left of '.begin' must have class/struct/union
+                  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1945,23):
+                  type is 'const _Container'
+          with
+          [
+              _Container=int
+          ]
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1938,30):
+      or       'unknown-type std::begin(_Container &) noexcept(<expr>)'
+          G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46):
+          Failed to specialize function template 'unknown-type std::begin(_Container &) noexcept(<expr>)'
+              G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46):
+              With the following template arguments:
+                  G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46):
+                  '_Container=int'
+              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1939,23):
+              left of '.begin' must have class/struct/union
+                  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1939,23):
+                  type is '_Container'
+          with
+          [
+              _Container=int
+          ]
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\initializer_list(54,35):
+      or       'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept'
+          G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46):
+          'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept': could not deduce template argument for 'std::initializer_list<_Elem>' from 'int'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46): error C2672: 'end': no matching overloaded function found
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1967,27):
+      could be '_Ty *std::end(_Ty (&)[_Size]) noexcept'
+          G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46):
+          '_Ty *std::end(_Ty (&)[_Size]) noexcept': could not deduce template argument for '_Ty (&)[_Size]' from 'int'
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1956,30):
+      or       'unknown-type std::end(const _Container &) noexcept(<expr>)'
+          G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46):
+          Failed to specialize function template 'unknown-type std::end(const _Container &) noexcept(<expr>)'
+              G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46):
+              With the following template arguments:
+                  G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46):
+                  '_Container=int'
+              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1957,23):
+              left of '.end' must have class/struct/union
+                  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1957,23):
+                  type is 'const _Container'
+          with
+          [
+              _Container=int
+          ]
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1950,30):
+      or       'unknown-type std::end(_Container &) noexcept(<expr>)'
+          G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46):
+          Failed to specialize function template 'unknown-type std::end(_Container &) noexcept(<expr>)'
+              G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46):
+              With the following template arguments:
+                  G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46):
+                  '_Container=int'
+              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1951,23):
+              left of '.end' must have class/struct/union
+                  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(1951,23):
+                  type is '_Container'
+          with
+          [
+              _Container=int
+          ]
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\initializer_list(59,35):
+      or       'const _Elem *std::end(std::initializer_list<_Elem>) noexcept'
+          G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46):
+          'const _Elem *std::end(std::initializer_list<_Elem>) noexcept': could not deduce template argument for 'std::initializer_list<_Elem>' from 'int'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46): error C3536: '<begin>$L1': cannot be used before it is initialized
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,46): error C3536: '<end>$L1': cannot be used before it is initialized
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,56): error C2100: you cannot dereference an operand of type 'int'
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(100,56): error C1003: error count exceeds 100; stopping compilation
+  GameObjects.cpp
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(20,38): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(23,25): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(24,26): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(25,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(26,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Registry.h(12,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'GameObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.h(67,44): error C2061: syntax error: identifier 'PlayerInput'
+  (compiling source file 'GameObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(22,23): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(50,14): error C2065: 'BALL_RADIUS': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(51,21): error C2065: 'BALL_RADIUS': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(53,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(70,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(71,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(73,14): error C2065: 'BALL_RADIUS': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(74,21): error C2065: 'BALL_RADIUS': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(94,13): error C2065: 'window_size': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(122,27): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(151,28): warning C4305: 'argument': truncation from 'double' to 'float'
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(151,21): warning C4305: 'argument': truncation from 'double' to 'float'
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(153,26): error C2065: 'window_size': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(154,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(154,27): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(157,55): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(157,55): warning C4244:         with
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(157,55): warning C4244:         [
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(157,55): warning C4244:             T=float
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(157,55): warning C4244:         ]
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(167,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(178,14): error C2511: 'void Cannon::compute(sf::RenderWindow &,PlayerInput &,std::vector<Ball,std::allocator<Ball>> &)': overloaded member function not found in 'Cannon'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.h(52,7):
+      see declaration of 'Cannon'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(190,9): error C2597: illegal reference to non-static member 'Cannon::rotation'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.h(56,11):
+      see declaration of 'Cannon::rotation'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(191,28): error C2597: illegal reference to non-static member 'Cannon::rotation'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.h(56,11):
+      see declaration of 'Cannon::rotation'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(194,18): error C2065: 'window_size': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(194,40): error C2065: 'window_size': undeclared identifier
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(194,57): error C2597: illegal reference to non-static member 'Cannon::unrotated_cannon_height'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(194,57):
+      see declaration of 'Cannon::unrotated_cannon_height'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(194,57): error C3867: 'Cannon::unrotated_cannon_height': non-standard syntax; use '&' to create a pointer to member
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(194,57): error C2568: '/': unable to resolve function overload
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(194,5): error C2660: 'Cannon::set_position': function does not take 2 arguments
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(160,14):
+      see declaration of 'Cannon::set_position'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(194,5):
+      while trying to match the argument list '()'
+  
+  main.cpp
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(20,38): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(23,25): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(24,26): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(25,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(26,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Registry.h(12,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.h(67,44): error C2061: syntax error: identifier 'PlayerInput'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(8,10): error C3646: 'title_text': unknown override specifier
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(8,21): error C2059: syntax error: '='
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(8,52): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(9,12): error C3646: 'play_button': unknown override specifier
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(9,24): error C2059: syntax error: '='
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(9,34): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(10,12): error C3646: 'quit_button': unknown override specifier
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(10,24): error C2059: syntax error: '='
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(10,34): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(15,47): error C2061: syntax error: identifier 'PlayerInput'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(29,47): error C2061: syntax error: identifier 'PlayerInput'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(44,47): error C2061: syntax error: identifier 'PlayerInput'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(50,10): error C3646: 'title_text': unknown override specifier
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(50,21): error C2059: syntax error: '='
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(50,52): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(51,10): error C3646: 'game_win_state': unknown override specifier
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(51,25): error C2059: syntax error: '='
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(51,53): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(53,12): error C3646: 'play_again_button': unknown override specifier
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(53,30): error C2059: syntax error: '='
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(53,40): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(54,12): error C3646: 'quit_button': unknown override specifier
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(54,24): error C2059: syntax error: '='
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(54,34): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(58,47): error C2061: syntax error: identifier 'PlayerInput'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(68,9): error C2061: syntax error: identifier 'PlayerInput'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(20,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(131,40): error C2660: 'MainMenu::run_menu': function does not take 2 arguments
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(15,12):
+      see declaration of 'MainMenu::run_menu'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(131,40):
+      while trying to match the argument list '(sf::RenderWindow, PlayerInput)'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(138,40): error C2660: 'LevelOne::run_menu': function does not take 2 arguments
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(29,12):
+      see declaration of 'LevelOne::run_menu'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(138,40):
+      while trying to match the argument list '(sf::RenderWindow, PlayerInput)'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(148,40): error C2660: 'LevelTwo::run_menu': function does not take 2 arguments
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(44,12):
+      see declaration of 'LevelTwo::run_menu'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(148,40):
+      while trying to match the argument list '(sf::RenderWindow, PlayerInput)'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(158,39): error C2660: 'GameEndMenu::run_menu': function does not take 3 arguments
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(58,12):
+      see declaration of 'GameEndMenu::run_menu'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(158,39):
+      while trying to match the argument list '(sf::RenderWindow, PlayerInput, bool)'
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(169,41): error C2660: 'PauseMenu::run_menu': function does not take 3 arguments
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.h(65,12):
+      see declaration of 'PauseMenu::run_menu'
+      G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(169,41):
+      while trying to match the argument list '(sf::RenderWindow, std::string [2], PlayerInput)'
+  
+  UtilityFunctions.cpp
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(20,38): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'UtilityFunctions.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(23,25): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'UtilityFunctions.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(24,26): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'UtilityFunctions.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(25,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'UtilityFunctions.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(26,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'UtilityFunctions.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Registry.h(12,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'UtilityFunctions.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityFunctions.cpp(10,16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  UtilityObjects.cpp
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(20,38): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'UtilityObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(23,25): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'UtilityObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(24,26): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'UtilityObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(25,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'UtilityObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(26,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'UtilityObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Registry.h(12,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'UtilityObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(10,15): warning C4930: 'sf::Mouse mouse(void)': prototyped function not called (was a variable definition intended?)
+  Generating Code...
