@@ -20,6 +20,7 @@ void Cloud::generate_cloud() {
     y_scale = random_float(y_minimum_size, y_maximum_size);
     x_velocity = (rand() % 1000) / 10000.0;
     transparency = rand() % 200;
+    is_rendered = rand() % 2 == 1;
 }
 
 Cloud::Cloud() {
@@ -41,10 +42,14 @@ void Cloud::compute() {
 
     if (x_position > Registry::window_size[0]) {
         generate_cloud();
+        int cloud_width = cloud.getGlobalBounds().width;
+        x_position = -cloud_width;
     }
     cloud.setPosition(x_position, y_position);
 }
 
 void Cloud::render(sf::RenderWindow& window) {
-    window.draw(cloud);
+    if (is_rendered) {
+        window.draw(cloud);
+    }
 }

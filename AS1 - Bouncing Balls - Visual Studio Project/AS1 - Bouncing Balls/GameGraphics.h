@@ -14,6 +14,7 @@ class Cloud {
     float transparency;
     sf::Texture cloud_texture;
     sf::Sprite cloud;
+    bool is_rendered;
 public:
     void generate_cloud();
 

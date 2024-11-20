@@ -12,6 +12,32 @@
 #include "Constants.h"
 #include "Registry.h"
 
+class Ground {
+public:
+    sf::Texture grass_texture;
+    sf::Sprite grass;
+    Ground() {
+        string path_components[50] = { "resources",
+            "images",
+            "cloud.png" };
+
+        grass_texture.loadFromFile(path_builder(path_components));
+        grass.setTexture(grass_texture);
+        grass.setColor(sf::Color(213, 232, 212));
+        grass.setScale(1.25, 0.1);
+    }
+
+    void compute() {
+        int x_position = (Registry::window_size[0] - grass.getGlobalBounds().width) / 2;
+        int y_position = Registry::window_size[1] - 30;
+        grass.setPosition(x_position, y_position);
+    }
+
+    void render(sf::RenderWindow& window) {
+        window.draw(grass);
+    }
+};
+
 int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc-170 17.412 KB of stack!!!
 // ~ 2660 lines, PMMA is: 226511 lines or ~ 1482710 Bytes of stack or 1.48271 MB!!!
 {
@@ -53,7 +79,8 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
     GameEndMenu end_menu = GameEndMenu();
     PauseMenu pause_menu = PauseMenu();
 
-    Cloud clouds[5];
+    Cloud clouds[15];
+    Ground ground;
 
     // Load pop sounds. Using music here means files aren't actually loaded
     // and instead streamed as needed, meaning this isn't actually that
@@ -67,6 +94,7 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
 
     string cannon_fire_sound_path_components[50] = { "resources", "sounds", "cannon fire.wav" };
     Registry::cannon_fire_sound.openFromFile(path_builder(cannon_fire_sound_path_components));
+    Registry::cannon_fire_sound.setVolume(30);
 
     sf::Music main_theme;
     string path_components[50] = { "resources", "music", "main theme [extended].ogg"};
@@ -120,10 +148,13 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
 
         window.clear(sf::Color(192, 211, 234));
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 15; i++) {
             clouds[i].compute();
             clouds[i].render(window);
         }
+
+        ground.compute();
+        ground.render(window);
 
         if (menu_navigation[0] == Constants::MAIN_MENU) {
             next_component = main_menu.run_menu(window, player_input);
@@ -144,7 +175,7 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
         }
         else if (menu_navigation[0] == Constants::LEVEL_TWO) {
             next_component = level_two.run_menu(window, player_input);
-            if (next_component != Constants::LEVEL_ONE) {
+            if (next_component != Constants::LEVEL_TWO) {
                 menu_navigation[0] = next_component;
                 menu_navigation[1] = Constants::LEVEL_TWO;
                 if (next_component != Constants::PAUSE_MENU) {
