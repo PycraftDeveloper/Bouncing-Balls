@@ -45,6 +45,11 @@ float pythagorean_distance(float x1, float y1, float x2, float y2) {
     return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
 }
 
+float random_float(float minimum, float maximum) {
+    float random = static_cast<float>(rand()) / RAND_MAX;
+    return minimum + random * (maximum - minimum);
+}
+
 int calculate_point_count(int radius, float shape_quality = 0.75) {
     if (radius < 1) {
         return 3;
@@ -197,6 +202,10 @@ public:
     void render(sf::RenderWindow& window) {
         mass.setPosition(x_position, y_position);
         window.draw(mass);
+    }
+
+    void reset() {
+        vertical_offset = 0;
     }
 };
 
@@ -631,6 +640,13 @@ class LevelOne {
 public:
     LevelOne(sf::RenderWindow& window) {
         mass_object.compute(window);
+        create_ball_grid(game_balls);
+
+        cannon_object.load_cannon_with_ball(game_balls);
+        cannon_object.load_cannon_with_ball(game_balls);
+    }
+
+    void create_ball_grid(vector<Ball>& game_balls) {
         int columns = 14;
         int x_pos = BALL_RADIUS;
         int y_pos = BALL_RADIUS;
@@ -644,15 +660,12 @@ public:
                 x_pos = BALL_RADIUS * 2;
             }
             for (int column = 0; column < columns; column++) {
-                Ball game_ball = Ball(x_pos+mass_object.x_position, y_pos);
+                Ball game_ball = Ball(x_pos + mass_object.x_position, y_pos);
                 game_balls.emplace_back(game_ball);
                 x_pos += BALL_RADIUS * 2;
             }
             y_pos += (BALL_RADIUS * 2); // could shift by by (R*(3**0.5))/2 but messes up placement due to collision with top of screen and other balls.
         }
-
-        cannon_object.load_cannon_with_ball(game_balls);
-        cannon_object.load_cannon_with_ball(game_balls);
     }
 
     string run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
@@ -738,27 +751,129 @@ public:
         return LEVEL_ONE;
     }
 
-    void reset_level() {
-    }
+    void reset_level(sf::RenderWindow& window) {
+        level_lost = false;
+        mass_object.reset();
+        game_balls.clear();
+        mass_object.compute(window);
+        create_ball_grid(game_balls);
 
+        cannon_object.load_cannon_with_ball(game_balls);
+        cannon_object.load_cannon_with_ball(game_balls);
+    }
 };
 
 class LevelTwo {
-    vector<Ball> game_balls;
+    vector<Ball> game_balls; // last 2 ALWAYS belong to the cannon for firing.
     Cannon cannon_object = Cannon(game_balls);
     Mass mass_object = Mass();
     bool level_lost = false;
 public:
     LevelTwo(sf::RenderWindow& window) {
+        mass_object.compute(window);
+
+        create_ball_grid(game_balls);
+
+        cannon_object.load_cannon_with_ball(game_balls);
+        cannon_object.load_cannon_with_ball(game_balls);
+    }
+
+    void create_ball_grid(vector<Ball>& game_balls) {
+        int columns = 14;
+        int x_pos = BALL_RADIUS;
+        int y_pos = BALL_RADIUS;
+        for (int row = 0; row < 8; row++) {
+            if (row % 2 == 0) {
+                columns = 14;
+                x_pos = BALL_RADIUS;
+            }
+            else {
+                columns = 13;
+                x_pos = BALL_RADIUS * 2;
+            }
+            for (int column = 0; column < columns; column++) {
+                Ball game_ball = Ball(x_pos + mass_object.x_position, y_pos);
+                game_balls.emplace_back(game_ball);
+                x_pos += BALL_RADIUS * 2;
+            }
+            y_pos += (BALL_RADIUS * 2); // could shift by by (R*(3**0.5))/2 but messes up placement due to collision with top of screen and other balls.
+        }
     }
 
     string run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         // this runs once every frame
+        float angle = 0;
+        bool ball_in_motion = false;
+
         cannon_object.render(window);
         cannon_object.compute(window, player_input, game_balls);
 
+        vector<int> garbage_ball_elements = {};
+
+        int index = 0;
+        for (auto& game_ball : game_balls) {
+            if (index == game_balls.size() - 2) {
+                angle = (cannon_object.get_rotation() - 90) * DEGREES_TO_RADIANS_CONVERSION_CONSTANT;
+
+                float x_pos = -sin(angle) * game_ball.radius / 2;
+                float y_pos = -cos(angle) * game_ball.radius / 2;
+                game_ball.set_position(cannon_object.cannon.getPosition().x + x_pos, cannon_object.cannon.getPosition().y - y_pos);
+            }
+
+            game_ball.compute(mass_object);
+            game_ball.render(window);
+            if (game_ball.popped) {
+                garbage_ball_elements.emplace_back(index);
+            }
+            else if (game_ball.shape_x_velocity == 0 && game_ball.shape_y_velocity == 0 && index < game_balls.size() - 2) {
+                for (auto& collision_game_ball : game_balls) {
+                    game_ball.collision(collision_game_ball);
+                }
+            }
+            index++;
+        }
+
+        game_balls[game_balls.size() - 1].render(window);
+
+        index = 0;
+        for (auto& game_ball : game_balls) {
+            if (game_ball.shape_x_velocity != 0 || game_ball.shape_y_velocity != 0) {
+                ball_in_motion = true;
+            }
+            if (game_ball.shape_x_velocity == 0 && game_ball.shape_y_velocity == 0 && index < game_balls.size() - 2) {
+                if (game_ball.shape.getPosition().y + game_ball.radius >= cannon_object.cannon_y_position - cannon_object.cannon.getGlobalBounds().height / 2) {
+                    level_lost = true;
+                }
+            }
+            index++;
+        }
+
+        if (mass_object.y_position >= cannon_object.cannon_y_position - cannon_object.cannon.getGlobalBounds().height / 2) {
+            level_lost = true;
+        }
+
+        for (int& garbage_ball : garbage_ball_elements) {
+            game_balls.erase(game_balls.begin() + garbage_ball);
+        }
+
         mass_object.render(window);
         mass_object.compute(window);
+
+        if (player_input.get_player_button_input() && ball_in_motion == false) {
+            play_cannon_fire_sound();
+            swap(game_balls[game_balls.size() - 2], game_balls[game_balls.size() - 1]);
+
+            // get the angle the cannon is pointing at and fire the ball in that same direction
+            angle = (cannon_object.get_rotation() - 90) * DEGREES_TO_RADIANS_CONVERSION_CONSTANT;
+
+            float x_velocity = sin(angle) * BALL_SPEED;
+            float y_velocity = -cos(angle) * BALL_SPEED;
+
+            game_balls[game_balls.size() - 2].set_velocity(x_velocity, y_velocity);
+            //game_balls[game_balls.size() - 2].set_position(0, 0);
+
+            cannon_object.load_cannon_with_ball(game_balls);
+        }
 
         if (level_lost) {
             game_end_state = LOST;
@@ -768,8 +883,17 @@ public:
         return LEVEL_TWO;
     }
 
-    void reset_level() {
+    void reset_level(sf::RenderWindow& window) {
+        level_lost = false;
+        mass_object.reset();
+        game_balls.clear();
+        mass_object.compute(window);
+        create_ball_grid(game_balls);
+
+        cannon_object.load_cannon_with_ball(game_balls);
+        cannon_object.load_cannon_with_ball(game_balls);
     }
+
 };
 
 class GameEndMenu {
@@ -844,6 +968,59 @@ public:
     }
 };
 
+class Cloud {
+    float x_position;
+    float y_position;
+    float x_scale;
+    float y_scale;
+    float x_velocity;
+    float transparency;
+    sf::Texture cloud_texture;
+    sf::Sprite cloud;
+public:
+    void generate_cloud() {
+        x_position = rand() % window_size[0];
+        y_position = rand() % window_size[1] / 5.0;
+
+        float x_minimum_size = 50.0 / window_size[0];
+        float x_maximum_size = 300.0 / window_size[0];
+        float y_minimum_size = 50.0 / window_size[1];
+        float y_maximum_size = 300.0 / window_size[1];
+
+        x_scale = random_float(x_minimum_size, x_maximum_size);
+        y_scale = random_float(y_minimum_size, y_maximum_size);
+        x_velocity = (rand() % 1000) / 10000.0;
+        transparency = rand() % 200;
+    }
+
+    Cloud() {
+        string path_components[50] = { "resources",
+                "images",
+                "cloud.png" };
+
+        cloud_texture.loadFromFile(path_builder(path_components));
+        cloud.setTexture(cloud_texture);
+
+        generate_cloud();
+
+        cloud.setScale(x_scale, y_scale);
+        cloud.setColor(sf::Color(255, 255, 255, transparency));
+    }
+
+    void compute() {
+        x_position += x_velocity;
+        
+        if (x_position > window_size[0]) {
+            generate_cloud();
+        }
+        cloud.setPosition(x_position, y_position);
+    }
+
+    void render(sf::RenderWindow& window) {
+        window.draw(cloud);
+    }
+};
+
 int main()
 {
     srand(time(0)); // enforces random values using seed of current time.
@@ -883,6 +1060,8 @@ int main()
     LevelTwo level_two = LevelTwo(window);
     GameEndMenu end_menu = GameEndMenu();
     PauseMenu pause_menu = PauseMenu();
+
+    Cloud clouds[5];
 
     // Load pop sounds. Using music here means files aren't actually loaded
     // and instead streamed as needed, meaning this isn't actually that
@@ -947,7 +1126,12 @@ int main()
             }
         }
 
-        window.clear(sf::Color(255, 255, 255));
+        window.clear(sf::Color(192, 211, 234));
+
+        for (int i = 0; i < 5; i++) {
+            clouds[i].compute();
+            clouds[i].render(window);
+        }
 
         if (menu_navigation[0] == MAIN_MENU) {
             next_component = main_menu.run_menu(window, player_input);
@@ -962,7 +1146,7 @@ int main()
                 menu_navigation[0] = next_component;
                 menu_navigation[1] = LEVEL_ONE;
                 if (next_component != PAUSE_MENU) {
-                    level_two.reset_level();
+                    level_one.reset_level(window);
                 }
             }
         }
@@ -972,7 +1156,7 @@ int main()
                 menu_navigation[0] = next_component;
                 menu_navigation[1] = LEVEL_TWO;
                 if (next_component != PAUSE_MENU) {
-                    level_two.reset_level();
+                    level_two.reset_level(window);
                 }
             }
         }
