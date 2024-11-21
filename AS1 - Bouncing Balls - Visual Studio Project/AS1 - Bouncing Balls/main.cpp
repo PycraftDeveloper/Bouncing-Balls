@@ -93,8 +93,14 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
                     player_input.set_player_button_input(true);
                     break;
                 case sf::Keyboard::Escape:
-                    menu_navigation[1], menu_navigation[0] = menu_navigation[0], Constants::MAIN_MENU;
-                    // cheeky element switch
+                    if (menu_navigation[0] == Constants::PAUSE_MENU) {
+                        menu_navigation[0] = menu_navigation[1];
+                        menu_navigation[1] = Constants::PAUSE_MENU;
+                    } else if (menu_navigation[0] == Constants::LEVEL_ONE || menu_navigation[0] == Constants::LEVEL_TWO) {
+                        menu_navigation[1] = menu_navigation[0];
+                        menu_navigation[0] = Constants::PAUSE_MENU;
+                        // note, this is flipped compared to above because exiting the pause menu
+                    }
                     break;
                 case sf::Keyboard::Num1: // [temporary] forced switching between levels
                     menu_navigation[0] = Constants::MAIN_MENU;

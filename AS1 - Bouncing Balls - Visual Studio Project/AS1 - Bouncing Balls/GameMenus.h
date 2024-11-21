@@ -71,6 +71,8 @@ public:
 class PauseMenu {
     Text title_text = Text(Constants::FONT_REGULAR);
     MainMenuInstructions instructions;
+    Button resume_button = Button();
+    Button quit_button = Button();
 
 public:
     PauseMenu();

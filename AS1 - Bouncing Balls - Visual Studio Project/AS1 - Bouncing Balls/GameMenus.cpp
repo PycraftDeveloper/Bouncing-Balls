@@ -354,14 +354,30 @@ string PauseMenu::run_menu(
     string* menu_navigation,
     PlayerInput& player_input) {
 
+    // this runs once every frame 
     instructions.compute();
     instructions.render(window);
 
     title_text.set_position(window, -1, 0);
     title_text.render(window, "Bouncing Balls", 100, sf::Color::Black, true);
 
-    // this runs once every frame
-    return menu_navigation[1]; // go to previous level
-    return Constants::PAUSE_MENU; // stay on current window alternate between 
-    // these for menu navigation
+    // render "resume game" button
+    bool resume_button_result;
+    resume_button_result = resume_button.compute(player_input);
+    resume_button.render(window, -1, -1, "Resume Game", 24, sf::Color::Red, 30);
+
+    // render quit button
+    bool quit_button_result;
+    quit_button_result = quit_button.compute(player_input);
+    quit_button.render(window, -1, -101, "quit", 24, sf::Color::Red, 20);
+
+    if (quit_button_result) {
+        return Constants::QUIT;
+    }
+
+    if (resume_button_result) {
+        return menu_navigation[1];
+        // go to previous level
+    }
+    return Constants::PAUSE_MENU; // stay on current window
 }
