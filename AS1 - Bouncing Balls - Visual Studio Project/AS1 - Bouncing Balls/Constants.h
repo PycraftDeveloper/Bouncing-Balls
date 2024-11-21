@@ -1,5 +1,6 @@
 #pragma once
 
+#include <SFML/Graphics.hpp>
 #include <string>
 
 using namespace std;
@@ -26,7 +27,7 @@ namespace Constants {
     constexpr float TAU{ 6.283185307179586 }; // 2 * PI
     constexpr float RADIANS_TO_DEGREES_CONVERSION_CONSTANT{ 57.29577951308232 }; // 180 / PI
     constexpr float DEGREES_TO_RADIANS_CONVERSION_CONSTANT{ 0.017453292519943295 }; // PI / 180
-
+    const sf::Color SKY_BLUE{ sf::Color(192, 211, 234) };
 }
 
 #endif

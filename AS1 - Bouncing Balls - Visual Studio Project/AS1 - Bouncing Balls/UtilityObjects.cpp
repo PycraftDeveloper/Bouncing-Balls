@@ -108,6 +108,10 @@ void Text::set_position(
     position[1] = y_position;
 }
 
+void Text::set_rotation(int angle) {
+    rotation = angle;
+}
+
 void Text::render(
     sf::RenderWindow& window,
     string text_content,
@@ -152,6 +156,7 @@ void Text::render(
         }
     }
     text.setPosition(position[0], position[1]);
+    text.setRotation(rotation);
     window.draw(text);
 }
 

@@ -32,6 +32,7 @@ public:
     string text_attributes[5] = {};
     string font_face = Constants::FONT_PLAY;
     int position[2] = { 0, 0 };
+    int rotation = 0;
 
     Text(string font_face = Constants::FONT_PLAY);
 
@@ -43,6 +44,8 @@ public:
         sf::RenderWindow& window,
         int x_position,
         int y_position);
+
+    void set_rotation(int angle);
 
     void render(
         sf::RenderWindow& window,

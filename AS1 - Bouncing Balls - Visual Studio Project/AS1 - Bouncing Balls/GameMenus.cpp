@@ -17,6 +17,9 @@ string MainMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     // this runs once every frame
     // top to bottom rendering here where layering doesn't matter
     // render game title
+    instructions.compute();
+    instructions.render(window);
+
     title_text.set_position(window, -1, 0);
     title_text.render(window, "Bouncing Balls", 100, sf::Color::Black, true);
 
@@ -73,6 +76,9 @@ void LevelOne::create_ball_grid(vector<Ball>& game_balls) {
 
 string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     // this runs once every frame
+    instructions.compute();
+    instructions.render(window);
+
     float angle = 0;
     bool ball_in_motion = false;
 
@@ -198,6 +204,9 @@ void LevelTwo::create_ball_grid(vector<Ball>& game_balls) {
 
 string LevelTwo::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     // this runs once every frame
+    instructions.compute();
+    instructions.render(window);
+
     float angle = 0;
     bool ball_in_motion = false;
 
@@ -344,6 +353,12 @@ string PauseMenu::run_menu(
     sf::RenderWindow& window,
     string* menu_navigation,
     PlayerInput& player_input) {
+
+    instructions.compute();
+    instructions.render(window);
+
+    title_text.set_position(window, -1, 0);
+    title_text.render(window, "Bouncing Balls", 100, sf::Color::Black, true);
 
     // this runs once every frame
     return menu_navigation[1]; // go to previous level

@@ -6,12 +6,14 @@
 #include "Registry.h"
 #include "UtilityObjects.h"
 #include "GameObjects.h"
+#include "GameGraphics.h"
 
 class MainMenu {
     string game_rules = "AIM AT BUBBLES OF THE SAME COLOR AND SHOOT!";
     Text title_text = Text(Constants::FONT_REGULAR);
     Button play_button = Button();
     Button quit_button = Button();
+    MainMenuInstructions instructions;
 
 public:
     MainMenu();
@@ -25,6 +27,8 @@ class LevelOne {
     Cannon cannon_object = Cannon(game_balls);
     Mass mass_object = Mass();
     bool level_lost = false;
+    LevelInstructions instructions;
+
 public:
     LevelOne(sf::RenderWindow& window);
 
@@ -40,6 +44,8 @@ class LevelTwo {
     Cannon cannon_object = Cannon(game_balls);
     Mass mass_object = Mass();
     bool level_lost = false;
+    LevelInstructions instructions;
+
 public:
     LevelTwo(sf::RenderWindow& window);
 
@@ -63,6 +69,9 @@ public:
 };
 
 class PauseMenu {
+    Text title_text = Text(Constants::FONT_REGULAR);
+    MainMenuInstructions instructions;
+
 public:
     PauseMenu();
 

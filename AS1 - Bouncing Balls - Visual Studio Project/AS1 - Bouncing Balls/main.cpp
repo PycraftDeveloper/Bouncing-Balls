@@ -12,32 +12,6 @@
 #include "Constants.h"
 #include "Registry.h"
 
-class Ground {
-public:
-    sf::Texture grass_texture;
-    sf::Sprite grass;
-    Ground() {
-        string path_components[50] = { "resources",
-            "images",
-            "cloud.png" };
-
-        grass_texture.loadFromFile(path_builder(path_components));
-        grass.setTexture(grass_texture);
-        grass.setColor(sf::Color(213, 232, 212));
-        grass.setScale(1.25, 0.1);
-    }
-
-    void compute() {
-        int x_position = (Registry::window_size[0] - grass.getGlobalBounds().width) / 2;
-        int y_position = Registry::window_size[1] - 30;
-        grass.setPosition(x_position, y_position);
-    }
-
-    void render(sf::RenderWindow& window) {
-        window.draw(grass);
-    }
-};
-
 int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc-170 17.412 KB of stack!!!
 // ~ 2660 lines, PMMA is: 226511 lines or ~ 1482710 Bytes of stack or 1.48271 MB!!!
 {
@@ -146,7 +120,7 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
             }
         }
 
-        window.clear(sf::Color(192, 211, 234));
+        window.clear(Constants::SKY_BLUE);
 
         for (int i = 0; i < 15; i++) {
             clouds[i].compute();
