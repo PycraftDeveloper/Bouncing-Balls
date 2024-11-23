@@ -56,8 +56,7 @@ LevelOne::LevelOne(sf::RenderWindow& window) {
 void LevelOne::create_ball_grid(vector<Ball>& game_balls) {
     int columns = 14;
     int x_pos = Registry::ball_radius;
-    int y_pos = Registry::ball_radius;// + Registry::ball_tesselation_coefficient;
-    cout << y_pos << endl;
+    int y_pos = Registry::ball_radius;
     for (int row = 0; row < 6; row++) {
         if (row % 2 == 0) {
             columns = 14;
@@ -72,8 +71,7 @@ void LevelOne::create_ball_grid(vector<Ball>& game_balls) {
             game_balls.emplace_back(game_ball);
             x_pos += Registry::ball_radius * 2;
         }
-        y_pos += (Registry::ball_radius * 2);
-        y_pos -= Registry::ball_tesselation_coefficient/2.0;
+        y_pos += Registry::ball_tesselation_coefficient;
     }
 }
 
@@ -186,8 +184,7 @@ LevelTwo::LevelTwo(sf::RenderWindow& window) {
 void LevelTwo::create_ball_grid(vector<Ball>& game_balls) {
     int columns = 14;
     int x_pos = Registry::ball_radius;
-    int y_pos = Registry::ball_radius + Registry::ball_tesselation_coefficient;
-    cout << y_pos << endl;
+    int y_pos = Registry::ball_radius;
     for (int row = 0; row < 8; row++) {
         if (row % 2 == 0) {
             columns = 14;
@@ -202,8 +199,7 @@ void LevelTwo::create_ball_grid(vector<Ball>& game_balls) {
             game_balls.emplace_back(game_ball);
             x_pos += Registry::ball_radius * 2;
         }
-        y_pos += (Registry::ball_radius * 2); // could shift by by (R*(3**0.5))/2 but messes up placement due to collision with top of screen and other balls.
-        y_pos -= Registry::ball_tesselation_coefficient / 2.0;
+        y_pos += Registry::ball_tesselation_coefficient;
     }
 }
 

@@ -75,7 +75,7 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
     main_theme.openFromFile(path_builder(path_components));
     main_theme.setLoop(true);
     main_theme.setVolume(15);
-    //main_theme.play();
+    main_theme.play();
 
     while (game_running)
     {

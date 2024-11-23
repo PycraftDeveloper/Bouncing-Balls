@@ -6,5 +6,5 @@ namespace Registry {
     float ball_radius = window_size[1] / (14.0f * 2);
     sf::Music pop_sounds[15];
     sf::Music cannon_fire_sound;
-    float ball_tesselation_coefficient = Registry::ball_radius * 1.7320508;
+    float ball_tesselation_coefficient = sqrt(3) * ball_radius;
 }

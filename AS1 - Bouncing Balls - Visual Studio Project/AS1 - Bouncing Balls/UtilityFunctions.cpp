@@ -59,7 +59,7 @@ void play_random_pop_sounds(int count) {
 
 void play_cannon_fire_sound() {
     Registry::cannon_fire_sound.stop();
-    //Registry::cannon_fire_sound.play();
+    Registry::cannon_fire_sound.play();
 }
 
 sf::Color pick_ball_color() {
