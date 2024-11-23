@@ -37,6 +37,8 @@ public:
     sf::CircleShape shape;
     bool popped = false;
     bool group_flag = false;
+    bool anchored_flag = false;
+    bool ball_to_fall = false;
 
     Ball(
         float x,
@@ -48,7 +50,9 @@ public:
 
     void compute(Mass& mass);
 
-    bool check_collision(Ball& ball);
+    bool check_collision_with_flag_ball(Ball& ball);
+
+    bool check_collision_with_anchor_ball(Ball& ball);
 
     void collision(Ball& ball, vector<Ball>& game_balls);
 

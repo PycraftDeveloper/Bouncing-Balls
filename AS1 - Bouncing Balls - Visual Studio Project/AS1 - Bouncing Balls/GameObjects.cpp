@@ -13,6 +13,7 @@ using namespace std;
 Mass::Mass() {
     string path_components[50] = { "resources", "images", "anvil.png" };
     mass_texture.loadFromFile(path_builder(path_components));
+    mass_texture.setSmooth(true);
     mass.setTexture(mass_texture);
     mass_sprite_x_size = mass.getGlobalBounds().width;
     mass_sprite_y_size = mass.getGlobalBounds().height;
@@ -92,7 +93,7 @@ void Ball::compute(Mass& mass) {
     if (y - radius < game_y_minimum) {
         //y = radius + game_y_minimum;
     }
-    if (y > Registry::window_size[1]) {
+    if (y - radius > Registry::window_size[1]) {
         popped = true;
         y = -100;
         shape_x_velocity = 0;
@@ -102,12 +103,16 @@ void Ball::compute(Mass& mass) {
     x += shape_x_velocity;
     y += shape_y_velocity;
 
+    if (ball_to_fall) {
+        y += 5;
+    }
+
     if (shape_x_velocity == 0 && shape_y_velocity == 0) {
         y += Constants::MASS_FALL_SPEED;
     }
 }
 
-bool Ball::check_collision(Ball& ball) {
+bool Ball::check_collision_with_flag_ball(Ball& ball) {
     if (ball.color == color && ball.group_flag && group_flag == false) {
         // Calculate the distance between the two balls
         float distance = pythagorean_distance(x, y, ball.x, ball.y)-3;
@@ -118,8 +123,19 @@ bool Ball::check_collision(Ball& ball) {
     return false;
 }
 
+bool Ball::check_collision_with_anchor_ball(Ball& ball) {
+    if (ball.anchored_flag && anchored_flag == false) {
+        // Calculate the distance between the two balls
+        float distance = pythagorean_distance(x, y, ball.x, ball.y) - 3;
+        if (distance <= radius + ball.radius) {
+            return true;
+        }
+    }
+    return false;
+}
+
 void Ball::collision(Ball& ball, vector<Ball>& game_balls) {
-    if (ball.popped == false) {
+    if (ball.popped == false && ball.ball_to_fall == false && ball_to_fall == false) {
         // Calculate the distance between the two balls
         float distance = pythagorean_distance(x, y, ball.x, ball.y);
         if (distance < radius + ball.radius) {

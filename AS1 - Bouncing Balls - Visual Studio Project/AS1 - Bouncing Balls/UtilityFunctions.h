@@ -24,4 +24,6 @@ sf::Color pick_ball_color();
 
 bool spread_group_flags(vector<Ball>& game_balls);
 
+bool spread_anchor_flags(vector<Ball>& game_balls);
+
 int count_group_flags(vector<Ball>& game_balls);

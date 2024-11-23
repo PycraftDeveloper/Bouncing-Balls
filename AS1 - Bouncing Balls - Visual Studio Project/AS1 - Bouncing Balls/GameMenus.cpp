@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <string>
+#include <iostream>
 
 #include "GameMenus.h"
 #include "UtilityObjects.h"
@@ -119,6 +120,29 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         game_balls.erase(game_balls.begin() + garbage_ball);
     }
 
+    /// anchored balls
+    for (int i = 0; i < game_balls.size() - 2; i++) {
+        if (game_balls[i].y - Registry::ball_radius <= mass_object.get_game_ceiling()+10) {
+            game_balls[i].anchored_flag = true;
+        }
+    }
+
+    bool changed = true;
+    while (changed) {
+        changed = spread_anchor_flags(game_balls);
+    }
+
+    for (int i = 0; i < game_balls.size() - 2; i++) {
+        if (game_balls[i].anchored_flag == false && game_balls[i].shape_x_velocity == 0 && game_balls[i].shape_y_velocity == 0) {
+            game_balls[i].ball_to_fall = true;
+        }
+    }
+
+    for (int i = 0; i < game_balls.size() - 2; i++) {
+        game_balls[i].anchored_flag = false;
+    }
+    ///
+
     index = 0;
     for (auto& game_ball : game_balls) {
         if (game_ball.shape_x_velocity != 0 || game_ball.shape_y_velocity != 0) {
@@ -126,7 +150,9 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         }
         if (game_ball.shape_x_velocity == 0 && game_ball.shape_y_velocity == 0 && index < game_balls.size() - 2) {
             if (game_ball.shape.getPosition().y + game_ball.radius >= cannon_object.cannon_y_position - cannon_object.cannon.getGlobalBounds().height / 2) {
-                level_lost = true;
+                if (game_ball.ball_to_fall == false) {
+                    level_lost = true;
+                }
             }
         }
         index++;
@@ -248,6 +274,29 @@ string LevelTwo::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     for (int& garbage_ball : garbage_ball_elements) {
         game_balls.erase(game_balls.begin() + garbage_ball);
     }
+
+    /// anchored balls
+    for (int i = 0; i < game_balls.size() - 2; i++) {
+        if (game_balls[i].y - Registry::ball_radius <= mass_object.get_game_ceiling() + 10) {
+            game_balls[i].anchored_flag = true;
+        }
+    }
+
+    bool changed = true;
+    while (changed) {
+        changed = spread_anchor_flags(game_balls);
+    }
+
+    for (int i = 0; i < game_balls.size() - 2; i++) {
+        if (game_balls[i].anchored_flag == false && game_balls[i].shape_x_velocity == 0 && game_balls[i].shape_y_velocity == 0) {
+            game_balls[i].ball_to_fall = true;
+        }
+    }
+
+    for (int i = 0; i < game_balls.size() - 2; i++) {
+        game_balls[i].anchored_flag = false;
+    }
+    ///
 
     index = 0;
     for (auto& game_ball : game_balls) {
