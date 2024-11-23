@@ -95,6 +95,7 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
             float x_pos = -sin(angle) * game_ball.radius / 2;
             float y_pos = -cos(angle) * game_ball.radius / 2;
             game_ball.set_position(cannon_object.cannon.getPosition().x + x_pos, cannon_object.cannon.getPosition().y - y_pos);
+
         }
 
         game_ball.compute(mass_object);
@@ -104,13 +105,19 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         }
         else if (game_ball.shape_x_velocity == 0 && game_ball.shape_y_velocity == 0 && index < game_balls.size() - 2) {
             for (auto& collision_game_ball : game_balls) {
-                game_ball.collision(collision_game_ball);
+                game_ball.collision(collision_game_ball, game_balls);
             }
         }
         index++;
     }
 
     game_balls[game_balls.size() - 1].render(window);
+
+    sort(garbage_ball_elements.rbegin(), garbage_ball_elements.rend());
+
+    for (int& garbage_ball : garbage_ball_elements) {
+        game_balls.erase(game_balls.begin() + garbage_ball);
+    }
 
     index = 0;
     for (auto& game_ball : game_balls) {
@@ -129,15 +136,11 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         level_lost = true;
     }
 
-    for (int& garbage_ball : garbage_ball_elements) {
-        game_balls.erase(game_balls.begin() + garbage_ball);
-    }
-
     mass_object.render(window);
     mass_object.compute(window);
 
     if (player_input.get_player_button_input() && ball_in_motion == false) {
-        play_cannon_fire_sound();
+        //play_cannon_fire_sound();
         swap(game_balls[game_balls.size() - 2], game_balls[game_balls.size() - 1]);
 
         // get the angle the cannon is pointing at and fire the ball in that same direction
@@ -232,13 +235,19 @@ string LevelTwo::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         }
         else if (game_ball.shape_x_velocity == 0 && game_ball.shape_y_velocity == 0 && index < game_balls.size() - 2) {
             for (auto& collision_game_ball : game_balls) {
-                game_ball.collision(collision_game_ball);
+                game_ball.collision(collision_game_ball, game_balls);
             }
         }
         index++;
     }
 
     game_balls[game_balls.size() - 1].render(window);
+
+    sort(garbage_ball_elements.rbegin(), garbage_ball_elements.rend());
+
+    for (int& garbage_ball : garbage_ball_elements) {
+        game_balls.erase(game_balls.begin() + garbage_ball);
+    }
 
     index = 0;
     for (auto& game_ball : game_balls) {
@@ -257,15 +266,11 @@ string LevelTwo::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         level_lost = true;
     }
 
-    for (int& garbage_ball : garbage_ball_elements) {
-        game_balls.erase(game_balls.begin() + garbage_ball);
-    }
-
     mass_object.render(window);
     mass_object.compute(window);
 
     if (player_input.get_player_button_input() && ball_in_motion == false) {
-        play_cannon_fire_sound();
+        //play_cannon_fire_sound();
         swap(game_balls[game_balls.size() - 2], game_balls[game_balls.size() - 1]);
 
         // get the angle the cannon is pointing at and fire the ball in that same direction

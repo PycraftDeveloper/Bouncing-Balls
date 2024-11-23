@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <string>
+#include <iostream>
 
 #include "GameObjects.h"
 #include "Constants.h"
@@ -106,7 +107,18 @@ void Ball::compute(Mass& mass) {
     }
 }
 
-void Ball::collision(Ball& ball) {
+bool Ball::check_collision(Ball& ball) {
+    if (ball.color == color && ball.group_flag && group_flag == false) {
+        // Calculate the distance between the two balls
+        float distance = pythagorean_distance(x, y, ball.x, ball.y)-3;
+        if (distance <= radius + ball.radius) {
+            return true;
+        }
+    }
+    return false;
+}
+
+void Ball::collision(Ball& ball, vector<Ball>& game_balls) {
     if (ball.popped == false) {
         // Calculate the distance between the two balls
         float distance = pythagorean_distance(x, y, ball.x, ball.y);
@@ -125,6 +137,30 @@ void Ball::collision(Ball& ball) {
             ball.x -= cos_angle * overlap;
             ball.y -= sin_angle * overlap;
 
+            if (ball.shape_x_velocity != 0 || ball.shape_y_velocity != 0) {
+                // occurs only when the cannon collides with another ball.
+                ball.group_flag = true;
+                spread_group_flags(game_balls);
+                spread_group_flags(game_balls);
+                spread_group_flags(game_balls);
+                if (count_group_flags(game_balls) >= 3) {
+                    bool changed = true;
+                    while (changed) {
+                         changed = spread_group_flags(game_balls);
+                    }
+                    for (int i = 0; i < game_balls.size() - 2; i++) {
+                        if (game_balls[i].group_flag) {
+                            game_balls[i].popped = true;
+                            play_random_pop_sounds(1);
+                        }
+                    }
+                }
+                else {
+                    for (int i = 0; i < game_balls.size() - 2; i++) {
+                        game_balls[i].group_flag = false;
+                    }
+                }
+            }
 
             // Remove their velocity so the balls stop moving.
             shape_x_velocity = 0;

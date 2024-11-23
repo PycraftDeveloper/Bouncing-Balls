@@ -36,6 +36,7 @@ public:
     float shape_y_velocity = 0;
     sf::CircleShape shape;
     bool popped = false;
+    bool group_flag = false;
 
     Ball(
         float x,
@@ -47,7 +48,9 @@ public:
 
     void compute(Mass& mass);
 
-    void collision(Ball& ball);
+    bool check_collision(Ball& ball);
+
+    void collision(Ball& ball, vector<Ball>& game_balls);
 
     void render(sf::RenderWindow& window);
 };

@@ -1,8 +1,10 @@
 #include <string>
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 #include "Constants.h"
 #include "Registry.h"
+#include "GameObjects.h"
 
 using namespace std;
 
@@ -73,4 +75,29 @@ sf::Color pick_ball_color() {
     else {
         return sf::Color::Red;
     }
+}
+
+bool spread_group_flags(vector<Ball>& game_balls) {
+    bool changed = false;
+    for (int i = 0; i < game_balls.size() - 2; i++) {
+        // the last two balls belong to the cannon and are't ready to be fired yet.
+        for (int j = 0; j < game_balls.size() - 2; j++) {
+            if (game_balls[i].check_collision(game_balls[j])) {
+                // check if ball in collision with one with group flag.
+                game_balls[i].group_flag = true;
+                changed = true;
+            }
+        }
+    }
+    return changed;
+}
+
+int count_group_flags(vector<Ball>& game_balls) {
+    int count = 0;
+    for (int i = 0; i < game_balls.size() - 2; i++) {
+        if (game_balls[i].group_flag) {
+            count++;
+        }
+    }
+    return count;
 }
