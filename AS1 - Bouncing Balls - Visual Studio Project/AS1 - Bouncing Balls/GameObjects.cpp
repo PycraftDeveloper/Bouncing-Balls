@@ -47,8 +47,8 @@ Ball::Ball(
 
     color = pick_ball_color();
     shape.setFillColor(color);
-    radius = Registry::BALL_RADIUS;
-    shape.setRadius(Registry::BALL_RADIUS);
+    radius = Registry::ball_radius;
+    shape.setRadius(Registry::ball_radius);
     shape.setOrigin(radius, radius); // centre of circle is its position
     shape.setPointCount(calculate_point_count(radius));
     shape.setPosition(x, y);
@@ -70,8 +70,8 @@ void Ball::compute(Mass& mass) {
     int game_surface_max_x = mass.x_position + mass.mass.getGlobalBounds().width;
     int game_surface_min_x = mass.x_position;
 
-    radius = Registry::BALL_RADIUS;
-    shape.setRadius(Registry::BALL_RADIUS);
+    radius = Registry::ball_radius;
+    shape.setRadius(Registry::ball_radius);
 
     if ((x - radius <= game_surface_min_x && shape_x_velocity < 0) || (x + radius >= game_surface_max_x && shape_x_velocity > 0)) {
         shape_x_velocity *= -1;

@@ -11,9 +11,10 @@ using namespace std;
 namespace Registry {
 	extern int window_size[2];
 	extern string game_end_state;
-	extern float BALL_RADIUS;
+	extern float ball_radius;
 	extern sf::Music pop_sounds[15];
 	extern sf::Music cannon_fire_sound;
+	extern float ball_tesselation_coefficient;
 }
 
 #endif
