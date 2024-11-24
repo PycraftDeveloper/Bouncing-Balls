@@ -33,12 +33,12 @@ string MainMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     // render play button
     bool play_button_result;
     play_button_result = play_button.compute(player_input);
-    play_button.render(window, -1, -1, "Play!", 24, sf::Color::Red, 30);
+    play_button.render(window, -1, -1, "Play!", 24, 30);
 
     // render quit button
     bool quit_button_result;
     quit_button_result = quit_button.compute(player_input);
-    quit_button.render(window, -1, -101, "quit", 24, sf::Color::Red, 20);
+    quit_button.render(window, -1, -101, "quit", 24, 20);
 
     // identify what menu to transition to next
     if (quit_button_result) {
@@ -405,12 +405,12 @@ string GameEndMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input
     // render play again button
     bool play_again_button_result;
     play_again_button_result = play_again_button.compute(player_input);
-    play_again_button.render(window, -1, -1, "Play Again!", 24, sf::Color::Red, 30);
+    play_again_button.render(window, -1, -1, "Play Again!", 24, 30);
 
     // render quit button
     bool quit_button_result;
     quit_button_result = quit_button.compute(player_input);
-    quit_button.render(window, -1, -101, "quit", 24, sf::Color::Red, 20);
+    quit_button.render(window, -1, -101, "quit", 24, 20);
 
     // identify what menu to transition to next
     if (quit_button_result) {
@@ -442,12 +442,12 @@ string PauseMenu::run_menu(
     // render "resume game" button
     bool resume_button_result;
     resume_button_result = resume_button.compute(player_input);
-    resume_button.render(window, -1, -1, "Resume Game", 24, sf::Color::Red, 30);
+    resume_button.render(window, -1, -1, "Resume Game", 24, 30);
 
     // render quit button
     bool quit_button_result;
     quit_button_result = quit_button.compute(player_input);
-    quit_button.render(window, -1, -101, "quit", 24, sf::Color::Red, 20);
+    quit_button.render(window, -1, -101, "quit", 24, 20);
 
     if (quit_button_result) {
         return Constants::QUIT;

@@ -172,8 +172,9 @@ void Button::render(
     int button_y_position,
     string button_content,
     int button_text_size,
-    sf::Color button_color,
     int button_padding) {
+
+    sf::Color button_color = sf::Color(33, 115, 204);
 
     // Used to actually create the button on-screen every frame
     content.render(

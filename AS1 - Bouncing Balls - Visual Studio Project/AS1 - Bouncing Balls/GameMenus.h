@@ -11,8 +11,8 @@
 class MainMenu {
     string game_rules = "AIM AT BUBBLES OF THE SAME COLOR AND SHOOT!";
     Text title_text = Text(Constants::FONT_REGULAR);
-    Button play_button = Button();
-    Button quit_button = Button();
+    Button play_button;
+    Button quit_button;
     MainMenuInstructions instructions;
     Dragon left_dragon;
     Dragon right_dragon;
@@ -27,7 +27,7 @@ public:
 class LevelOne {
     vector<Ball> game_balls; // last 2 ALWAYS belong to the cannon for firing.
     Cannon cannon_object = Cannon(game_balls);
-    Mass mass_object = Mass();
+    Mass mass_object;
     bool level_lost = false;
     LevelInstructions instructions;
     Dragon left_dragon;
@@ -46,7 +46,7 @@ public:
 class LevelTwo {
     vector<Ball> game_balls; // last 2 ALWAYS belong to the cannon for firing.
     Cannon cannon_object = Cannon(game_balls);
-    Mass mass_object = Mass();
+    Mass mass_object;
     bool level_lost = false;
     LevelInstructions instructions;
     Dragon left_dragon;
@@ -66,8 +66,8 @@ class GameEndMenu {
     Text title_text = Text(Constants::FONT_REGULAR);
     Text game_win_state = Text(Constants::FONT_PLAY);
 
-    Button play_again_button = Button();
-    Button quit_button = Button();
+    Button play_again_button;
+    Button quit_button;
 
     Dragon left_dragon;
     Dragon right_dragon;
@@ -80,8 +80,8 @@ public:
 class PauseMenu {
     Text title_text = Text(Constants::FONT_REGULAR);
     MainMenuInstructions instructions;
-    Button resume_button = Button();
-    Button quit_button = Button();
+    Button resume_button;
+    Button quit_button;
 
 public:
     PauseMenu();

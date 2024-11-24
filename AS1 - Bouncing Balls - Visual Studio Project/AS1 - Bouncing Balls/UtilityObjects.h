@@ -71,7 +71,6 @@ public:
         int button_y_position,
         string button_content,
         int button_text_size,
-        sf::Color button_color,
         int button_padding = 50);
 
     bool compute(PlayerInput& player_input);
