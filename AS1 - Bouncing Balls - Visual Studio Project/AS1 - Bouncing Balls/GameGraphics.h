@@ -77,3 +77,18 @@ public:
 
     void render(sf::RenderWindow& window);
 };
+
+class Dragon {
+public:
+    sf::Texture dragon_texture;
+    sf::Sprite dragon;
+
+    string dragon_color;
+    float dragon_scale;
+
+    Dragon();
+
+    void compute(string position);
+
+    void render(sf::RenderWindow& window);
+};

@@ -21,6 +21,12 @@ string MainMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     instructions.compute();
     instructions.render(window);
 
+    left_dragon.compute(Constants::LEFT);
+    left_dragon.render(window);
+
+    right_dragon.compute(Constants::RIGHT);
+    right_dragon.render(window);
+
     title_text.set_position(window, -1, 0);
     title_text.render(window, "Bouncing Balls", 100, sf::Color::Black, true);
 
@@ -79,6 +85,12 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     // this runs once every frame
     instructions.compute();
     instructions.render(window);
+
+    left_dragon.compute(Constants::LEFT);
+    left_dragon.render(window);
+
+    right_dragon.compute(Constants::RIGHT);
+    right_dragon.render(window);
 
     float angle = 0;
     bool ball_in_motion = false;
@@ -236,6 +248,12 @@ string LevelTwo::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     instructions.compute();
     instructions.render(window);
 
+    left_dragon.compute(Constants::LEFT);
+    left_dragon.render(window);
+
+    right_dragon.compute(Constants::RIGHT);
+    right_dragon.render(window);
+
     float angle = 0;
     bool ball_in_motion = false;
 
@@ -359,6 +377,12 @@ GameEndMenu::GameEndMenu() {
 string GameEndMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input, bool game_won) {
     // this runs once every frame
     // render game title
+    left_dragon.compute(Constants::LEFT);
+    left_dragon.render(window);
+
+    right_dragon.compute(Constants::RIGHT);
+    right_dragon.render(window);
+
     title_text.set_position(window, -1, 0);
     title_text.render(window, "Bouncing Balls", 100, sf::Color::Black, true);
 

@@ -14,6 +14,8 @@ class MainMenu {
     Button play_button = Button();
     Button quit_button = Button();
     MainMenuInstructions instructions;
+    Dragon left_dragon;
+    Dragon right_dragon;
 
 public:
     MainMenu();
@@ -28,6 +30,8 @@ class LevelOne {
     Mass mass_object = Mass();
     bool level_lost = false;
     LevelInstructions instructions;
+    Dragon left_dragon;
+    Dragon right_dragon;
 
 public:
     LevelOne(sf::RenderWindow& window);
@@ -45,6 +49,8 @@ class LevelTwo {
     Mass mass_object = Mass();
     bool level_lost = false;
     LevelInstructions instructions;
+    Dragon left_dragon;
+    Dragon right_dragon;
 
 public:
     LevelTwo(sf::RenderWindow& window);
@@ -62,6 +68,9 @@ class GameEndMenu {
 
     Button play_again_button = Button();
     Button quit_button = Button();
+
+    Dragon left_dragon;
+    Dragon right_dragon;
 public:
     GameEndMenu();
 

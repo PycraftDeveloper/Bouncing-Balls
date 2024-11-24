@@ -175,3 +175,57 @@ void LevelInstructions::render(sf::RenderWindow& window) {
         window.draw(bullet[i]);
     }
 }
+
+Dragon::Dragon() {
+    int randomly_chosen_color = rand() % 3;
+
+    if (randomly_chosen_color == 0) {
+        dragon_color = "blue";
+    }
+    else if (randomly_chosen_color == 1) {
+        dragon_color = "yellow";
+    }
+    else {
+        dragon_color = "red";
+    }
+
+    string path_components[50] = { "resources",
+        "images",
+        "kawaii",
+        dragon_color + ".png"};
+
+    dragon_texture.loadFromFile(path_builder(path_components));
+    dragon_texture.setSmooth(true);
+    dragon.setTexture(dragon_texture);
+
+    dragon_scale = random_float(0.1, 0.2);
+
+}
+
+void Dragon::compute(string position) {
+    float x_scale = dragon_scale;
+    float y_scale = dragon_scale;
+
+    if (position == Constants::LEFT) {
+        x_scale *= -1;
+    }
+
+    dragon.setScale(x_scale, y_scale);
+
+    int dragon_width = dragon.getGlobalBounds().width;
+    int dragon_height = dragon.getGlobalBounds().height;
+
+    int x = dragon_width + Registry::ball_radius;
+
+    if (position == Constants::RIGHT) {
+        x = Registry::window_size[0] - (dragon_width + Registry::ball_radius);
+    }
+
+    int y = Registry::window_size[1] - dragon_height;
+
+    dragon.setPosition(x, y);
+}
+
+void Dragon::render(sf::RenderWindow& window) {
+    window.draw(dragon);
+}
