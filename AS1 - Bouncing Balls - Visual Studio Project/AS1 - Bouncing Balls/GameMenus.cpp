@@ -425,61 +425,12 @@ string GameEndMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input
 }
 
 PauseMenu::PauseMenu() {
-    sf::Vertex vertices[4] = {
-    sf::Vertex(sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 0.f)), 
-    sf::Vertex(sf::Vector2f(Registry::window_size[0], 0.f), sf::Vector2f(1.f, 0.f)),
-    sf::Vertex(sf::Vector2f(0.f, Registry::window_size[1]), sf::Vector2f(0.f, 1.f)),
-    sf::Vertex(sf::Vector2f(Registry::window_size[0], Registry::window_size[1]), sf::Vector2f(1.f, 1.f))
-    };
-
-    // Copy the vertices into the array
-    for (int i = 0; i < 4; ++i) {
-        background_vertices[i] = vertices[i];
-    }
-
-    string vertex_path_components[50] = {
-            "shaders",
-            "background_blur.vert" };
-    string vertex_shader_path = path_builder(vertex_path_components);
-
-    string fragment_path_components[50] = {
-            "shaders",
-            "background_blur.frag"};
-    string fragment_shader_path = path_builder(fragment_path_components);
-
-    background_blur_shader.loadFromFile(vertex_shader_path, fragment_shader_path);
-
-    background_blur_shader.setUniform("texture", sf::Shader::CurrentTexture);
-    background_blur_shader.setUniform("resolution", sf::Vector2f(Registry::window_size[0], Registry::window_size[1]));
-    background_blur_shader.setUniform("radius", 3);
-
-    blurred_background_fbo.create(Registry::window_size[0], Registry::window_size[1]);
-    background_texture.create(Registry::window_size[0], Registry::window_size[1]);
-}
-
-void PauseMenu::update_background(sf::RenderWindow& window) {
-    blurred_background_fbo.clear();
-    background_texture.update(window);
-    background_blur_shader.setUniform("texture", background_texture);
-    render_background.setTexture(background_texture);
-    
-    sf::RenderStates states;
-    states.shader = &background_blur_shader;
-    states.texture = &background_texture;
-
-    blurred_background_fbo.draw(background_vertices, states);
-
-    blurred_background_fbo.display();
-
-    background.setTexture(blurred_background_fbo.getTexture());
 }
 
 string PauseMenu::run_menu(
     sf::RenderWindow& window,
     string* menu_navigation,
     PlayerInput& player_input) {
-
-    window.draw(background);
 
     // this runs once every frame 
     instructions.compute();

@@ -82,17 +82,9 @@ class PauseMenu {
     MainMenuInstructions instructions;
     Button resume_button;
     Button quit_button;
-    sf::Texture background_texture;
-    sf::RenderTexture blurred_background_fbo;
-    sf::Sprite render_background;
-    sf::Shader background_blur_shader;
-    sf::Sprite background;
-    sf::VertexArray background_vertices = sf::VertexArray(sf::Quads, 4);
 
 public:
     PauseMenu();
-
-    void update_background(sf::RenderWindow& window);
 
     string run_menu(
         sf::RenderWindow& window,

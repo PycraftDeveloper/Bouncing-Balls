@@ -40,7 +40,6 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
     bool game_won = false;
     bool window_full_screen = false;
     bool game_running = true;
-    bool capture_current_frame = false;
 
     string next_component;
 
@@ -48,11 +47,11 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
     PlayerInput player_input = PlayerInput();
 
     // set-up game levels
-    MainMenu main_menu;
+    MainMenu main_menu = MainMenu();
     LevelOne level_one = LevelOne(window);
     LevelTwo level_two = LevelTwo(window);
-    GameEndMenu end_menu;
-    PauseMenu pause_menu;
+    GameEndMenu end_menu = GameEndMenu();
+    PauseMenu pause_menu = PauseMenu();
 
     Cloud clouds[15];
     Ground ground;
@@ -100,7 +99,6 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
                     } else if (menu_navigation[0] == Constants::LEVEL_ONE || menu_navigation[0] == Constants::LEVEL_TWO) {
                         menu_navigation[1] = menu_navigation[0];
                         menu_navigation[0] = Constants::PAUSE_MENU;
-                        capture_current_frame = true;
                         // note, this is flipped compared to above because exiting the pause menu
                     }
                     break;
@@ -198,11 +196,6 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
 
         window.display();
         player_input.update(window);
-
-        if (capture_current_frame) {
-            capture_current_frame = false;
-            pause_menu.update_background(window);
-        }
     }
 
     return 0;
