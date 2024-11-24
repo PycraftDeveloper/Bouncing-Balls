@@ -191,15 +191,14 @@ Dragon::Dragon() {
 
     string path_components[50] = { "resources",
         "images",
-        "kawaii",
+        "kawaii 2",
         dragon_color + ".png"};
 
     dragon_texture.loadFromFile(path_builder(path_components));
     dragon_texture.setSmooth(true);
     dragon.setTexture(dragon_texture);
 
-    dragon_scale = random_float(0.1, 0.2);
-
+    dragon_scale = random_float(0.05, 0.12);
 }
 
 void Dragon::compute(string position) {
