@@ -38,6 +38,9 @@ Level 1
 	APPROXIMATE.
 * On destruction, balls fall to bottom of the screen.
 * Approximate ball radius: 30
+** Game end after 1 minute and 33.37 seconds
+** Ball grid starts at the top of the screen
+** Ball velocity = 20.232 px/s
 
 [Level transition must have animation and "You WIN"]
 [Score carried over to next level]
@@ -64,6 +67,9 @@ Level 2
 	APPROXIMATE.
 * On destruction, balls fall to bottom of the screen.
 * Approximate ball radius: 30
+** Game ends after 1 minute 23.15 seconds
+** Ball grid starts above the top of the screen (so initially just the first 6 rows of the 8 are visible)
+** Ball velocity = 20.232 px/s
 
 [Level transition must have animation and "You WIN"]
 
