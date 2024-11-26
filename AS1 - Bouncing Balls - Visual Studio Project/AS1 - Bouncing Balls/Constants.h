@@ -26,7 +26,7 @@ namespace Constants {
     const string LEFT{ "left" };
     const string RIGHT{ "right" };
 
-    constexpr int BALL_SPEED{ 3 };
+    constexpr int BALL_SPEED{ 20 };
     constexpr float MASS_FALL_SPEED{ 0.1 };
 
     constexpr float PI{ 3.14159265358979323 };

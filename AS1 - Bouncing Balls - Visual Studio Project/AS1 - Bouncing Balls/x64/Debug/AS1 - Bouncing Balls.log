@@ -127,4 +127,194 @@ G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1
 G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameGraphics.cpp(220,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameGraphics.cpp(225,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameGraphics.cpp(225,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  GameMenus.cpp
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(30,38): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(32,25): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(33,26): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(34,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(35,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameGraphics.h(50,37): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameGraphics.h(51,40): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameGraphics.h(71,37): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameGraphics.h(72,40): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'GameMenus.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(64,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(65,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(69,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(73,43): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(76,67): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(78,44): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(80,28): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(226,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(227,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(231,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(235,43): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(238,67): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(240,44): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameMenus.cpp(242,28): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+  GameObjects.cpp
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(30,38): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(32,25): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(33,26): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(34,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(35,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'GameObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(24,23): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(55,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(72,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(73,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(150,27): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(203,28): warning C4305: 'argument': truncation from 'double' to 'float'
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(203,21): warning C4305: 'argument': truncation from 'double' to 'float'
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(205,24): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(206,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(206,27): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(209,55): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(209,55): warning C4244:         with
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(209,55): warning C4244:         [
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(209,55): warning C4244:             T=float
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(209,55): warning C4244:         ]
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(219,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(232,22): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(232,22): warning C4244:         with
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(232,22): warning C4244:         [
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(232,22): warning C4244:             T=float
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(232,22): warning C4244:         ]
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(233,23): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(233,23): warning C4244:         with
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(233,23): warning C4244:         [
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(233,23): warning C4244:             T=float
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(233,23): warning C4244:         ]
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(246,75): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(246,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  UtilityFunctions.cpp
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(30,38): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'UtilityFunctions.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(32,25): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'UtilityFunctions.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(33,26): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'UtilityFunctions.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(34,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'UtilityFunctions.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(35,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'UtilityFunctions.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityFunctions.cpp(12,16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  UtilityObjects.cpp
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(30,38): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'UtilityObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(32,25): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'UtilityObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(33,26): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'UtilityObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(34,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'UtilityObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(35,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'UtilityObjects.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(10,15): warning C4930: 'sf::Mouse mouse(void)': prototyped function not called (was a variable definition intended?)
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(100,40): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(100,40): warning C4244:         with
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(100,40): warning C4244:         [
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(100,40): warning C4244:             T=float
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(100,40): warning C4244:         ]
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(104,40): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(104,40): warning C4244:         with
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(104,40): warning C4244:         [
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(104,40): warning C4244:             T=float
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(104,40): warning C4244:         ]
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(158,45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(158,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(159,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(187,23): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(187,23): warning C4244:         with
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(187,23): warning C4244:         [
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(187,23): warning C4244:             T=float
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(187,23): warning C4244:         ]
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(188,23): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(188,23): warning C4244:         with
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(188,23): warning C4244:         [
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(188,23): warning C4244:             T=float
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(188,23): warning C4244:         ]
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(189,52): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(189,52): warning C4244:         with
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(189,52): warning C4244:         [
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(189,52): warning C4244:             T=float
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(189,52): warning C4244:         ]
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(189,37): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(189,37): warning C4244:         with
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(189,37): warning C4244:         [
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(189,37): warning C4244:             T=float
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(189,37): warning C4244:         ]
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(201,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(201,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(208,48): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(208,48): warning C4244:         with
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(208,48): warning C4244:         [
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(208,48): warning C4244:             T=float
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\UtilityObjects.cpp(208,48): warning C4244:         ]
+  main.cpp
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(30,38): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(32,25): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(33,26): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(34,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\Constants.h(35,61): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameGraphics.h(50,37): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameGraphics.h(51,40): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameGraphics.h(71,37): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameGraphics.h(72,40): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\main.cpp(18,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
   AS1 - Bouncing Balls.vcxproj -> G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\x64\Debug\AS1 - Bouncing Balls.exe
