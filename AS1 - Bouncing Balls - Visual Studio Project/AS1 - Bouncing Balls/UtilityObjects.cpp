@@ -60,7 +60,7 @@ void Text::set_font_face(string new_font_face) {
     // used to set the font for the button
     font_face = new_font_face;
     if (font_face == Constants::FONT_PLAY) {
-        string path_components[50] = {
+        string path_components[4] = {
             "resources",
             "fonts",
             "Lilita_One Play",
@@ -70,7 +70,7 @@ void Text::set_font_face(string new_font_face) {
         text.setFont(font);
     }
     else if (font_face == Constants::FONT_REGULAR) {
-        string path_components[50] = { "resources",
+        string path_components[4] = { "resources",
             "fonts",
             "Lilita_One",
             "LilitaOne-Regular.ttf" };

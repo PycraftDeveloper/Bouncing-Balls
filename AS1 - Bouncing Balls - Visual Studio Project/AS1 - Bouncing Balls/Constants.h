@@ -29,8 +29,6 @@ namespace Constants {
     constexpr int BALL_SPEED{ 3 };
     constexpr float MASS_FALL_SPEED{ 0.1 };
 
-    const string PROJECT_RESOURCES_DIRECTORY{ "G:\\University\\Assignments\\Simester 1\\CSY1079 - Programming 2D Computer Games\\AS1 - Bouncing Balls - Visual Studio Project" };
-
     constexpr float PI{ 3.14159265358979323 };
     constexpr float TAU{ 6.283185307179586 }; // 2 * PI
     constexpr float RADIANS_TO_DEGREES_CONVERSION_CONSTANT{ 57.29577951308232 }; // 180 / PI

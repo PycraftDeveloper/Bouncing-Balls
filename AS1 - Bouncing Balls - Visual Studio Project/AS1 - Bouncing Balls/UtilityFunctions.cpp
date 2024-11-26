@@ -31,10 +31,9 @@ int calculate_point_count(int radius, float shape_quality) {
     return point_count;
 }
 
-string path_builder(string(&args)[50]) { // currently length 50, lower
-    // this to match longest path for memory savings.
+string path_builder(string(&args)[4]) { // 4 matches the furthest point into the resources directory
 
-    string resultant_path = Constants::PROJECT_RESOURCES_DIRECTORY;
+    string resultant_path = "";
     int length_of_input_array = sizeof(args) / sizeof(args[0]);
     for (int i = 0; i < length_of_input_array; i++) {
         if (args[i] == "") {
@@ -42,7 +41,7 @@ string path_builder(string(&args)[50]) { // currently length 50, lower
         }
         resultant_path += "\\" + args[i];
     }
-    return resultant_path;
+    return resultant_path.substr(1, resultant_path.size());
 }
 
 void play_random_pop_sounds(int count) {

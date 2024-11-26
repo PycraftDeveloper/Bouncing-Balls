@@ -14,7 +14,7 @@ float random_float(float minimum, float maximum);
 
 int calculate_point_count(int radius, float shape_quality = 0.75);
 
-string path_builder(string(&args)[50]);
+string path_builder(string(&args)[4]);
 
 void play_random_pop_sounds(int count);
 

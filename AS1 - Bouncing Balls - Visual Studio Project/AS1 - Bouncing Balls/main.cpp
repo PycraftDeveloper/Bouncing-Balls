@@ -61,17 +61,17 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
     // inefficient!
     for (int i = 0; i < 15; i++) { // 16
         string file = to_string(i + 1) + ".wav";
-        string path_components[50] = { "resources", "sounds", "pops", file };
+        string path_components[4] = { "resources", "sounds", "pops", file };
         string file_path = path_builder(path_components);
         Registry::pop_sounds[i].openFromFile(file_path);
     }
 
-    string cannon_fire_sound_path_components[50] = { "resources", "sounds", "cannon fire.wav" };
+    string cannon_fire_sound_path_components[4] = { "resources", "sounds", "cannon fire.wav" };
     Registry::cannon_fire_sound.openFromFile(path_builder(cannon_fire_sound_path_components));
     Registry::cannon_fire_sound.setVolume(30);
 
     sf::Music main_theme;
-    string path_components[50] = { "resources", "music", "main theme [extended].ogg"};
+    string path_components[4] = { "resources", "music", "main theme [extended].ogg"};
     main_theme.openFromFile(path_builder(path_components));
     main_theme.setLoop(true);
     main_theme.setVolume(15);

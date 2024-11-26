@@ -24,7 +24,7 @@ void Cloud::generate_cloud() {
 }
 
 Cloud::Cloud() {
-    string path_components[50] = { "resources",
+    string path_components[4] = { "resources",
             "images",
             "cloud.png" };
 
@@ -55,7 +55,7 @@ void Cloud::render(sf::RenderWindow& window) {
 }
 
 Ground::Ground() {
-    string path_components[50] = { "resources",
+    string path_components[4] = { "resources",
         "images",
         "cloud.png" };
 
@@ -189,9 +189,9 @@ Dragon::Dragon() {
         dragon_color = "red";
     }
 
-    string path_components[50] = { "resources",
+    string path_components[4] = { "resources",
         "images",
-        "kawaii 2",
+        "kawaii",
         dragon_color + ".png"};
 
     dragon_texture.loadFromFile(path_builder(path_components));

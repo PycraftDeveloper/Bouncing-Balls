@@ -11,7 +11,7 @@
 using namespace std;
 
 Mass::Mass() {
-    string path_components[50] = { "resources", "images", "anvil.png" };
+    string path_components[4] = { "resources", "images", "anvil.png" };
     mass_texture.loadFromFile(path_builder(path_components));
     mass_texture.setSmooth(true);
     mass.setTexture(mass_texture);
@@ -195,7 +195,7 @@ void Ball::render(sf::RenderWindow& window) {
 }
 
 Cannon::Cannon(vector<Ball>& game_balls) {
-    string texture_path_components[50] = { "resources", "images", "cannon.png" };
+    string texture_path_components[4] = { "resources", "images", "cannon.png" };
     cannon_texture.loadFromFile(path_builder(texture_path_components));
 
     cannon.setTexture(cannon_texture);
