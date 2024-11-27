@@ -165,7 +165,7 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         if (game_ball.shape_x_velocity == 0 && game_ball.shape_y_velocity == 0 && index < game_balls.size() - 2) {
             if (game_ball.shape.getPosition().y + game_ball.radius >= cannon_object.cannon_y_position - cannon_object.cannon.getGlobalBounds().height / 2) {
                 if (game_ball.ball_to_fall == false) {
-                    level_lost = true;
+                    game_lost = true;
                 }
             }
         }
@@ -173,7 +173,7 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     }
 
     if (mass_object.y_position >= cannon_object.cannon_y_position - cannon_object.cannon.getGlobalBounds().height / 2) {
-        level_lost = true;
+        game_lost = true;
     }
 
     mass_object.render(window);
@@ -195,16 +195,19 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         cannon_object.load_cannon_with_ball(game_balls);
     }
 
-    if (level_lost) {
+    if (game_lost) {
         Registry::game_end_state = Constants::LOST;
         return Constants::END_MENU;
+    }
+    else if (game_balls.size() == 2) {
+            return Constants::LEVEL_TWO;
     }
 
     return Constants::LEVEL_ONE;
 }
 
 void LevelOne::reset_level(sf::RenderWindow& window) {
-    level_lost = false;
+    game_lost = false;
     mass_object.reset();
     game_balls.clear();
     mass_object.compute(window);
@@ -327,14 +330,16 @@ string LevelTwo::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         }
         if (game_ball.shape_x_velocity == 0 && game_ball.shape_y_velocity == 0 && index < game_balls.size() - 2) {
             if (game_ball.shape.getPosition().y + game_ball.radius >= cannon_object.cannon_y_position - cannon_object.cannon.getGlobalBounds().height / 2) {
-                level_lost = true;
+                if (game_ball.ball_to_fall == false) {
+                    game_lost = true;
+                }
             }
         }
         index++;
     }
 
     if (mass_object.y_position >= cannon_object.cannon_y_position - cannon_object.cannon.getGlobalBounds().height / 2) {
-        level_lost = true;
+        game_lost = true;
     }
 
     mass_object.render(window);
@@ -356,8 +361,11 @@ string LevelTwo::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         cannon_object.load_cannon_with_ball(game_balls);
     }
 
-    if (level_lost) {
+    if (game_lost) {
         Registry::game_end_state = Constants::LOST;
+    }
+
+    if (game_lost || game_balls.size() == 2) {
         return Constants::END_MENU;
     }
 
@@ -365,7 +373,7 @@ string LevelTwo::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
 }
 
 void LevelTwo::reset_level(sf::RenderWindow& window) {
-    level_lost = false;
+    game_lost = false;
     mass_object.reset();
     game_balls.clear();
     mass_object.compute(window);

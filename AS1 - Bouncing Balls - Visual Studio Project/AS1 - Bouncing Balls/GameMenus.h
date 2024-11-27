@@ -28,7 +28,7 @@ class LevelOne {
     vector<Ball> game_balls; // last 2 ALWAYS belong to the cannon for firing.
     Cannon cannon_object = Cannon(game_balls);
     Mass mass_object;
-    bool level_lost = false;
+    bool game_lost = false;
     LevelInstructions instructions;
     Dragon left_dragon;
     Dragon right_dragon;
@@ -47,7 +47,7 @@ class LevelTwo {
     vector<Ball> game_balls; // last 2 ALWAYS belong to the cannon for firing.
     Cannon cannon_object = Cannon(game_balls);
     Mass mass_object;
-    bool level_lost = false;
+    bool game_lost = false;
     LevelInstructions instructions;
     Dragon left_dragon;
     Dragon right_dragon;

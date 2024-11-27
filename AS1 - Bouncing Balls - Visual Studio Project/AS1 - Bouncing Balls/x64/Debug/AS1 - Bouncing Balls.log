@@ -1,9 +1,2 @@
-﻿  GameGraphics.cpp
-  GameMenus.cpp
-  GameObjects.cpp
-G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\AS1 - Bouncing Balls\GameObjects.cpp(227,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  UtilityFunctions.cpp
-  UtilityObjects.cpp
-  main.cpp
-  Generating Code...
+﻿  GameMenus.cpp
   AS1 - Bouncing Balls.vcxproj -> G:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\x64\Debug\AS1 - Bouncing Balls.exe
