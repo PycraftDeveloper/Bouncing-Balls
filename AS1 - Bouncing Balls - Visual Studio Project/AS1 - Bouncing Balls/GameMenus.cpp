@@ -201,7 +201,7 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         return Constants::END_MENU;
     }
     else if (game_balls.size() == 2) {
-            return Constants::LEVEL_TWO;
+        return Constants::LEVEL_TWO;
     }
 
     return Constants::LEVEL_ONE;
@@ -390,7 +390,7 @@ void LevelTwo::reset_level(sf::RenderWindow& window) {
 GameEndMenu::GameEndMenu() {
 }
 
-string GameEndMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input, bool game_won) {
+string GameEndMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     // this runs once every frame
     // render game title
     left_dragon.compute(Constants::LEFT);
@@ -403,13 +403,14 @@ string GameEndMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input
     title_text.render(window, "Bouncing Balls", 100, sf::Color::Black, true);
 
     // render game win state (win/loose)
-    game_win_state.set_position(window, -1, 200);
+    game_win_state.set_position(window, -1, 150);
+    game_score_result.set_position(window, -1, 200);
 
     string game_win_state_text_content;
     sf::Color game_win_state_text_color;
-    if (game_won) {
+    if (Registry::game_end_state == Constants::WIN) {
         game_win_state_text_content = "You WIN!!!";
-        game_win_state_text_color = sf::Color::Green;
+        game_win_state_text_color = sf::Color(60, 176, 67); // darker shade of green
     }
     else {
         game_win_state_text_content = "You Lost!!!";
@@ -417,6 +418,8 @@ string GameEndMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input
     }
 
     game_win_state.render(window, game_win_state_text_content, 50, game_win_state_text_color, true);
+
+    game_score_result.render(window, "Your Score: " + to_string(Registry::score), 50, sf::Color::Black);
 
     // render play again button
     bool play_again_button_result;
@@ -426,7 +429,7 @@ string GameEndMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input
     // render quit button
     bool quit_button_result;
     quit_button_result = quit_button.compute(player_input);
-    quit_button.render(window, -1, -101, "quit", 24, 20);
+    quit_button.render(window, -1, -101, "Quit", 24, 20);
 
     // identify what menu to transition to next
     if (quit_button_result) {
@@ -460,13 +463,22 @@ string PauseMenu::run_menu(
     resume_button_result = resume_button.compute(player_input);
     resume_button.render(window, -1, -1, "Resume Game", 24, 30);
 
+    // render main-menu button
+    bool main_menu_button_result;
+    main_menu_button_result = main_menu_button.compute(player_input);
+    main_menu_button.render(window, -1, -101, "Main Menu", 24, 20);
+
     // render quit button
     bool quit_button_result;
     quit_button_result = quit_button.compute(player_input);
-    quit_button.render(window, -1, -101, "quit", 24, 20);
+    quit_button.render(window, -1, -201, "Quit", 24, 20);
 
     if (quit_button_result) {
         return Constants::QUIT;
+    }
+
+    if (main_menu_button_result) {
+        return Constants::MAIN_MENU;
     }
 
     if (resume_button_result) {

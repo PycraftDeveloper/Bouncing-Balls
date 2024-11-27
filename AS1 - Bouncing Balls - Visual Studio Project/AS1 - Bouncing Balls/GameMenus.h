@@ -65,6 +65,7 @@ public:
 class GameEndMenu {
     Text title_text = Text(Constants::FONT_REGULAR);
     Text game_win_state = Text(Constants::FONT_PLAY);
+    Text game_score_result = Text(Constants::FONT_PLAY);
 
     Button play_again_button;
     Button quit_button;
@@ -74,7 +75,7 @@ class GameEndMenu {
 public:
     GameEndMenu();
 
-    string run_menu(sf::RenderWindow& window, PlayerInput& player_input, bool game_won);
+    string run_menu(sf::RenderWindow& window, PlayerInput& player_input);
 };
 
 class PauseMenu {
@@ -82,6 +83,7 @@ class PauseMenu {
     MainMenuInstructions instructions;
     Button resume_button;
     Button quit_button;
+    Button main_menu_button;
 
 public:
     PauseMenu();

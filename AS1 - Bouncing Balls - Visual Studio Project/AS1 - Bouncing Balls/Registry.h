@@ -15,6 +15,7 @@ namespace Registry {
 	extern sf::Music pop_sounds[15];
 	extern sf::Music cannon_fire_sound;
 	extern float ball_tesselation_coefficient;
+	extern int score;
 }
 
 #endif

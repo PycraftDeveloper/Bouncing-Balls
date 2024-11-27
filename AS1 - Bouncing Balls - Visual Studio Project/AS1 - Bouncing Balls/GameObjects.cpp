@@ -175,6 +175,7 @@ void Ball::collision(Ball& ball, vector<Ball>& game_balls) {
                     for (int i = 0; i < game_balls.size() - 2; i++) {
                         if (game_balls[i].group_flag) {
                             game_balls[i].popped = true;
+                            Registry::score += 50;
                             play_random_pop_sounds(1);
                         }
                     }

@@ -7,4 +7,5 @@ namespace Registry {
     sf::Music pop_sounds[15];
     sf::Music cannon_fire_sound;
     float ball_tesselation_coefficient = sqrt(3) * ball_radius;
+    int score = 0;
 }

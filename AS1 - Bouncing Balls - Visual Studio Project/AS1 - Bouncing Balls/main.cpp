@@ -37,7 +37,6 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
     * but I am keeping this relatively simple and small.
     */
     int score = 0;
-    bool game_won = false;
     bool window_full_screen = false;
     bool game_running = true;
 
@@ -137,6 +136,7 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
         ground.render(window);
 
         if (menu_navigation[0] == Constants::MAIN_MENU) {
+            Registry::score = 0;
             next_component = main_menu.run_menu(window, player_input);
             if (next_component != Constants::MAIN_MENU) {
                 menu_navigation[0] = next_component;
@@ -166,8 +166,7 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
         else if (menu_navigation[0] == Constants::END_MENU) {
             next_component = end_menu.run_menu(
                 window,
-                player_input,
-                game_won);
+                player_input);
 
             if (next_component != Constants::END_MENU) {
                 menu_navigation[0] = next_component;
