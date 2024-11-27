@@ -181,7 +181,7 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
 
     if (player_input.get_player_button_input() && ball_in_motion == false) {
         //play_cannon_fire_sound();
-        swap(game_balls[game_balls.size() - 2], game_balls[game_balls.size() - 1]);
+        swap(game_balls[game_balls.size() - 1], game_balls[game_balls.size() - 2]);
 
         // get the angle the cannon is pointing at and fire the ball in that same direction
         angle = (cannon_object.get_rotation() - 90) * Constants::DEGREES_TO_RADIANS_CONVERSION_CONSTANT;
@@ -193,6 +193,7 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         //game_balls[game_balls.size() - 2].set_position(0, 0);
 
         cannon_object.load_cannon_with_ball(game_balls);
+        swap(game_balls[game_balls.size() - 1], game_balls[game_balls.size() - 2]);
     }
 
     if (game_lost) {
@@ -359,13 +360,16 @@ string LevelTwo::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         //game_balls[game_balls.size() - 2].set_position(0, 0);
 
         cannon_object.load_cannon_with_ball(game_balls);
+        swap(game_balls[game_balls.size() - 1], game_balls[game_balls.size() - 2]);
     }
 
     if (game_lost) {
         Registry::game_end_state = Constants::LOST;
+        return Constants::END_MENU;
     }
 
-    if (game_lost || game_balls.size() == 2) {
+    if (game_balls.size() == 2) {
+        Registry::game_end_state = Constants::WIN;
         return Constants::END_MENU;
     }
 
