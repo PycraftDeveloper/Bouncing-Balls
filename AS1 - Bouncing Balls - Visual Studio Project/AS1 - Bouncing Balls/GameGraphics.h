@@ -1,4 +1,5 @@
 #pragma once
+#pragma warning( disable : 4244 )
 
 #include <SFML/Graphics.hpp>
 
@@ -12,7 +13,7 @@ class Cloud {
     float x_scale;
     float y_scale;
     float x_velocity;
-    float transparency;
+    int transparency;
     sf::Texture cloud_texture;
     sf::Sprite cloud;
     bool is_rendered;

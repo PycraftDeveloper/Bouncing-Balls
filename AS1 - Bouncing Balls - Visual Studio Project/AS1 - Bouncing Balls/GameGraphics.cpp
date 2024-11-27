@@ -1,3 +1,5 @@
+#pragma warning( disable : 4305 )
+
 #include <SFML/Graphics.hpp>
 #include <string>
 

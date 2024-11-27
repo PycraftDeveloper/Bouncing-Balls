@@ -7,7 +7,6 @@
 using namespace std;
 
 PlayerInput::PlayerInput() {
-    sf::Mouse mouse();
 }
 
 void PlayerInput::update(sf::RenderWindow& window) {
