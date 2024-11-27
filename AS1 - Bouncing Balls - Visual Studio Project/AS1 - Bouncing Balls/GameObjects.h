@@ -10,8 +10,8 @@ class Mass {
 public:
     sf::Texture mass_texture;
     sf::Sprite mass;
-    float x_position;
-    float y_position;
+    int x_position;
+    int y_position;
     float mass_sprite_x_size;
     float mass_sprite_y_size;
     float vertical_offset = 0;

@@ -18,6 +18,7 @@ Mass::Mass() {
     mass_sprite_x_size = mass.getGlobalBounds().width;
     mass_sprite_y_size = mass.getGlobalBounds().height;
     y_position = -mass.getGlobalBounds().height; // start above the window!!!
+    x_position = (Registry::window_size[0] - mass_sprite_x_size) / 2;
 }
 
 int Mass::get_game_ceiling() {
@@ -95,7 +96,7 @@ void Ball::compute(Mass& mass) {
         x = game_surface_max_x - radius;
     }
     if (y - radius < game_y_minimum) {
-        //y = radius + game_y_minimum;
+        y = radius + game_y_minimum;
     }
     if (y - radius > Registry::window_size[1]) {
         popped = true;
