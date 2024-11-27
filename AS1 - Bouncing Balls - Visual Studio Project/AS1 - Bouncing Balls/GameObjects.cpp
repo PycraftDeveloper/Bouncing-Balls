@@ -214,7 +214,7 @@ Cannon::Cannon(vector<Ball>& game_balls) {
     unrotated_cannon_height = cannon.getGlobalBounds().height;
 }
 
-void Cannon::set_position(float new_x, float new_y, vector<Ball>& game_balls) {
+void Cannon::set_position(int new_x, int new_y, vector<Ball>& game_balls) {
     cannon_x_position = new_x;
     cannon_y_position = new_y;
 

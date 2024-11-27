@@ -13,7 +13,7 @@ public:
     int x_position;
     int y_position;
     float mass_sprite_x_size;
-    float mass_sprite_y_size;
+    float mass_sprite_y_size; // floats because used in scaling
     float vertical_offset = 0;
 
     Mass();
@@ -32,7 +32,7 @@ public:
 class Ball {
 public:
     float x, y;
-    float radius;
+    int radius;
     sf::Color color;
     float shape_x_velocity = 0;
     float shape_y_velocity = 0;
@@ -67,12 +67,12 @@ public:
     sf::Sprite cannon;
     float rotation = 0;
     int unrotated_cannon_height = 0;
-    float cannon_x_position = 0;
-    float cannon_y_position = 0;
+    int cannon_x_position = 0;
+    int cannon_y_position = 0;
 
     Cannon(vector<Ball>& game_balls);
 
-    void set_position(float new_x, float new_y, vector<Ball>& game_balls);
+    void set_position(int new_x, int new_y, vector<Ball>& game_balls);
 
     void load_cannon_with_ball(vector<Ball>& game_balls);
 
