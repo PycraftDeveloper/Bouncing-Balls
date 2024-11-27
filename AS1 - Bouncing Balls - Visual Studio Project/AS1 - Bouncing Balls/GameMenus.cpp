@@ -62,7 +62,7 @@ LevelOne::LevelOne(sf::RenderWindow& window) {
 void LevelOne::create_ball_grid(vector<Ball>& game_balls) {
     int columns = 14;
     int x_pos = Registry::ball_radius;
-    int y_pos = Registry::ball_radius;
+    int y_pos = Registry::ball_radius + mass_object.get_game_ceiling();
     for (int row = 0; row < 6; row++) {
         if (row % 2 == 0) {
             columns = 14;
@@ -105,8 +105,8 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         if (index == game_balls.size() - 2) {
             angle = (cannon_object.get_rotation() - 90) * Constants::DEGREES_TO_RADIANS_CONVERSION_CONSTANT;
 
-            float x_pos = -sin(angle) * game_ball.radius / 2;
-            float y_pos = -cos(angle) * game_ball.radius / 2;
+            int x_pos = -sin(angle) * game_ball.radius / 2;
+            int y_pos = -cos(angle) * game_ball.radius / 2;
             game_ball.set_position(cannon_object.cannon.getPosition().x + x_pos, cannon_object.cannon.getPosition().y - y_pos);
 
         }
@@ -213,6 +213,8 @@ void LevelOne::reset_level(sf::RenderWindow& window) {
 }
 
 LevelTwo::LevelTwo(sf::RenderWindow& window) {
+    int ball_diameter = 2 * Registry::ball_radius;
+    mass_object.set_vertical_offset(-2 * ball_diameter);
     mass_object.compute(window);
 
     create_ball_grid(game_balls);
@@ -224,7 +226,7 @@ LevelTwo::LevelTwo(sf::RenderWindow& window) {
 void LevelTwo::create_ball_grid(vector<Ball>& game_balls) {
     int columns = 14;
     int x_pos = Registry::ball_radius;
-    int y_pos = Registry::ball_radius;
+    int y_pos = Registry::ball_radius + mass_object.get_game_ceiling();
     for (int row = 0; row < 8; row++) {
         if (row % 2 == 0) {
             columns = 14;
@@ -267,8 +269,8 @@ string LevelTwo::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         if (index == game_balls.size() - 2) {
             angle = (cannon_object.get_rotation() - 90) * Constants::DEGREES_TO_RADIANS_CONVERSION_CONSTANT;
 
-            float x_pos = -sin(angle) * game_ball.radius / 2;
-            float y_pos = -cos(angle) * game_ball.radius / 2;
+            int x_pos = -sin(angle) * game_ball.radius / 2;
+            int y_pos = -cos(angle) * game_ball.radius / 2;
             game_ball.set_position(cannon_object.cannon.getPosition().x + x_pos, cannon_object.cannon.getPosition().y - y_pos);
         }
 

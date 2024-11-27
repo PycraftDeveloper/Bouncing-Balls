@@ -24,6 +24,10 @@ int Mass::get_game_ceiling() {
     return y_position + mass.getGlobalBounds().height;
 }
 
+void Mass::set_vertical_offset(int offset) {
+    vertical_offset = offset;
+}
+
 void Mass::compute(sf::RenderWindow& window) {
     float x_scale = window.getSize().y / mass_sprite_x_size;
     mass.setScale(x_scale, x_scale);

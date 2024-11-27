@@ -9,7 +9,7 @@ using namespace std;
 
 void Cloud::generate_cloud() {
     x_position = rand() % Registry::window_size[0];
-    y_position = rand() % Registry::window_size[1] / 5.0;
+    y_position = rand() % Registry::window_size[1] / 5;
 
     float x_minimum_size = 50.0 / Registry::window_size[0];
     float x_maximum_size = 300.0 / Registry::window_size[0];

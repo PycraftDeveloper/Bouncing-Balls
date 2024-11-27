@@ -20,6 +20,8 @@ public:
 
     int get_game_ceiling();
 
+    void set_vertical_offset(int offset);
+
     void compute(sf::RenderWindow& window);
 
     void render(sf::RenderWindow& window);
