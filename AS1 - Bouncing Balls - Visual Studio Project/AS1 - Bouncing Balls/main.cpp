@@ -59,13 +59,13 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
     // and instead streamed as needed, meaning this isn't actually that
     // inefficient!
     for (int i = 0; i < 15; i++) { // 16
-        string file = to_string(i + 1) + ".wav";
+        string file = to_string(i + 1) + ".ogg";
         string path_components[4] = { "resources", "sounds", "pops", file };
         string file_path = path_builder(path_components);
         Registry::pop_sounds[i].openFromFile(file_path);
     }
 
-    string cannon_fire_sound_path_components[4] = { "resources", "sounds", "cannon fire.wav" };
+    string cannon_fire_sound_path_components[4] = { "resources", "sounds", "cannon fire.ogg" };
     Registry::cannon_fire_sound.openFromFile(path_builder(cannon_fire_sound_path_components));
     Registry::cannon_fire_sound.setVolume(30);
 
