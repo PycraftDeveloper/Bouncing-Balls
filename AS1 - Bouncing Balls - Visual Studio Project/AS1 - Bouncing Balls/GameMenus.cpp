@@ -253,10 +253,6 @@ void LevelOne::reset_level() {
 }
 
 void LevelOne::unload() {
-    for (int i = 0; i < 15; i++) {
-        pop_sounds[i].unload();
-    }
-
     cannon_object.unload();
     mass_object.unload();
 }
@@ -285,10 +281,10 @@ LevelTwo::LevelTwo() {
 }
 
 void LevelTwo::init() {
-    mass_object.compute();
-
     int ball_diameter = 2 * Registry::ball_radius;
     mass_object.set_vertical_offset(-2 * ball_diameter);
+
+    mass_object.compute();
 
     create_ball_grid(game_balls);
 
@@ -300,7 +296,6 @@ void LevelTwo::create_ball_grid(vector<Ball>& game_balls) {
     int columns = 14;
     int x_pos = Registry::ball_radius;
     int y_pos = Registry::ball_radius + mass_object.get_game_ceiling();
-    cout << mass_object.get_game_ceiling() << endl;
     for (int row = 0; row < 8; row++) {
         if (row % 2 == 0) {
             columns = 14;
@@ -463,10 +458,6 @@ void LevelTwo::reset_level() {
 }
 
 void LevelTwo::unload() {
-    for (int i = 0; i < 15; i++) {
-        pop_sounds[i].unload();
-    }
-
     cannon_object.unload();
     mass_object.unload();
 }

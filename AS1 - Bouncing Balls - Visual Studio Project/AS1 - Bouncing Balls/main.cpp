@@ -89,6 +89,9 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
                         menu_navigation[0] = Constants::PAUSE_MENU;
                         // note, this is flipped compared to above because exiting the pause menu
                     }
+                    else if (menu_navigation[0] == Constants::MAIN_MENU) {
+                        menu_navigation[0] = Constants::QUIT;
+                    }
                     break;
                 case sf::Keyboard::Num1: // [temporary] forced switching between levels
                     menu_navigation[0] = Constants::MAIN_MENU;
@@ -131,6 +134,8 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
                 menu_navigation[0] = next_component;
                 menu_navigation[1] = Constants::MAIN_MENU;
                 main_menu.unload();
+                level_one.reset_level(); // for when returning from pause menu
+                level_two.reset_level(); // for when returning from pause menu
             }
         }
         else if (menu_navigation[0] == Constants::LEVEL_ONE) {
@@ -175,6 +180,12 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
             if (next_component != Constants::PAUSE_MENU) {
                 menu_navigation[0] = next_component;
                 menu_navigation[1] = Constants::PAUSE_MENU;
+
+                if (next_component == Constants::MAIN_MENU) {
+                    level_one.unload();
+                    level_two.unload();
+                    end_menu.unload();
+                }
             }
         }
         else if (menu_navigation[0] == Constants::QUIT) {

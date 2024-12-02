@@ -79,16 +79,10 @@ public:
 class Sound {
 private:
     sf::Music sound;
-    string sound_file;
-    bool loaded = false;
 public:
     Sound();
 
     void init(string file_path);
-
-    void load();
-
-    void unload();
 
     void play();
 

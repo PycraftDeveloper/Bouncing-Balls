@@ -19,12 +19,7 @@ Mass::Mass() {
 void Mass::init(string file_path) {
     mass_texture_file_path = file_path;
 
-    load();
-
-    mass_sprite_x_size = mass.getGlobalBounds().width;
-    mass_sprite_y_size = mass.getGlobalBounds().height;
-    y_position = -mass.getGlobalBounds().height; // start above the window!!!
-    x_position = (Registry::window_size[0] - mass_sprite_x_size) / 2;
+    //load();
 }
 
 int Mass::get_game_ceiling() {
@@ -36,6 +31,9 @@ void Mass::set_vertical_offset(int offset) {
 }
 
 void Mass::compute() {
+    if (loaded == false) {
+        load();
+    }
     float x_scale = Registry::window_size[1] / mass_sprite_x_size;
     mass.setScale(x_scale, x_scale);
 
@@ -59,13 +57,24 @@ void Mass::reset() {
 
 void Mass::unload() {
     loaded = false;
-    mass_texture.~Texture();
+    cout << "Unload mass" << endl;
+    mass.setTexture(sf::Texture());
+    mass_texture = sf::Texture();
 }
 
 void Mass::load() {
+    cout << "Load mass" << endl;
     mass_texture.loadFromFile(mass_texture_file_path);
     mass_texture.setSmooth(true);
     mass.setTexture(mass_texture);
+
+    if (first_load) {
+        mass_sprite_x_size = mass.getGlobalBounds().width;
+        mass_sprite_y_size = mass.getGlobalBounds().height;
+        y_position = -mass.getGlobalBounds().height; // start above the window!!!
+        x_position = (Registry::window_size[0] - mass_sprite_x_size) / 2;
+        first_load = false;
+    }
     loaded = true;
 }
 
@@ -231,14 +240,6 @@ bool Ball::pop_sound_needs_playing() {
 }
 
 Cannon::Cannon() {
-    cannon.setPosition(500, 500);
-    cannon.setScale(0.168, 0.168);
-
-    float window_scale = Registry::window_size[1] / 720.0;
-    cannon.setScale(0.168 * window_scale, 0.168 * window_scale);
-    cannon.setOrigin(366, 366);
-    cannon.setRotation(0);
-    unrotated_cannon_height = cannon.getGlobalBounds().height;
 }
 
 void Cannon::init(string file_path) {
@@ -296,6 +297,16 @@ void Cannon::render(sf::RenderWindow& window) {
 void Cannon::load() {
     cannon_texture.loadFromFile(cannon_texture_file_path);
     cannon.setTexture(cannon_texture);
+
+    cannon.setPosition(500, 500);
+    cannon.setScale(0.168, 0.168);
+
+    float window_scale = Registry::window_size[1] / 720.0;
+    cannon.setScale(0.168 * window_scale, 0.168 * window_scale);
+    cannon.setOrigin(366, 366);
+    cannon.setRotation(0);
+    unrotated_cannon_height = cannon.getGlobalBounds().height;
+
     loaded = true;
 }
 

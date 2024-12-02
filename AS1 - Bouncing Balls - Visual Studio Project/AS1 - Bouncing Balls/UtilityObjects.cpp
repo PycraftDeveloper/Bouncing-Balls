@@ -245,24 +245,10 @@ Sound::Sound() {
 }
 
 void Sound::init(string file_path) {
-    sound_file = file_path;
-}
-
-void Sound::load() {
-    sound.openFromFile(sound_file);
-    loaded = true;
-}
-
-void Sound::unload() {
-    loaded = false;
-    stop();
-    sound.~Music();
+    sound.openFromFile(file_path);
 }
 
 void Sound::play() {
-    if (loaded == false) {
-        load();
-    }
     sound.stop();
     sound.play();
 }

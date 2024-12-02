@@ -17,6 +17,7 @@ public:
     float vertical_offset = 0;
     bool loaded = false;
     string mass_texture_file_path;
+    bool first_load = true;
 
     Mass();
 
