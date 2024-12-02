@@ -10,23 +10,31 @@ class Mass {
 public:
     sf::Texture mass_texture;
     sf::Sprite mass;
-    int x_position;
-    int y_position;
-    float mass_sprite_x_size;
-    float mass_sprite_y_size; // floats because used in scaling
+    int x_position = 0;
+    int y_position = 0;
+    float mass_sprite_x_size = 0;
+    float mass_sprite_y_size = 0; // floats because used in scaling
     float vertical_offset = 0;
+    bool loaded = false;
+    string mass_texture_file_path;
 
     Mass();
+
+    void init(string file_path);
 
     int get_game_ceiling();
 
     void set_vertical_offset(int offset);
 
-    void compute(sf::RenderWindow& window);
+    void compute();
 
     void render(sf::RenderWindow& window);
 
     void reset();
+
+    void load();
+
+    void unload();
 };
 
 class Ball {
@@ -41,6 +49,7 @@ public:
     bool group_flag = false;
     bool anchored_flag = false;
     bool ball_to_fall = false;
+    bool pop_sound_to_play = false;
 
     Ball(
         float x,
@@ -59,6 +68,8 @@ public:
     void collision(Ball& ball, vector<Ball>& game_balls);
 
     void render(sf::RenderWindow& window);
+
+    bool pop_sound_needs_playing();
 };
 
 class Cannon {
@@ -69,8 +80,12 @@ public:
     int unrotated_cannon_height = 0;
     int cannon_x_position = 0;
     int cannon_y_position = 0;
+    bool loaded = false;
+    string cannon_texture_file_path;
 
-    Cannon(vector<Ball>& game_balls);
+    Cannon();
+
+    void init(string file_path);
 
     void set_position(int new_x, int new_y, vector<Ball>& game_balls);
 
@@ -81,4 +96,8 @@ public:
     float get_rotation();
 
     void render(sf::RenderWindow& window);
+
+    void unload();
+
+    void load();
 };

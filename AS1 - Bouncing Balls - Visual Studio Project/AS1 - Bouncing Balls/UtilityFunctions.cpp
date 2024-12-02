@@ -44,30 +44,6 @@ string path_builder(string(&args)[4]) { // 4 matches the furthest point into the
     return resultant_path.substr(1, resultant_path.size());
 }
 
-void play_random_pop_sounds(int count) {
-    for (int i = 0; i < count; i++) {
-        int sound_index = rand() % 15;
-        Registry::pop_sounds[sound_index].play();
-    }
-    // it is possible to do this serially. By creating custom music objects 
-    // with a play function that mimics the music.play function and then 
-    // updating these objects every frame with custom delays.
-    // Note: doing this would require that the audio isn't already in its 
-    // delay state which could easily be added in. This limits max number 
-    // of sounds to 15, as that's how many unique files we have,
-    // however clever sound design should be able to mask this limitation.
-}
-
-void play_cannon_fire_sound() {
-    Registry::cannon_fire_sound.stop();
-    Registry::cannon_fire_sound.play();
-}
-
-void play_anvil_fail_sound() {
-    Registry::anvil_fail_sound.stop();
-    Registry::anvil_fail_sound.play();
-}
-
 sf::Color pick_ball_color() {
     int randomly_chosen_color = rand() % 3;
     if (randomly_chosen_color == 0) {

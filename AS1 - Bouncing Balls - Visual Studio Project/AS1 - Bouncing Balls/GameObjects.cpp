@@ -14,10 +14,13 @@
 using namespace std;
 
 Mass::Mass() {
-    string path_components[4] = { "resources", "images", "anvil.png" };
-    mass_texture.loadFromFile(path_builder(path_components));
-    mass_texture.setSmooth(true);
-    mass.setTexture(mass_texture);
+}
+
+void Mass::init(string file_path) {
+    mass_texture_file_path = file_path;
+
+    load();
+
     mass_sprite_x_size = mass.getGlobalBounds().width;
     mass_sprite_y_size = mass.getGlobalBounds().height;
     y_position = -mass.getGlobalBounds().height; // start above the window!!!
@@ -32,23 +35,38 @@ void Mass::set_vertical_offset(int offset) {
     vertical_offset = offset;
 }
 
-void Mass::compute(sf::RenderWindow& window) {
-    float x_scale = window.getSize().y / mass_sprite_x_size;
+void Mass::compute() {
+    float x_scale = Registry::window_size[1] / mass_sprite_x_size;
     mass.setScale(x_scale, x_scale);
 
     y_position = -mass.getGlobalBounds().height + vertical_offset;
 
-    x_position = (window.getSize().x - mass.getGlobalBounds().width) / 2;
+    x_position = (Registry::window_size[0] - mass.getGlobalBounds().width) / 2;
     vertical_offset += Constants::MASS_FALL_SPEED;//0.1; // this translates into space covered (down) onscreen.
 }
 
 void Mass::render(sf::RenderWindow& window) {
+    if (loaded == false) {
+        load();
+    }
     mass.setPosition(x_position, y_position);
     window.draw(mass);
 }
 
 void Mass::reset() {
     vertical_offset = 0;
+}
+
+void Mass::unload() {
+    loaded = false;
+    mass_texture.~Texture();
+}
+
+void Mass::load() {
+    mass_texture.loadFromFile(mass_texture_file_path);
+    mass_texture.setSmooth(true);
+    mass.setTexture(mass_texture);
+    loaded = true;
 }
 
 Ball::Ball(
@@ -176,7 +194,8 @@ void Ball::collision(Ball& ball, vector<Ball>& game_balls) {
                         if (game_balls[i].group_flag) {
                             game_balls[i].popped = true;
                             Registry::score += 50;
-                            play_random_pop_sounds(1);
+                            pop_sound_to_play = true;
+                            game_balls[i].pop_sound_to_play = true;
                         }
                     }
                 }
@@ -203,11 +222,15 @@ void Ball::render(sf::RenderWindow& window) {
     }
 }
 
-Cannon::Cannon(vector<Ball>& game_balls) {
-    string texture_path_components[4] = { "resources", "images", "cannon.png" };
-    cannon_texture.loadFromFile(path_builder(texture_path_components));
+bool Ball::pop_sound_needs_playing() {
+    if (pop_sound_to_play) {
+        pop_sound_to_play = false;
+        return true;
+    }
+    return false;
+}
 
-    cannon.setTexture(cannon_texture);
+Cannon::Cannon() {
     cannon.setPosition(500, 500);
     cannon.setScale(0.168, 0.168);
 
@@ -216,6 +239,10 @@ Cannon::Cannon(vector<Ball>& game_balls) {
     cannon.setOrigin(366, 366);
     cannon.setRotation(0);
     unrotated_cannon_height = cannon.getGlobalBounds().height;
+}
+
+void Cannon::init(string file_path) {
+    cannon_texture_file_path = file_path;
 }
 
 void Cannon::set_position(int new_x, int new_y, vector<Ball>& game_balls) {
@@ -260,5 +287,19 @@ float Cannon::get_rotation() {
 }
 
 void Cannon::render(sf::RenderWindow& window) {
+    if (loaded == false) {
+        load();
+    }
     window.draw(cannon);
+}
+
+void Cannon::load() {
+    cannon_texture.loadFromFile(cannon_texture_file_path);
+    cannon.setTexture(cannon_texture);
+    loaded = true;
+}
+
+void Cannon::unload() {
+    loaded = false;
+    cannon_texture.~Texture();
 }

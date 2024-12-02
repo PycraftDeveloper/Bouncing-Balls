@@ -240,3 +240,37 @@ bool Button::compute(PlayerInput& player_input) {
     }
     return false;
 }
+
+Sound::Sound() {
+}
+
+void Sound::init(string file_path) {
+    sound_file = file_path;
+}
+
+void Sound::load() {
+    sound.openFromFile(sound_file);
+    loaded = true;
+}
+
+void Sound::unload() {
+    loaded = false;
+    stop();
+    sound.~Music();
+}
+
+void Sound::play() {
+    if (loaded == false) {
+        load();
+    }
+    sound.stop();
+    sound.play();
+}
+
+void Sound::stop() {
+    sound.stop();
+}
+
+void Sound::set_volume(int volume) {
+    sound.setVolume(volume);
+}

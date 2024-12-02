@@ -22,44 +22,61 @@ public:
 
     string run_menu(sf::RenderWindow& window, PlayerInput& player_input);
 
+    void unload();
 };
 
 class LevelOne {
     vector<Ball> game_balls; // last 2 ALWAYS belong to the cannon for firing.
-    Cannon cannon_object = Cannon(game_balls);
+    Cannon cannon_object;
     Mass mass_object;
     bool game_lost = false;
     LevelInstructions instructions;
     Dragon left_dragon;
     Dragon right_dragon;
 
+    Sound pop_sounds[15];
+    Sound cannon_fire_sound;
+    Sound anvil_fail_sound;
+
 public:
-    LevelOne(sf::RenderWindow& window);
+    LevelOne();
+
+    void init();
 
     void create_ball_grid(vector<Ball>& game_balls);
 
     string run_menu(sf::RenderWindow& window, PlayerInput& player_input);
 
-    void reset_level(sf::RenderWindow& window);
+    void reset_level();
+
+    void unload();
 };
 
 class LevelTwo {
     vector<Ball> game_balls; // last 2 ALWAYS belong to the cannon for firing.
-    Cannon cannon_object = Cannon(game_balls);
+    Cannon cannon_object;
     Mass mass_object;
     bool game_lost = false;
     LevelInstructions instructions;
     Dragon left_dragon;
     Dragon right_dragon;
 
+    Sound pop_sounds[15];
+    Sound cannon_fire_sound;
+    Sound anvil_fail_sound;
+
 public:
-    LevelTwo(sf::RenderWindow& window);
+    LevelTwo();
+
+    void init();
 
     void create_ball_grid(vector<Ball>& game_balls);
 
     string run_menu(sf::RenderWindow& window, PlayerInput& player_input);
 
-    void reset_level(sf::RenderWindow& window);
+    void reset_level();
+
+    void unload();
 };
 
 class GameEndMenu {
@@ -76,6 +93,8 @@ public:
     GameEndMenu();
 
     string run_menu(sf::RenderWindow& window, PlayerInput& player_input);
+
+    void unload();
 };
 
 class PauseMenu {

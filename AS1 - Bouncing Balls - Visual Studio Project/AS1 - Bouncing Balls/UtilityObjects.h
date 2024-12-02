@@ -75,3 +75,24 @@ public:
 
     bool compute(PlayerInput& player_input);
 };
+
+class Sound {
+private:
+    sf::Music sound;
+    string sound_file;
+    bool loaded = false;
+public:
+    Sound();
+
+    void init(string file_path);
+
+    void load();
+
+    void unload();
+
+    void play();
+
+    void stop();
+
+    void set_volume(int volume);
+};

@@ -53,8 +53,35 @@ string MainMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     return Constants::MAIN_MENU;
 }
 
-LevelOne::LevelOne(sf::RenderWindow& window) {
-    mass_object.compute(window);
+void MainMenu::unload() {
+}
+
+LevelOne::LevelOne() {
+    for (int i = 0; i < 15; i++) { // 16
+        string file = to_string(i + 1) + ".ogg";
+        string pop_sound_path_components[4] = { "resources", "sounds", "pops", file };
+        string file_path = path_builder(pop_sound_path_components);
+        pop_sounds[i].init(file_path);
+    }
+
+    string cannon_texture_path_components[4] = { "resources", "images", "cannon.png" };
+    cannon_object.init(path_builder(cannon_texture_path_components));
+
+    string mass_texture_path_components[4] = { "resources", "images", "anvil.png" };
+    mass_object.init(path_builder(mass_texture_path_components));
+
+    string cannon_fire_sound_path_components[4] = { "resources", "sounds", "cannon fire.ogg" };
+    cannon_fire_sound.init(path_builder(cannon_fire_sound_path_components));
+    cannon_fire_sound.set_volume(30);
+
+    string anvil_fail_sound_path_components[4] = { "resources", "sounds", "anvil.ogg" };
+    anvil_fail_sound.init(path_builder(anvil_fail_sound_path_components));
+    anvil_fail_sound.set_volume(30);
+}
+
+void LevelOne::init() {
+    mass_object.compute();
+
     create_ball_grid(game_balls);
 
     cannon_object.load_cannon_with_ball(game_balls);
@@ -169,6 +196,12 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
                 }
             }
         }
+
+        if (game_ball.pop_sound_needs_playing()) {
+            int random_pop_sound_index = rand() % 15;
+            pop_sounds[random_pop_sound_index].play();
+        }
+
         index++;
     }
 
@@ -177,10 +210,10 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     }
 
     mass_object.render(window);
-    mass_object.compute(window);
+    mass_object.compute();
 
     if (player_input.get_player_button_input() && ball_in_motion == false) {
-        play_cannon_fire_sound();
+        cannon_fire_sound.play();
         swap(game_balls[game_balls.size() - 1], game_balls[game_balls.size() - 2]);
 
         // get the angle the cannon is pointing at and fire the ball in that same direction
@@ -197,7 +230,7 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     }
 
     if (game_lost) {
-        play_anvil_fail_sound();
+        anvil_fail_sound.play();
         Registry::game_end_state = Constants::LOST;
         return Constants::END_MENU;
     }
@@ -208,21 +241,54 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     return Constants::LEVEL_ONE;
 }
 
-void LevelOne::reset_level(sf::RenderWindow& window) {
+void LevelOne::reset_level() {
     game_lost = false;
     mass_object.reset();
     game_balls.clear();
-    mass_object.compute(window);
+    mass_object.compute();
     create_ball_grid(game_balls);
 
     cannon_object.load_cannon_with_ball(game_balls);
     cannon_object.load_cannon_with_ball(game_balls);
 }
 
-LevelTwo::LevelTwo(sf::RenderWindow& window) {
+void LevelOne::unload() {
+    for (int i = 0; i < 15; i++) {
+        pop_sounds[i].unload();
+    }
+
+    cannon_object.unload();
+    mass_object.unload();
+}
+
+LevelTwo::LevelTwo() {
+    for (int i = 0; i < 15; i++) { // 16
+        string file = to_string(i + 1) + ".ogg";
+        string pop_sound_path_components[4] = { "resources", "sounds", "pops", file };
+        string file_path = path_builder(pop_sound_path_components);
+        pop_sounds[i].init(file_path);
+    }
+
+    string cannon_texture_path_components[4] = { "resources", "images", "cannon.png" };
+    cannon_object.init(path_builder(cannon_texture_path_components));
+
+    string mass_texture_path_components[4] = { "resources", "images", "anvil.png" };
+    mass_object.init(path_builder(mass_texture_path_components));
+
+    string cannon_fire_sound_path_components[4] = { "resources", "sounds", "cannon fire.ogg" };
+    cannon_fire_sound.init(path_builder(cannon_fire_sound_path_components));
+    cannon_fire_sound.set_volume(30);
+
+    string anvil_fail_sound_path_components[4] = { "resources", "sounds", "anvil.ogg" };
+    anvil_fail_sound.init(path_builder(anvil_fail_sound_path_components));
+    anvil_fail_sound.set_volume(30);
+}
+
+void LevelTwo::init() {
+    mass_object.compute();
+
     int ball_diameter = 2 * Registry::ball_radius;
     mass_object.set_vertical_offset(-2 * ball_diameter);
-    mass_object.compute(window);
 
     create_ball_grid(game_balls);
 
@@ -234,6 +300,7 @@ void LevelTwo::create_ball_grid(vector<Ball>& game_balls) {
     int columns = 14;
     int x_pos = Registry::ball_radius;
     int y_pos = Registry::ball_radius + mass_object.get_game_ceiling();
+    cout << mass_object.get_game_ceiling() << endl;
     for (int row = 0; row < 8; row++) {
         if (row % 2 == 0) {
             columns = 14;
@@ -337,6 +404,12 @@ string LevelTwo::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
                 }
             }
         }
+
+        if (game_ball.pop_sound_needs_playing()) {
+            int random_pop_sound_index = rand() % 15;
+            pop_sounds[random_pop_sound_index].play();
+        }
+
         index++;
     }
 
@@ -345,10 +418,10 @@ string LevelTwo::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     }
 
     mass_object.render(window);
-    mass_object.compute(window);
+    mass_object.compute();
 
     if (player_input.get_player_button_input() && ball_in_motion == false) {
-        play_cannon_fire_sound();
+        cannon_fire_sound.play();
         swap(game_balls[game_balls.size() - 2], game_balls[game_balls.size() - 1]);
 
         // get the angle the cannon is pointing at and fire the ball in that same direction
@@ -365,7 +438,7 @@ string LevelTwo::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     }
 
     if (game_lost) {
-        play_anvil_fail_sound();
+        anvil_fail_sound.play();
         Registry::game_end_state = Constants::LOST;
         return Constants::END_MENU;
     }
@@ -378,15 +451,24 @@ string LevelTwo::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     return Constants::LEVEL_TWO;
 }
 
-void LevelTwo::reset_level(sf::RenderWindow& window) {
+void LevelTwo::reset_level() {
     game_lost = false;
     mass_object.reset();
     game_balls.clear();
-    mass_object.compute(window);
+    mass_object.compute();
     create_ball_grid(game_balls);
 
     cannon_object.load_cannon_with_ball(game_balls);
     cannon_object.load_cannon_with_ball(game_balls);
+}
+
+void LevelTwo::unload() {
+    for (int i = 0; i < 15; i++) {
+        pop_sounds[i].unload();
+    }
+
+    cannon_object.unload();
+    mass_object.unload();
 }
 
 GameEndMenu::GameEndMenu() {
@@ -443,6 +525,9 @@ string GameEndMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input
 
     // by default return to this menu on next run
     return Constants::END_MENU;
+}
+
+void GameEndMenu::unload() {
 }
 
 PauseMenu::PauseMenu() {

@@ -43,35 +43,20 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
     string next_component;
 
     // set-up game componentry
-    PlayerInput player_input = PlayerInput();
+    PlayerInput player_input;
 
     // set-up game levels
-    MainMenu main_menu = MainMenu();
-    LevelOne level_one = LevelOne(window);
-    LevelTwo level_two = LevelTwo(window);
-    GameEndMenu end_menu = GameEndMenu();
-    PauseMenu pause_menu = PauseMenu();
+    MainMenu main_menu;
+    LevelOne level_one;
+    LevelTwo level_two;
+    GameEndMenu end_menu;
+    PauseMenu pause_menu;
+
+    level_one.init();
+    level_two.init();
 
     Cloud clouds[15];
     Ground ground;
-
-    // Load pop sounds. Using music here means files aren't actually loaded
-    // and instead streamed as needed, meaning this isn't actually that
-    // inefficient!
-    for (int i = 0; i < 15; i++) { // 16
-        string file = to_string(i + 1) + ".ogg";
-        string path_components[4] = { "resources", "sounds", "pops", file };
-        string file_path = path_builder(path_components);
-        Registry::pop_sounds[i].openFromFile(file_path);
-    }
-
-    string cannon_fire_sound_path_components[4] = { "resources", "sounds", "cannon fire.ogg" };
-    Registry::cannon_fire_sound.openFromFile(path_builder(cannon_fire_sound_path_components));
-    Registry::cannon_fire_sound.setVolume(30);
-
-    string anvil_fail_sound_path_components[4] = { "resources", "sounds", "anvil.ogg" };
-    Registry::anvil_fail_sound.openFromFile(path_builder(anvil_fail_sound_path_components));
-    Registry::anvil_fail_sound.setVolume(30);
 
     sf::Music main_theme;
     string path_components[4] = { "resources", "music", "main theme [extended].ogg"};
@@ -145,6 +130,7 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
             if (next_component != Constants::MAIN_MENU) {
                 menu_navigation[0] = next_component;
                 menu_navigation[1] = Constants::MAIN_MENU;
+                main_menu.unload();
             }
         }
         else if (menu_navigation[0] == Constants::LEVEL_ONE) {
@@ -152,8 +138,9 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
             if (next_component != Constants::LEVEL_ONE) {
                 menu_navigation[0] = next_component;
                 menu_navigation[1] = Constants::LEVEL_ONE;
+                level_one.unload();
                 if (next_component != Constants::PAUSE_MENU) {
-                    level_one.reset_level(window);
+                    level_one.reset_level();
                 }
             }
         }
@@ -162,8 +149,9 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
             if (next_component != Constants::LEVEL_TWO) {
                 menu_navigation[0] = next_component;
                 menu_navigation[1] = Constants::LEVEL_TWO;
+                level_two.unload();
                 if (next_component != Constants::PAUSE_MENU) {
-                    level_two.reset_level(window);
+                    level_two.reset_level();
                 }
             }
         }
@@ -175,6 +163,7 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
             if (next_component != Constants::END_MENU) {
                 menu_navigation[0] = next_component;
                 menu_navigation[1] = Constants::END_MENU;
+                end_menu.unload();
             }
         }
         else if (menu_navigation[0] == Constants::PAUSE_MENU) {
