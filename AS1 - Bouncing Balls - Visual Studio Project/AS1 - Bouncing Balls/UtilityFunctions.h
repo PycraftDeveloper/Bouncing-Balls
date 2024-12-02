@@ -20,6 +20,8 @@ void play_random_pop_sounds(int count);
 
 void play_cannon_fire_sound();
 
+void play_anvil_fail_sound();
+
 sf::Color pick_ball_color();
 
 bool spread_group_flags(vector<Ball>& game_balls);

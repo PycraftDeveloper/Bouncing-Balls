@@ -180,7 +180,7 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     mass_object.compute(window);
 
     if (player_input.get_player_button_input() && ball_in_motion == false) {
-        //play_cannon_fire_sound();
+        play_cannon_fire_sound();
         swap(game_balls[game_balls.size() - 1], game_balls[game_balls.size() - 2]);
 
         // get the angle the cannon is pointing at and fire the ball in that same direction
@@ -197,6 +197,7 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     }
 
     if (game_lost) {
+        play_anvil_fail_sound();
         Registry::game_end_state = Constants::LOST;
         return Constants::END_MENU;
     }
@@ -347,7 +348,7 @@ string LevelTwo::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     mass_object.compute(window);
 
     if (player_input.get_player_button_input() && ball_in_motion == false) {
-        //play_cannon_fire_sound();
+        play_cannon_fire_sound();
         swap(game_balls[game_balls.size() - 2], game_balls[game_balls.size() - 1]);
 
         // get the angle the cannon is pointing at and fire the ball in that same direction
@@ -364,6 +365,7 @@ string LevelTwo::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     }
 
     if (game_lost) {
+        play_anvil_fail_sound();
         Registry::game_end_state = Constants::LOST;
         return Constants::END_MENU;
     }

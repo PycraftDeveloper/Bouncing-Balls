@@ -69,12 +69,16 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
     Registry::cannon_fire_sound.openFromFile(path_builder(cannon_fire_sound_path_components));
     Registry::cannon_fire_sound.setVolume(30);
 
+    string anvil_fail_sound_path_components[4] = { "resources", "sounds", "anvil.ogg" };
+    Registry::anvil_fail_sound.openFromFile(path_builder(anvil_fail_sound_path_components));
+    Registry::anvil_fail_sound.setVolume(30);
+
     sf::Music main_theme;
     string path_components[4] = { "resources", "music", "main theme [extended].ogg"};
     main_theme.openFromFile(path_builder(path_components));
     main_theme.setLoop(true);
     main_theme.setVolume(15);
-    //main_theme.play();
+    main_theme.play();
 
     while (game_running)
     {

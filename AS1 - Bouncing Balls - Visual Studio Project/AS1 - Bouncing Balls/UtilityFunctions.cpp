@@ -63,6 +63,11 @@ void play_cannon_fire_sound() {
     Registry::cannon_fire_sound.play();
 }
 
+void play_anvil_fail_sound() {
+    Registry::anvil_fail_sound.stop();
+    Registry::anvil_fail_sound.play();
+}
+
 sf::Color pick_ball_color() {
     int randomly_chosen_color = rand() % 3;
     if (randomly_chosen_color == 0) {

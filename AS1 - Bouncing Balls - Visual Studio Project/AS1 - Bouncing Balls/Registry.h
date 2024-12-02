@@ -14,6 +14,7 @@ namespace Registry {
 	extern int ball_radius;
 	extern sf::Music pop_sounds[15];
 	extern sf::Music cannon_fire_sound;
+	extern sf::Music anvil_fail_sound;
 	extern float ball_tesselation_coefficient;
 	extern int score;
 }
