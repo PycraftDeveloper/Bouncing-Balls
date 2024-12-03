@@ -1,4 +1,5 @@
 #pragma once
+#pragma warning( disable : 4244 )
 
 #include <SFML/Audio.hpp>
 #include <string>
@@ -12,9 +13,6 @@ namespace Registry {
 	extern int window_size[2];
 	extern string game_end_state;
 	extern int ball_radius;
-	extern sf::Music pop_sounds[15];
-	extern sf::Music cannon_fire_sound;
-	extern sf::Music anvil_fail_sound;
 	extern float ball_tesselation_coefficient;
 	extern int score;
 }

@@ -107,30 +107,28 @@ void LevelOne::create_ball_grid(vector<Ball>& game_balls) {
 
 string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     // this runs once every frame
-    instructions.compute();
-    instructions.render(window);
-
-    left_dragon.compute(Constants::LEFT);
-    left_dragon.render(window);
-
-    right_dragon.compute(Constants::RIGHT);
-    right_dragon.render(window);
-
     float angle = 0;
     bool ball_in_motion = false;
+    vector<int> garbage_ball_elements = {};
+    int index = 0;
+    int random_pop_sound_index, x_pos, y_pos;
 
-    cannon_object.render(window);
+    instructions.compute();
+    left_dragon.compute(Constants::LEFT);
+    right_dragon.compute(Constants::RIGHT);
     cannon_object.compute(window, player_input, game_balls);
 
-    vector<int> garbage_ball_elements = {};
+    instructions.render(window);
+    left_dragon.render(window);
+    right_dragon.render(window);
+    cannon_object.render(window);
 
-    int index = 0;
     for (auto& game_ball : game_balls) {
         if (index == game_balls.size() - 2) {
             angle = (cannon_object.get_rotation() - 90) * Constants::DEGREES_TO_RADIANS_CONVERSION_CONSTANT;
 
-            int x_pos = -sin(angle) * game_ball.radius / 2;
-            int y_pos = -cos(angle) * game_ball.radius / 2;
+            x_pos = -sin(angle) * game_ball.radius / 2;
+            y_pos = -cos(angle) * game_ball.radius / 2;
             game_ball.set_position(cannon_object.cannon.getPosition().x + x_pos, cannon_object.cannon.getPosition().y - y_pos);
 
         }
@@ -156,9 +154,55 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         game_balls.erase(game_balls.begin() + garbage_ball);
     }
 
-    /// anchored balls
+    anchor_balls_to_mass();
+
+    index = 0;
+    for (auto& game_ball : game_balls) {
+        if (game_ball.shape_x_velocity != 0 || game_ball.shape_y_velocity != 0) {
+            ball_in_motion = true;
+        }
+        if (game_ball.shape_x_velocity == 0 && game_ball.shape_y_velocity == 0 && index < game_balls.size() - 2) {
+            if (game_ball.shape.getPosition().y + game_ball.radius >= cannon_object.cannon_y_position - cannon_object.cannon.getGlobalBounds().height / 2) {
+                if (game_ball.ball_to_fall == false) {
+                    game_lost = true;
+                }
+            }
+        }
+
+        if (game_ball.pop_sound_needs_playing()) {
+            random_pop_sound_index = rand() % 15;
+            pop_sounds[random_pop_sound_index].play();
+        }
+
+        index++;
+    }
+
+    if (mass_object.y_position >= cannon_object.cannon_y_position - cannon_object.cannon.getGlobalBounds().height / 2) {
+        game_lost = true;
+    }
+
+    mass_object.render(window);
+    mass_object.compute();
+
+    if (player_input.get_player_button_input() && ball_in_motion == false) {
+        handle_fire_cannon_event(angle);
+    }
+
+    if (game_lost) {
+        anvil_fail_sound.play();
+        Registry::game_end_state = Constants::LOST;
+        return Constants::END_MENU;
+    }
+    else if (game_balls.size() == 2) {
+        return Constants::LEVEL_TWO;
+    }
+
+    return Constants::LEVEL_ONE;
+}
+
+void LevelOne::anchor_balls_to_mass() {
     for (int i = 0; i < game_balls.size() - 2; i++) {
-        if (game_balls[i].y - Registry::ball_radius <= mass_object.get_game_ceiling()+10) {
+        if (game_balls[i].y - Registry::ball_radius <= mass_object.get_game_ceiling() + 10) {
             game_balls[i].anchored_flag = true;
         }
     }
@@ -177,63 +221,20 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     for (int i = 0; i < game_balls.size() - 2; i++) {
         game_balls[i].anchored_flag = false;
     }
-    ///
+}
 
-    index = 0;
-    for (auto& game_ball : game_balls) {
-        if (game_ball.shape_x_velocity != 0 || game_ball.shape_y_velocity != 0) {
-            ball_in_motion = true;
-        }
-        if (game_ball.shape_x_velocity == 0 && game_ball.shape_y_velocity == 0 && index < game_balls.size() - 2) {
-            if (game_ball.shape.getPosition().y + game_ball.radius >= cannon_object.cannon_y_position - cannon_object.cannon.getGlobalBounds().height / 2) {
-                if (game_ball.ball_to_fall == false) {
-                    game_lost = true;
-                }
-            }
-        }
+void LevelOne::handle_fire_cannon_event(float angle) {
+    cannon_fire_sound.play();
+    swap(game_balls[game_balls.size() - 1], game_balls[game_balls.size() - 2]);
 
-        if (game_ball.pop_sound_needs_playing()) {
-            int random_pop_sound_index = rand() % 15;
-            pop_sounds[random_pop_sound_index].play();
-        }
+    float x_velocity = sin(angle) * Constants::BALL_SPEED;
+    float y_velocity = -cos(angle) * Constants::BALL_SPEED;
 
-        index++;
-    }
+    game_balls[game_balls.size() - 2].set_velocity(x_velocity, y_velocity);
+    //game_balls[game_balls.size() - 2].set_position(0, 0);
 
-    if (mass_object.y_position >= cannon_object.cannon_y_position - cannon_object.cannon.getGlobalBounds().height / 2) {
-        game_lost = true;
-    }
-
-    mass_object.render(window);
-    mass_object.compute();
-
-    if (player_input.get_player_button_input() && ball_in_motion == false) {
-        cannon_fire_sound.play();
-        swap(game_balls[game_balls.size() - 1], game_balls[game_balls.size() - 2]);
-
-        // get the angle the cannon is pointing at and fire the ball in that same direction
-        angle = (cannon_object.get_rotation() - 90) * Constants::DEGREES_TO_RADIANS_CONVERSION_CONSTANT;
-
-        float x_velocity = sin(angle) * Constants::BALL_SPEED;
-        float y_velocity = -cos(angle) * Constants::BALL_SPEED;
-
-        game_balls[game_balls.size() - 2].set_velocity(x_velocity, y_velocity);
-        //game_balls[game_balls.size() - 2].set_position(0, 0);
-
-        cannon_object.load_cannon_with_ball(game_balls);
-        swap(game_balls[game_balls.size() - 1], game_balls[game_balls.size() - 2]);
-    }
-
-    if (game_lost) {
-        anvil_fail_sound.play();
-        Registry::game_end_state = Constants::LOST;
-        return Constants::END_MENU;
-    }
-    else if (game_balls.size() == 2) {
-        return Constants::LEVEL_TWO;
-    }
-
-    return Constants::LEVEL_ONE;
+    cannon_object.load_cannon_with_ball(game_balls);
+    swap(game_balls[game_balls.size() - 1], game_balls[game_balls.size() - 2]);
 }
 
 void LevelOne::reset_level() {
@@ -314,30 +315,29 @@ void LevelTwo::create_ball_grid(vector<Ball>& game_balls) {
 
 string LevelTwo::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     // this runs once every frame
-    instructions.compute();
-    instructions.render(window);
-
-    left_dragon.compute(Constants::LEFT);
-    left_dragon.render(window);
-
-    right_dragon.compute(Constants::RIGHT);
-    right_dragon.render(window);
 
     float angle = 0;
     bool ball_in_motion = false;
+    vector<int> garbage_ball_elements = {};
+    int index = 0;
+    int random_pop_sound_index, x_pos, y_pos;
 
-    cannon_object.render(window);
+    instructions.compute();
+    right_dragon.compute(Constants::RIGHT);
+    left_dragon.compute(Constants::LEFT);
     cannon_object.compute(window, player_input, game_balls);
 
-    vector<int> garbage_ball_elements = {};
+    left_dragon.render(window);
+    instructions.render(window);
+    right_dragon.render(window);
+    cannon_object.render(window);
 
-    int index = 0;
     for (auto& game_ball : game_balls) {
         if (index == game_balls.size() - 2) {
             angle = (cannon_object.get_rotation() - 90) * Constants::DEGREES_TO_RADIANS_CONVERSION_CONSTANT;
 
-            int x_pos = -sin(angle) * game_ball.radius / 2;
-            int y_pos = -cos(angle) * game_ball.radius / 2;
+            x_pos = -sin(angle) * game_ball.radius / 2;
+            y_pos = -cos(angle) * game_ball.radius / 2;
             game_ball.set_position(cannon_object.cannon.getPosition().x + x_pos, cannon_object.cannon.getPosition().y - y_pos);
         }
 
@@ -362,7 +362,55 @@ string LevelTwo::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
         game_balls.erase(game_balls.begin() + garbage_ball);
     }
 
-    /// anchored balls
+    anchor_balls_to_mass();
+
+    index = 0;
+    for (auto& game_ball : game_balls) {
+        if (game_ball.shape_x_velocity != 0 || game_ball.shape_y_velocity != 0) {
+            ball_in_motion = true;
+        }
+        if (game_ball.shape_x_velocity == 0 && game_ball.shape_y_velocity == 0 && index < game_balls.size() - 2) {
+            if (game_ball.shape.getPosition().y + game_ball.radius >= cannon_object.cannon_y_position - cannon_object.cannon.getGlobalBounds().height / 2) {
+                if (game_ball.ball_to_fall == false) {
+                    game_lost = true;
+                }
+            }
+        }
+
+        if (game_ball.pop_sound_needs_playing()) {
+            random_pop_sound_index = rand() % 15;
+            pop_sounds[random_pop_sound_index].play();
+        }
+
+        index++;
+    }
+
+    if (mass_object.y_position >= cannon_object.cannon_y_position - cannon_object.cannon.getGlobalBounds().height / 2) {
+        game_lost = true;
+    }
+
+    mass_object.render(window);
+    mass_object.compute();
+
+    if (player_input.get_player_button_input() && ball_in_motion == false) {
+        handle_fire_cannon_event(angle);
+    }
+
+    if (game_lost) {
+        anvil_fail_sound.play();
+        Registry::game_end_state = Constants::LOST;
+        return Constants::END_MENU;
+    }
+
+    if (game_balls.size() == 2) {
+        Registry::game_end_state = Constants::WIN;
+        return Constants::END_MENU;
+    }
+
+    return Constants::LEVEL_TWO;
+}
+
+void LevelTwo::anchor_balls_to_mass() {
     for (int i = 0; i < game_balls.size() - 2; i++) {
         if (game_balls[i].y - Registry::ball_radius <= mass_object.get_game_ceiling() + 10) {
             game_balls[i].anchored_flag = true;
@@ -383,65 +431,20 @@ string LevelTwo::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     for (int i = 0; i < game_balls.size() - 2; i++) {
         game_balls[i].anchored_flag = false;
     }
-    ///
+}
 
-    index = 0;
-    for (auto& game_ball : game_balls) {
-        if (game_ball.shape_x_velocity != 0 || game_ball.shape_y_velocity != 0) {
-            ball_in_motion = true;
-        }
-        if (game_ball.shape_x_velocity == 0 && game_ball.shape_y_velocity == 0 && index < game_balls.size() - 2) {
-            if (game_ball.shape.getPosition().y + game_ball.radius >= cannon_object.cannon_y_position - cannon_object.cannon.getGlobalBounds().height / 2) {
-                if (game_ball.ball_to_fall == false) {
-                    game_lost = true;
-                }
-            }
-        }
+void LevelTwo::handle_fire_cannon_event(float angle) {
+    cannon_fire_sound.play();
+    swap(game_balls[game_balls.size() - 2], game_balls[game_balls.size() - 1]);
 
-        if (game_ball.pop_sound_needs_playing()) {
-            int random_pop_sound_index = rand() % 15;
-            pop_sounds[random_pop_sound_index].play();
-        }
+    float x_velocity = sin(angle) * Constants::BALL_SPEED;
+    float y_velocity = -cos(angle) * Constants::BALL_SPEED;
 
-        index++;
-    }
+    game_balls[game_balls.size() - 2].set_velocity(x_velocity, y_velocity);
+    //game_balls[game_balls.size() - 2].set_position(0, 0);
 
-    if (mass_object.y_position >= cannon_object.cannon_y_position - cannon_object.cannon.getGlobalBounds().height / 2) {
-        game_lost = true;
-    }
-
-    mass_object.render(window);
-    mass_object.compute();
-
-    if (player_input.get_player_button_input() && ball_in_motion == false) {
-        cannon_fire_sound.play();
-        swap(game_balls[game_balls.size() - 2], game_balls[game_balls.size() - 1]);
-
-        // get the angle the cannon is pointing at and fire the ball in that same direction
-        angle = (cannon_object.get_rotation() - 90) * Constants::DEGREES_TO_RADIANS_CONVERSION_CONSTANT;
-
-        float x_velocity = sin(angle) * Constants::BALL_SPEED;
-        float y_velocity = -cos(angle) * Constants::BALL_SPEED;
-
-        game_balls[game_balls.size() - 2].set_velocity(x_velocity, y_velocity);
-        //game_balls[game_balls.size() - 2].set_position(0, 0);
-
-        cannon_object.load_cannon_with_ball(game_balls);
-        swap(game_balls[game_balls.size() - 1], game_balls[game_balls.size() - 2]);
-    }
-
-    if (game_lost) {
-        anvil_fail_sound.play();
-        Registry::game_end_state = Constants::LOST;
-        return Constants::END_MENU;
-    }
-
-    if (game_balls.size() == 2) {
-        Registry::game_end_state = Constants::WIN;
-        return Constants::END_MENU;
-    }
-
-    return Constants::LEVEL_TWO;
+    cannon_object.load_cannon_with_ball(game_balls);
+    swap(game_balls[game_balls.size() - 1], game_balls[game_balls.size() - 2]);
 }
 
 void LevelTwo::reset_level() {

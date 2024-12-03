@@ -47,6 +47,10 @@ public:
 
     string run_menu(sf::RenderWindow& window, PlayerInput& player_input);
 
+    void anchor_balls_to_mass();
+
+    void handle_fire_cannon_event(float angle);
+
     void reset_level();
 
     void unload();
@@ -73,6 +77,10 @@ public:
     void create_ball_grid(vector<Ball>& game_balls);
 
     string run_menu(sf::RenderWindow& window, PlayerInput& player_input);
+
+    void anchor_balls_to_mass();
+
+    void handle_fire_cannon_event(float angle);
 
     void reset_level();
 
