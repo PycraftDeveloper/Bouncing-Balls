@@ -15,6 +15,7 @@ namespace Registry {
 	extern int ball_radius;
 	extern float ball_tesselation_coefficient;
 	extern int score;
+	extern float run_time;
 }
 
 #endif

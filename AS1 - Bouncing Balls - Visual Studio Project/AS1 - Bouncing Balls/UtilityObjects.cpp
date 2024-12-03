@@ -10,13 +10,17 @@ PlayerInput::PlayerInput() {
 }
 
 void PlayerInput::update(sf::RenderWindow& window) {
-    sf::Vector2i internal_position = mouse.getPosition(
-        window);
-    mouse_position[0] = internal_position.x;
-    mouse_position[1] = internal_position.y;
-    player_button_input = mouse.isButtonPressed(
-        sf::Mouse::Button::Left);
-
+    if (window.hasFocus() == false) {
+        player_button_input = false;
+    }
+    else {
+        sf::Vector2i internal_position = mouse.getPosition(
+            window);
+        mouse_position[0] = internal_position.x;
+        mouse_position[1] = internal_position.y;
+        player_button_input = mouse.isButtonPressed(
+            sf::Mouse::Button::Left);
+    }
     // enforce that when the player is not releasing the input quickly enough
     // the player input will be reset to false until the player releases the
     // input. This is to prevent the illusion of clicking through an object

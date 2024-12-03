@@ -64,6 +64,11 @@ int main()
     main_theme.setVolume(15);
     main_theme.play();
 
+    float main_theme_fade_start = -1;
+    float main_theme_fade_current = 0;
+    bool window_focus = true;
+    int current_volume = 15;
+
     while (game_running)
     {
         sf::Event event;
@@ -119,6 +124,26 @@ int main()
                     break;
                 }
             }
+        }
+
+        if (window.hasFocus() != window_focus) {
+            window_focus = window.hasFocus();
+            main_theme_fade_start = Registry::run_time;
+            current_volume = main_theme.getVolume();
+        }
+
+        if (window_focus == false) {
+            main_theme_fade_current = Registry::run_time;
+            main_theme.setVolume(interpolate_value(current_volume, 5, 1, main_theme_fade_current - main_theme_fade_start));
+
+            if (menu_navigation[0] == Constants::LEVEL_ONE || menu_navigation[1] == Constants::LEVEL_TWO) {
+                menu_navigation[1] = menu_navigation[0];
+                menu_navigation[0] = Constants::PAUSE_MENU;
+            }
+        }
+        else {
+            main_theme_fade_current = Registry::run_time;
+            main_theme.setVolume(interpolate_value(current_volume, 15, 1, main_theme_fade_current - main_theme_fade_start));
         }
 
         window.clear(Constants::SKY_BLUE);
@@ -204,6 +229,7 @@ int main()
 
         window.display();
         player_input.update(window);
+        Registry::run_time += 1 / 60.0;
     }
 
     return 0;

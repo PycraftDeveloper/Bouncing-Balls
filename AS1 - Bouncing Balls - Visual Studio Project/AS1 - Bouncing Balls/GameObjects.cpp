@@ -179,11 +179,17 @@ void Ball::collision(Ball& ball, vector<Ball>& game_balls) {
             // Make sure that when the balls collide they are split apart so 
             // they don't stick together, or appear to be inside each other
             float overlap = 0.5 * ((radius + ball.radius) - distance);
-            x += cos_angle * overlap;
-            y += sin_angle * overlap;
-            ball.x -= cos_angle * overlap;
-            ball.y -= sin_angle * overlap;
-
+            if (shape_x_velocity == 0 && shape_y_velocity == 0 && ball.shape_x_velocity == 0 && ball.shape_y_velocity == 0) {
+                x += cos_angle * overlap;
+                y += sin_angle * overlap;
+                ball.x -= cos_angle * overlap;
+                ball.y -= sin_angle * overlap;
+            }
+            else {
+                ball.x -= cos_angle * overlap * 2;
+                ball.y -= sin_angle * overlap * 2;
+            }
+            
             if (ball.shape_x_velocity != 0 || ball.shape_y_velocity != 0) {
                 // occurs only when the cannon collides with another ball.
                 ball.group_flag = true;

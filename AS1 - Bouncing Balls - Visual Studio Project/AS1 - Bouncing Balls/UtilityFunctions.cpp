@@ -8,6 +8,13 @@
 
 using namespace std;
 
+float interpolate_value(float start_value, float end_value, float target_duration, float current_duration) {
+    if (current_duration > target_duration) {
+        return end_value;
+    }
+    return start_value + ((end_value-start_value) / target_duration) * current_duration;
+}
+
 float pythagorean_distance(float x1, float y1, float x2, float y2) {
     return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
 }
