@@ -111,4 +111,6 @@ public:
         sf::RenderWindow& window,
         string* menu_navigation,
         PlayerInput& player_input);
+
+    void unload();
 };

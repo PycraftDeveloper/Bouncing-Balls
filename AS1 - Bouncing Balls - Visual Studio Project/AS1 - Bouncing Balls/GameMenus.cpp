@@ -50,6 +50,10 @@ string MainMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
 void MainMenu::unload() {
     left_dragon.unload();
     right_dragon.unload();
+    instructions.unload();
+    play_button.unload();
+    quit_button.unload();
+    title_text.unload();
 }
 
 LevelOne::LevelOne() {
@@ -252,6 +256,7 @@ void LevelOne::unload() {
     mass_object.unload();
     left_dragon.unload();
     right_dragon.unload();
+    instructions.unload();
 }
 
 LevelTwo::LevelTwo() {
@@ -459,6 +464,7 @@ void LevelTwo::unload() {
     mass_object.unload();
     left_dragon.unload();
     right_dragon.unload();
+    instructions.unload();
 }
 
 GameEndMenu::GameEndMenu() {
@@ -512,6 +518,11 @@ string GameEndMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input
 void GameEndMenu::unload() {
     left_dragon.unload();
     right_dragon.unload();
+    title_text.unload();
+    game_win_state.unload();
+    game_score_result.unload();
+    play_again_button.unload();
+    quit_button.unload();
 }
 
 PauseMenu::PauseMenu() {
@@ -550,4 +561,12 @@ string PauseMenu::run_menu(
         // go to previous level
     }
     return Constants::PAUSE_MENU; // stay on current window
+}
+
+void PauseMenu::unload() {
+    instructions.unload();
+    title_text.unload();
+    resume_button.unload();
+    quit_button.unload();
+    main_menu_button.unload();
 }

@@ -58,28 +58,25 @@ Text::Text(string font_face) {
 void Text::set_font_face(string new_font_face) {
     // used to set the font for the button
     font_face = new_font_face;
-    if (font_face == Constants::FONT_PLAY) {
-        string path_components[4] = {
-            "resources",
-            "fonts",
-            "Lilita_One Play",
-            "Play-Regular.ttf" };
+    string path_components[4];
 
-        font.loadFromFile(path_builder(path_components));
-        text.setFont(font);
+    if (font_face == Constants::FONT_PLAY) {
+        path_components[0] = "resources";
+        path_components[1] = "fonts";
+        path_components[2] = "Lilita_One Play";
+        path_components[3] = "Play-Regular.ttf";
     }
     else if (font_face == Constants::FONT_REGULAR) {
-        string path_components[4] = { "resources",
-            "fonts",
-            "Lilita_One",
-            "LilitaOne-Regular.ttf" };
-
-        font.loadFromFile(path_builder(path_components));
-        text.setFont(font);
+        path_components[0] = "resources";
+        path_components[1] = "fonts";
+        path_components[2] = "Lilita_One";
+        path_components[3] = "LilitaOne-Regular.ttf";
     }
     else {
         cout << "This is not a known font!";
+        return;
     }
+    file_path = path_builder(path_components);
 }
 
 sf::Text Text::get_text() {
@@ -91,6 +88,9 @@ void Text::set_position(
     sf::RenderWindow& window,
     int x_position,
     int y_position) {
+    if (loaded == false) {
+        load();
+    }
 
     // sets the button position on screen. This is separate from render so 
     // it can be called without rendering the text
@@ -118,6 +118,9 @@ void Text::render(
     sf::Color text_fill_color,
     bool text_is_bold,
     bool text_is_underlined) {
+    if (loaded ==false) {
+        load();
+    }
 
     // used to draw the text on screen efficiently
     bool text_changed = false;
@@ -157,6 +160,19 @@ void Text::render(
     text.setPosition(position[0], position[1]);
     text.setRotation(rotation);
     window.draw(text);
+}
+
+void Text::load() {
+    font.loadFromFile(file_path);
+    text.setFont(font);
+    loaded = true;
+}
+
+void Text::unload() {
+    loaded = false;
+    sf::Font new_font;
+    text.setFont(new_font);
+    font = new_font;
 }
 
 Button::Button(string font_face) {
@@ -239,4 +255,12 @@ bool Button::compute(PlayerInput& player_input) {
         }
     }
     return false;
+}
+
+void Button::load() {
+    content.load();
+}
+
+void Button::unload() {
+    content.unload();
 }

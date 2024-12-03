@@ -57,6 +57,10 @@ public:
     void compute();
 
     void render(sf::RenderWindow& window);
+
+    void load();
+
+    void unload();
 };
 
 class MainMenuInstructions {
@@ -77,6 +81,10 @@ public:
     void compute();
 
     void render(sf::RenderWindow& window);
+
+    void load();
+
+    void unload();
 };
 
 class Dragon {

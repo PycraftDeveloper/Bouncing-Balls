@@ -133,6 +133,18 @@ void MainMenuInstructions::render(sf::RenderWindow& window) {
     }
 }
 
+void MainMenuInstructions::load() {
+    for (int i = 0; i < 3; i++) {
+        instructions_text[i].load();
+    }
+}
+
+void MainMenuInstructions::unload() {
+    for (int i = 0; i < 3; i++) {
+        instructions_text[i].unload();
+    }
+}
+
 LevelInstructions::LevelInstructions() {
     for (int i = 0; i < 5; i++) {
         game_rules += " " + raw_game_rules;
@@ -176,6 +188,18 @@ void LevelInstructions::render(sf::RenderWindow& window) {
     for (int i = 0; i < 4; i++) {
         window.draw(bullet_mask[i]);
         window.draw(bullet[i]);
+    }
+}
+
+void LevelInstructions::load() {
+    for (int i = 0; i < 2; i++) {
+        instructions_text[i].load();
+    }
+}
+
+void LevelInstructions::unload() {
+    for (int i = 0; i < 2; i++) {
+        instructions_text[i].unload();
     }
 }
 

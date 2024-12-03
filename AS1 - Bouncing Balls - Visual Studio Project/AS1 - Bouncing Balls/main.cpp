@@ -83,6 +83,7 @@ int main()
                     if (menu_navigation[0] == Constants::PAUSE_MENU) {
                         menu_navigation[0] = menu_navigation[1];
                         menu_navigation[1] = Constants::PAUSE_MENU;
+                        pause_menu.unload();
                     } else if (menu_navigation[0] == Constants::LEVEL_ONE || menu_navigation[0] == Constants::LEVEL_TWO) {
                         menu_navigation[1] = menu_navigation[0];
                         menu_navigation[0] = Constants::PAUSE_MENU;
@@ -183,6 +184,7 @@ int main()
             if (next_component != Constants::PAUSE_MENU) {
                 menu_navigation[0] = next_component;
                 menu_navigation[1] = Constants::PAUSE_MENU;
+                pause_menu.unload();
 
                 if (next_component == Constants::MAIN_MENU) {
                     level_one.unload();

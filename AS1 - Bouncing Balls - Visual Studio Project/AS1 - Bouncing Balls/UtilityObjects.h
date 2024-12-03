@@ -26,6 +26,9 @@ public:
 };
 
 class Text {
+private:
+    bool loaded = false;
+    string file_path;
 public:
     sf::Font font;
     sf::Text text;
@@ -54,6 +57,10 @@ public:
         sf::Color text_fill_color,
         bool text_is_bold = false,
         bool text_is_underlined = false);
+
+    void load();
+
+    void unload();
 };
 
 class Button {
@@ -74,4 +81,8 @@ public:
         int button_padding = 50);
 
     bool compute(PlayerInput& player_input);
+
+    void unload();
+
+    void load();
 };
