@@ -19,8 +19,20 @@ Mass::Mass() {
     mass_texture_file_path = path_builder(mass_texture_path_components);
 }
 
+int Mass::get_x_position() {
+    return x_position;
+}
+
+int Mass::get_y_position() {
+    return y_position;
+}
+
 int Mass::get_game_ceiling() {
     return y_position + mass.getGlobalBounds().height;
+}
+
+int Mass::get_width() {
+    return mass.getGlobalBounds().width;
 }
 
 void Mass::set_vertical_offset(int offset) {
@@ -100,8 +112,8 @@ void Ball::set_position(float new_x, float new_y) {
 void Ball::compute(Mass& mass) {
     // check for a collision with the 'walls' of the game
     int game_y_minimum = mass.get_game_ceiling();
-    int game_surface_max_x = mass.x_position + mass.mass.getGlobalBounds().width;
-    int game_surface_min_x = mass.x_position;
+    int game_surface_max_x = mass.get_x_position() + mass.get_width();
+    int game_surface_min_x = mass.get_x_position();
 
     radius = Registry::ball_radius;
     shape.setRadius(Registry::ball_radius);
@@ -241,6 +253,46 @@ bool Ball::pop_sound_needs_playing() {
     return false;
 }
 
+bool Ball::get_popped() {
+    return popped;
+}
+
+float Ball::get_x_velocity() {
+    return shape_x_velocity;
+}
+
+float Ball::get_y_velocity() {
+    return shape_y_velocity;
+}
+
+float Ball::get_y_position() {
+    return y;
+}
+
+bool Ball::get_anchored() {
+    return anchored_flag;
+}
+
+bool Ball::get_is_ball_to_fall() {
+    return ball_to_fall;
+}
+
+void Ball::set_ball_to_fall(bool is_to_fall) {
+    ball_to_fall = is_to_fall;
+}
+
+void Ball::set_anchored(bool is_anchored) {
+    anchored_flag = is_anchored;
+}
+
+bool Ball::get_group_flag() {
+    return group_flag;
+}
+
+void Ball::set_group_flag(bool is_grouped) {
+    group_flag = is_grouped;
+}
+
 Cannon::Cannon() {
     string cannon_texture_path_components[4] = { "resources", "images", "cannon.png" };
     cannon_texture_file_path = path_builder(cannon_texture_path_components);
@@ -318,4 +370,16 @@ void Cannon::unload() {
     sf::Texture new_cannon_texture;
     cannon.setTexture(new_cannon_texture);
     cannon_texture = new_cannon_texture;
+}
+
+int Cannon::get_x_position() {
+    return cannon_x_position;
+}
+
+int Cannon::get_y_position() {
+    return cannon_y_position;
+}
+
+int Cannon::get_height() {
+    return cannon.getGlobalBounds().height;
 }

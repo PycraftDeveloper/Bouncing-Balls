@@ -29,7 +29,6 @@ class Text {
 private:
     bool loaded = false;
     string file_path;
-public:
     sf::Font font;
     sf::Text text;
     string text_attributes[5] = {};
@@ -37,6 +36,7 @@ public:
     int position[2] = { 0, 0 };
     int rotation = 0;
 
+public:
     Text(string font_face = Constants::FONT_PLAY);
 
     void set_font_face(string new_font_face = Constants::FONT_PLAY);
@@ -64,12 +64,13 @@ public:
 };
 
 class Button {
-public:
-    Text content = Text();
+private:
+    Text content;
     sf::RectangleShape background;
     string font_face = Constants::FONT_PLAY;
     bool hovering = false;
 
+public:
     Button(string font_face = Constants::FONT_PLAY);
 
     void render(

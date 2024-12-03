@@ -7,7 +7,7 @@
 #include "UtilityObjects.h"
 
 class Mass {
-public:
+private:
     sf::Texture mass_texture;
     sf::Sprite mass;
     int x_position = 0;
@@ -19,9 +19,16 @@ public:
     string mass_texture_file_path;
     bool first_load = true;
 
+public:
     Mass();
 
     int get_game_ceiling();
+
+    int get_x_position();
+
+    int get_y_position();
+
+    int get_width();
 
     void set_vertical_offset(int offset);
 
@@ -37,7 +44,7 @@ public:
 };
 
 class Ball {
-public:
+private:
     float x, y;
     int radius;
     sf::Color color;
@@ -50,6 +57,7 @@ public:
     bool ball_to_fall = false;
     bool pop_sound_to_play = false;
 
+public:
     Ball(
         float x,
         float y);
@@ -69,12 +77,23 @@ public:
     void render(sf::RenderWindow& window);
 
     bool pop_sound_needs_playing();
+
+    bool get_popped();
+    float get_x_velocity();
+    float get_y_velocity();
+    float get_y_position();
+    bool get_anchored();
+    bool get_is_ball_to_fall();
+    bool get_group_flag();
+
+    void set_anchored(bool is_anchored);
+    void set_ball_to_fall(bool is_to_fall);
+    void set_group_flag(bool is_grouped);
 };
 
 class Cannon {
 private:
     bool first_load = true;
-public:
     sf::Texture cannon_texture;
     sf::Sprite cannon;
     float rotation = 0;
@@ -84,6 +103,7 @@ public:
     bool loaded = false;
     string cannon_texture_file_path;
 
+public:
     Cannon();
 
     void set_position(int new_x, int new_y, vector<Ball>& game_balls);
@@ -99,4 +119,10 @@ public:
     void unload();
 
     void load();
+
+    int get_x_position();
+
+    int get_y_position();
+
+    int get_height();
 };

@@ -8,6 +8,7 @@
 #include "UtilityObjects.h"
 
 class Cloud {
+private:
     float x_position;
     int y_position;
     float x_scale;
@@ -17,9 +18,10 @@ class Cloud {
     sf::Texture cloud_texture;
     sf::Sprite cloud;
     bool is_rendered;
-public:
+
     void generate_cloud();
 
+public:
     Cloud();
 
     void compute();
@@ -28,9 +30,11 @@ public:
 };
 
 class Ground {
-public:
+private:
     sf::Texture grass_texture;
     sf::Sprite grass;
+
+public:
     Ground();
 
     void compute();
@@ -39,7 +43,7 @@ public:
 };
 
 class LevelInstructions {
-public:
+private:
     Text instructions_text[2];
 
     sf::RectangleShape bullet_mask[4];
@@ -52,6 +56,7 @@ public:
     int bullet_mask_size = bullet_size * 1.25;
     int game_start_area = (Registry::window_size[0] - Registry::window_size[1]) / 2;
 
+public:
     LevelInstructions();
 
     void compute();
@@ -64,7 +69,7 @@ public:
 };
 
 class MainMenuInstructions {
-public:
+private:
     Text instructions_text[3];
 
     sf::RectangleShape bullet_mask[4];
@@ -76,6 +81,7 @@ public:
     int bullet_size = bullet_radius * 2;
     int bullet_mask_size = bullet_size * 1.25;
 
+public:
     MainMenuInstructions();
 
     void compute();
@@ -91,13 +97,14 @@ class Dragon {
 private:
     bool loaded = false;
     string file_path;
-public:
+
     sf::Texture dragon_texture;
     sf::Sprite dragon;
 
     string dragon_color;
     float dragon_scale;
 
+public:
     Dragon();
 
     void compute(string position);

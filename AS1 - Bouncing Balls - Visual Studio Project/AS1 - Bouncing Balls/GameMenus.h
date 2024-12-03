@@ -9,6 +9,7 @@
 #include "GameGraphics.h"
 
 class MainMenu {
+private:
     string game_rules = "AIM AT BUBBLES OF THE SAME COLOR AND SHOOT!";
     Text title_text = Text(Constants::FONT_REGULAR);
     Button play_button;
@@ -26,6 +27,7 @@ public:
 };
 
 class LevelOne {
+private:
     vector<Ball> game_balls; // last 2 ALWAYS belong to the cannon for firing.
     Cannon cannon_object;
     Mass mass_object;
@@ -38,18 +40,18 @@ class LevelOne {
     sf::Music cannon_fire_sound;
     sf::Music anvil_fail_sound;
 
+    void anchor_balls_to_mass();
+
+    void handle_fire_cannon_event(float angle);
+
+    void create_ball_grid(vector<Ball>& game_balls);
+
 public:
     LevelOne();
 
     void init();
 
-    void create_ball_grid(vector<Ball>& game_balls);
-
     string run_menu(sf::RenderWindow& window, PlayerInput& player_input);
-
-    void anchor_balls_to_mass();
-
-    void handle_fire_cannon_event(float angle);
 
     void reset_level();
 
@@ -57,6 +59,7 @@ public:
 };
 
 class LevelTwo {
+private:
     vector<Ball> game_balls; // last 2 ALWAYS belong to the cannon for firing.
     Cannon cannon_object;
     Mass mass_object;
@@ -69,18 +72,18 @@ class LevelTwo {
     sf::Music cannon_fire_sound;
     sf::Music anvil_fail_sound;
 
+    void create_ball_grid(vector<Ball>& game_balls);
+
+    void anchor_balls_to_mass();
+
+    void handle_fire_cannon_event(float angle);
+
 public:
     LevelTwo();
 
     void init();
 
-    void create_ball_grid(vector<Ball>& game_balls);
-
     string run_menu(sf::RenderWindow& window, PlayerInput& player_input);
-
-    void anchor_balls_to_mass();
-
-    void handle_fire_cannon_event(float angle);
 
     void reset_level();
 
@@ -88,6 +91,7 @@ public:
 };
 
 class GameEndMenu {
+private:
     Text title_text = Text(Constants::FONT_REGULAR);
     Text game_win_state = Text(Constants::FONT_PLAY);
     Text game_score_result = Text(Constants::FONT_PLAY);
@@ -97,6 +101,7 @@ class GameEndMenu {
 
     Dragon left_dragon;
     Dragon right_dragon;
+
 public:
     GameEndMenu();
 
@@ -106,6 +111,7 @@ public:
 };
 
 class PauseMenu {
+private:
     Text title_text = Text(Constants::FONT_REGULAR);
     MainMenuInstructions instructions;
     Button resume_button;

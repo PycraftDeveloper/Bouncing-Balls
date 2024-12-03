@@ -71,7 +71,7 @@ bool spread_group_flags(vector<Ball>& game_balls) {
         for (int j = 0; j < game_balls.size() - 2; j++) {
             if (game_balls[i].check_collision_with_flag_ball(game_balls[j])) {
                 // check if ball in collision with one with group flag.
-                game_balls[i].group_flag = true;
+                game_balls[i].set_group_flag(true);
                 changed = true;
             }
         }
@@ -86,7 +86,7 @@ bool spread_anchor_flags(vector<Ball>& game_balls) {
         for (int j = 0; j < game_balls.size() - 2; j++) {
             if (game_balls[i].check_collision_with_anchor_ball(game_balls[j])) {
                 // check if ball in collision with one with group flag.
-                game_balls[i].anchored_flag = true;
+                game_balls[i].set_anchored(true);
                 changed = true;
             }
         }
@@ -97,7 +97,7 @@ bool spread_anchor_flags(vector<Ball>& game_balls) {
 int count_group_flags(vector<Ball>& game_balls) {
     int count = 0;
     for (int i = 0; i < game_balls.size() - 2; i++) {
-        if (game_balls[i].group_flag) {
+        if (game_balls[i].get_group_flag()) {
             count++;
         }
     }
