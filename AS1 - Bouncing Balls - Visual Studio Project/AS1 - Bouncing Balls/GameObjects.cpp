@@ -14,12 +14,8 @@
 using namespace std;
 
 Mass::Mass() {
-}
-
-void Mass::init(string file_path) {
-    mass_texture_file_path = file_path;
-
-    //load();
+    string mass_texture_path_components[4] = { "resources", "images", "anvil.png" };
+    mass_texture_file_path = path_builder(mass_texture_path_components);
 }
 
 int Mass::get_game_ceiling() {
@@ -57,13 +53,12 @@ void Mass::reset() {
 
 void Mass::unload() {
     loaded = false;
-    cout << "Unload mass" << endl;
-    mass.setTexture(sf::Texture());
-    mass_texture = sf::Texture();
+    sf::Texture new_mass_texture;
+    mass.setTexture(new_mass_texture);
+    mass_texture = new_mass_texture;
 }
 
 void Mass::load() {
-    cout << "Load mass" << endl;
     mass_texture.loadFromFile(mass_texture_file_path);
     mass_texture.setSmooth(true);
     mass.setTexture(mass_texture);
@@ -240,10 +235,8 @@ bool Ball::pop_sound_needs_playing() {
 }
 
 Cannon::Cannon() {
-}
-
-void Cannon::init(string file_path) {
-    cannon_texture_file_path = file_path;
+    string cannon_texture_path_components[4] = { "resources", "images", "cannon.png" };
+    cannon_texture_file_path = path_builder(cannon_texture_path_components);
 }
 
 void Cannon::set_position(int new_x, int new_y, vector<Ball>& game_balls) {
@@ -298,19 +291,24 @@ void Cannon::load() {
     cannon_texture.loadFromFile(cannon_texture_file_path);
     cannon.setTexture(cannon_texture);
 
-    cannon.setPosition(500, 500);
-    cannon.setScale(0.168, 0.168);
+    if (first_load) {
+        cannon.setPosition(-500, -500); // hide ofscreen until correctly positioned
+        cannon.setScale(0.168, 0.168);
 
-    float window_scale = Registry::window_size[1] / 720.0;
-    cannon.setScale(0.168 * window_scale, 0.168 * window_scale);
-    cannon.setOrigin(366, 366);
-    cannon.setRotation(0);
-    unrotated_cannon_height = cannon.getGlobalBounds().height;
+        float window_scale = Registry::window_size[1] / 720.0;
+        cannon.setScale(0.168 * window_scale, 0.168 * window_scale);
+        cannon.setOrigin(366, 366);
+        cannon.setRotation(0);
+        unrotated_cannon_height = cannon.getGlobalBounds().height;
+        first_load = false;
+    }
 
     loaded = true;
 }
 
 void Cannon::unload() {
     loaded = false;
-    cannon_texture.~Texture();
+    sf::Texture new_cannon_texture;
+    cannon.setTexture(new_cannon_texture);
+    cannon_texture = new_cannon_texture;
 }

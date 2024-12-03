@@ -12,8 +12,7 @@
 #include "Constants.h"
 #include "Registry.h"
 
-int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc-170 17.412 KB of stack!!!
-// ~ 2660 lines, PMMA is: 226511 lines or ~ 1482710 Bytes of stack or 1.48271 MB!!!
+int main()
 {
     srand(time(0)); // enforces random values using seed of current time.
 
@@ -91,6 +90,10 @@ int main() // https://learn.microsoft.com/en-us/cpp/code-quality/c6262?view=msvc
                     }
                     else if (menu_navigation[0] == Constants::MAIN_MENU) {
                         menu_navigation[0] = Constants::QUIT;
+                    }
+                    else if (menu_navigation[0] == Constants::END_MENU) {
+                        menu_navigation[1] = menu_navigation[0];
+                        menu_navigation[0] = Constants::MAIN_MENU;
                     }
                     break;
                 case sf::Keyboard::Num1: // [temporary] forced switching between levels

@@ -80,6 +80,9 @@ public:
 };
 
 class Dragon {
+private:
+    bool loaded = false;
+    string file_path;
 public:
     sf::Texture dragon_texture;
     sf::Sprite dragon;
@@ -92,4 +95,8 @@ public:
     void compute(string position);
 
     void render(sf::RenderWindow& window);
+
+    void load();
+
+    void unload();
 };

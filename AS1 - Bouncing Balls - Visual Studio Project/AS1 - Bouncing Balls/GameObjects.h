@@ -21,8 +21,6 @@ public:
 
     Mass();
 
-    void init(string file_path);
-
     int get_game_ceiling();
 
     void set_vertical_offset(int offset);
@@ -74,6 +72,8 @@ public:
 };
 
 class Cannon {
+private:
+    bool first_load = true;
 public:
     sf::Texture cannon_texture;
     sf::Sprite cannon;
@@ -85,8 +85,6 @@ public:
     string cannon_texture_file_path;
 
     Cannon();
-
-    void init(string file_path);
 
     void set_position(int new_x, int new_y, vector<Ball>& game_balls);
 

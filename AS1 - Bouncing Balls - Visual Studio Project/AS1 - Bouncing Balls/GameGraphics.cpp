@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <string>
+#include <iostream>
 
 #include "GameGraphics.h"
 #include "Registry.h"
@@ -196,14 +197,15 @@ Dragon::Dragon() {
         "kawaii",
         dragon_color + ".png"};
 
-    dragon_texture.loadFromFile(path_builder(path_components));
-    dragon_texture.setSmooth(true);
-    dragon.setTexture(dragon_texture);
+    file_path = path_builder(path_components);
 
     dragon_scale = random_float(0.05, 0.12);
 }
 
 void Dragon::compute(string position) {
+    if (loaded == false) {
+        load();
+    }
     float x_scale = dragon_scale;
     float y_scale = dragon_scale;
 
@@ -228,5 +230,22 @@ void Dragon::compute(string position) {
 }
 
 void Dragon::render(sf::RenderWindow& window) {
+    if (loaded == false) {
+        load();
+    }
     window.draw(dragon);
+}
+
+void Dragon::load() {
+    dragon_texture.loadFromFile(file_path);
+    dragon_texture.setSmooth(true);
+    dragon.setTexture(dragon_texture);
+    loaded = true;
+}
+
+void Dragon::unload() {
+    loaded = false;
+    sf::Texture new_dragon_texture;
+    dragon.setTexture(new_dragon_texture);
+    dragon_texture = new_dragon_texture;
 }

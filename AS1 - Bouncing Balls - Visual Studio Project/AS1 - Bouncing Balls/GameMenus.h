@@ -34,9 +34,9 @@ class LevelOne {
     Dragon left_dragon;
     Dragon right_dragon;
 
-    Sound pop_sounds[15];
-    Sound cannon_fire_sound;
-    Sound anvil_fail_sound;
+    sf::Music pop_sounds[15];
+    sf::Music cannon_fire_sound;
+    sf::Music anvil_fail_sound;
 
 public:
     LevelOne();
@@ -61,9 +61,9 @@ class LevelTwo {
     Dragon left_dragon;
     Dragon right_dragon;
 
-    Sound pop_sounds[15];
-    Sound cannon_fire_sound;
-    Sound anvil_fail_sound;
+    sf::Music pop_sounds[15];
+    sf::Music cannon_fire_sound;
+    sf::Music anvil_fail_sound;
 
 public:
     LevelTwo();
