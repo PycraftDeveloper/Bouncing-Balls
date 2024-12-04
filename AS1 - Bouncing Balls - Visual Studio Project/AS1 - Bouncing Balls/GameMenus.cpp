@@ -71,7 +71,7 @@ LevelOne::LevelOne() {
     cannon_fire_sound.setVolume(30);
     
     anvil_fail_sound.openFromFile(path_builder(anvil_fail_sound_path_components));
-    anvil_fail_sound.setVolume(30);
+    anvil_fail_sound.setVolume(40);
 }
 
 void LevelOne::init() {
@@ -116,80 +116,101 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     instructions.compute();
     left_dragon.compute(Constants::LEFT);
     right_dragon.compute(Constants::RIGHT);
-    cannon_object.compute(window, player_input, game_balls);
+
+    if (game_lost == false) {
+        cannon_object.compute(window, player_input, game_balls);
+    }
 
     instructions.render(window);
     left_dragon.render(window);
     right_dragon.render(window);
-    cannon_object.render(window);
 
-    for (auto& game_ball : game_balls) {
-        if (index == game_balls.size() - 2) {
-            angle = (cannon_object.get_rotation() - 90) * Constants::DEGREES_TO_RADIANS_CONVERSION_CONSTANT;
+    if (game_lost == false) {
+        cannon_object.render(window);
+    }
 
-            x_pos = -sin(angle) * Registry::ball_radius / 2;
-            y_pos = -cos(angle) * Registry::ball_radius / 2;
-            game_ball.set_position(cannon_object.get_x_position() + x_pos, cannon_object.get_y_position() - y_pos);
 
-        }
+    if (game_lost == false) {
+        for (auto& game_ball : game_balls) {
+            if (index == game_balls.size() - 2) {
+                angle = (cannon_object.get_rotation() - 90) * Constants::DEGREES_TO_RADIANS_CONVERSION_CONSTANT;
 
-        game_ball.compute(mass_object);
-        game_ball.render(window);
-        if (game_ball.get_popped()) {
-            garbage_ball_elements.emplace_back(index);
-        }
-        else if (game_ball.get_x_velocity() == 0 && game_ball.get_y_velocity() == 0 && index < game_balls.size() - 2) {
-            for (auto& collision_game_ball : game_balls) {
-                game_ball.collision(collision_game_ball, game_balls);
+                x_pos = -sin(angle) * Registry::ball_radius / 2;
+                y_pos = -cos(angle) * Registry::ball_radius / 2;
+                game_ball.set_position(cannon_object.get_x_position() + x_pos, cannon_object.get_y_position() - y_pos);
+
             }
-        }
-        index++;
-    }
 
-    game_balls[game_balls.size() - 1].render(window);
-
-    sort(garbage_ball_elements.rbegin(), garbage_ball_elements.rend());
-
-    for (int& garbage_ball : garbage_ball_elements) {
-        game_balls.erase(game_balls.begin() + garbage_ball);
-    }
-
-    anchor_balls_to_mass();
-
-    index = 0;
-    for (auto& game_ball : game_balls) {
-        if (game_ball.get_x_velocity() != 0 || game_ball.get_y_velocity() != 0) {
-            ball_in_motion = true;
-        }
-        if (game_ball.get_x_velocity() == 0 && game_ball.get_y_velocity() == 0 && index < game_balls.size() - 2) {
-            if (game_ball.get_y_position() + Registry::ball_radius >= cannon_object.get_y_position() - cannon_object.get_height() / 2) {
-                if (game_ball.get_is_ball_to_fall() == false) {
-                    game_lost = true;
+            game_ball.compute(mass_object);
+            game_ball.render(window);
+            if (game_ball.get_popped()) {
+                garbage_ball_elements.emplace_back(index);
+            }
+            else if (game_ball.get_x_velocity() == 0 && game_ball.get_y_velocity() == 0 && index < game_balls.size() - 2) {
+                for (auto& collision_game_ball : game_balls) {
+                    game_ball.collision(collision_game_ball, game_balls);
                 }
             }
+            index++;
         }
 
-        if (game_ball.pop_sound_needs_playing()) {
-            random_pop_sound_index = rand() % 15;
-            pop_sounds[random_pop_sound_index].play();
+        game_balls[game_balls.size() - 1].render(window);
+
+        sort(garbage_ball_elements.rbegin(), garbage_ball_elements.rend());
+
+        for (int& garbage_ball : garbage_ball_elements) {
+            game_balls.erase(game_balls.begin() + garbage_ball);
         }
 
-        index++;
-    }
+        anchor_balls_to_mass();
 
-    if (mass_object.get_y_position() >= cannon_object.get_y_position() - cannon_object.get_height() / 2) {
-        game_lost = true;
-    }
+        index = 0;
+        for (auto& game_ball : game_balls) {
+            if (game_ball.get_x_velocity() != 0 || game_ball.get_y_velocity() != 0) {
+                ball_in_motion = true;
+            }
+            if (game_ball.get_x_velocity() == 0 && game_ball.get_y_velocity() == 0 && index < game_balls.size() - 2) {
+                if (game_ball.get_y_position() + Registry::ball_radius >= cannon_object.get_y_position() - cannon_object.get_height() / 2) {
+                    if (game_ball.get_is_ball_to_fall() == false) {
+                        game_lost = true;
+                    }
+                }
+            }
 
+            if (game_ball.pop_sound_needs_playing()) {
+                random_pop_sound_index = rand() % 15;
+                pop_sounds[random_pop_sound_index].play();
+            }
+
+            index++;
+        }
+
+        if (mass_object.get_y_position() >= cannon_object.get_y_position() - cannon_object.get_height() / 2) {
+            game_lost = true;
+        }
+    }
     mass_object.render(window);
     mass_object.compute();
 
-    if (player_input.get_player_button_input() && ball_in_motion == false) {
-        handle_fire_cannon_event(angle);
+    if (game_lost == false) {
+        if (player_input.get_player_button_input() && ball_in_motion == false) {
+            handle_fire_cannon_event(angle);
+        }
     }
 
-    if (game_lost) {
+    if (game_lost && level_end_time == -1) {
+        level_end_time = Registry::run_time;
         anvil_fail_sound.play();
+        mass_object.set_is_falling(false);
+        mass_object.set_y_position(Registry::window_size[1] - mass_object.get_height());
+        for (int i = 0; i < 15; i++) {
+            // play each pop sound once!
+            random_pop_sound_index = rand() % 15;
+            pop_sounds[random_pop_sound_index].play();
+        }
+    }
+
+    if (game_lost && Registry::run_time - level_end_time > 3) {
         Registry::game_end_state = Constants::LOST;
         return Constants::END_MENU;
     }
@@ -275,7 +296,7 @@ LevelTwo::LevelTwo() {
     cannon_fire_sound.setVolume(30);
 
     anvil_fail_sound.openFromFile(path_builder(anvil_fail_sound_path_components));
-    anvil_fail_sound.setVolume(30);
+    anvil_fail_sound.setVolume(40);
 }
 
 void LevelTwo::init() {

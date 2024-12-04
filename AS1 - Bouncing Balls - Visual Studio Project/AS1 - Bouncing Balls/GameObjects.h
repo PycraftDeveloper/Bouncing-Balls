@@ -18,6 +18,7 @@ private:
     bool loaded = false;
     string mass_texture_file_path;
     bool first_load = true;
+    bool is_falling = true;
 
 public:
     Mass();
@@ -30,6 +31,8 @@ public:
 
     int get_width();
 
+    int get_height();
+
     void set_vertical_offset(int offset);
 
     void compute();
@@ -41,6 +44,10 @@ public:
     void load();
 
     void unload();
+
+    void set_is_falling(bool is_falling);
+
+    void set_y_position(int y_position);
 };
 
 class Ball {

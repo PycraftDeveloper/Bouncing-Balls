@@ -35,10 +35,10 @@ private:
     LevelInstructions instructions;
     Dragon left_dragon;
     Dragon right_dragon;
-
     sf::Music pop_sounds[15];
     sf::Music cannon_fire_sound;
     sf::Music anvil_fail_sound;
+    float level_end_time = -1;
 
     void anchor_balls_to_mass();
 
@@ -67,10 +67,10 @@ private:
     LevelInstructions instructions;
     Dragon left_dragon;
     Dragon right_dragon;
-
     sf::Music pop_sounds[15];
     sf::Music cannon_fire_sound;
     sf::Music anvil_fail_sound;
+    float level_end_time = -1;
 
     void create_ball_grid(vector<Ball>& game_balls);
 

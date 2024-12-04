@@ -35,8 +35,20 @@ int Mass::get_width() {
     return mass.getGlobalBounds().width;
 }
 
+int Mass::get_height() {
+    return mass.getGlobalBounds().height;
+}
+
 void Mass::set_vertical_offset(int offset) {
     vertical_offset = offset;
+}
+
+void Mass::set_is_falling(bool is_falling) {
+    Mass::is_falling = is_falling;
+}
+
+void Mass::set_y_position(int y_position) {
+    Mass::y_position = y_position;
 }
 
 void Mass::compute() {
@@ -46,10 +58,14 @@ void Mass::compute() {
     float x_scale = Registry::window_size[1] / mass_sprite_x_size;
     mass.setScale(x_scale, x_scale);
 
-    y_position = -mass.getGlobalBounds().height + vertical_offset;
-
+    if (is_falling) {
+        y_position = -mass.getGlobalBounds().height + vertical_offset;
+    }
     x_position = (Registry::window_size[0] - mass.getGlobalBounds().width) / 2;
-    vertical_offset += Constants::MASS_FALL_SPEED;//0.1; // this translates into space covered (down) onscreen.
+
+    if (is_falling) {
+        vertical_offset += Constants::MASS_FALL_SPEED;//0.1; // this translates into space covered (down) onscreen.
+    }
 }
 
 void Mass::render(sf::RenderWindow& window) {
@@ -62,6 +78,7 @@ void Mass::render(sf::RenderWindow& window) {
 
 void Mass::reset() {
     vertical_offset = 0;
+    is_falling = true;
 }
 
 void Mass::unload() {
