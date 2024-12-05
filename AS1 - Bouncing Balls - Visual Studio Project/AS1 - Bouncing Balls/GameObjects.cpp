@@ -173,7 +173,7 @@ void Ball::compute(Mass& mass) {
 }
 
 bool Ball::check_collision_with_flag_ball(Ball& ball) {
-    if (ball.color == color && ball.group_flag && group_flag == false) {
+    if (ball.color == color && ball.group_flag && group_flag == false && ball_to_fall == false) {
         // Calculate the distance between the two balls
         float distance = pythagorean_distance(x, y, ball.x, ball.y)-3;
         if (distance <= radius + ball.radius) {
@@ -184,7 +184,7 @@ bool Ball::check_collision_with_flag_ball(Ball& ball) {
 }
 
 bool Ball::check_collision_with_anchor_ball(Ball& ball) {
-    if (ball.anchored_flag && anchored_flag == false) {
+    if (ball.anchored_flag && anchored_flag == false && ball_to_fall == false) {
         // Calculate the distance between the two balls
         float distance = pythagorean_distance(x, y, ball.x, ball.y) - 3;
         if (distance <= radius + ball.radius) {
@@ -233,7 +233,6 @@ void Ball::collision(Ball& ball, vector<Ball>& game_balls) {
                     for (int i = 0; i < game_balls.size() - 2; i++) {
                         if (game_balls[i].group_flag) {
                             game_balls[i].popped = true;
-                            Registry::score += 50;
                             pop_sound_to_play = true;
                             game_balls[i].pop_sound_to_play = true;
                         }

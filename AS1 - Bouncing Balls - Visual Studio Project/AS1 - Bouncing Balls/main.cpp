@@ -62,7 +62,7 @@ int main()
     main_theme.openFromFile(path_builder(path_components));
     main_theme.setLoop(true);
     main_theme.setVolume(15);
-    main_theme.play();
+    //main_theme.play();
 
     float main_theme_fade_start = -1;
     float main_theme_fade_current = 0;
@@ -136,7 +136,7 @@ int main()
             main_theme_fade_current = Registry::run_time;
             main_theme.setVolume(interpolate_value(current_volume, 5, 1, main_theme_fade_current - main_theme_fade_start));
 
-            if (menu_navigation[0] == Constants::LEVEL_ONE || menu_navigation[1] == Constants::LEVEL_TWO) {
+            if (menu_navigation[0] == Constants::LEVEL_ONE || menu_navigation[0] == Constants::LEVEL_TWO) {
                 menu_navigation[1] = menu_navigation[0];
                 menu_navigation[0] = Constants::PAUSE_MENU;
             }

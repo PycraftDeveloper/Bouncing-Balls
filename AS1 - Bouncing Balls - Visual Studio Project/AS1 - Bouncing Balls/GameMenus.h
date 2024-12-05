@@ -39,6 +39,8 @@ private:
     sf::Music cannon_fire_sound;
     sf::Music anvil_fail_sound;
     float level_end_time = -1;
+    bool level_over = false;
+    Text level_complete_text;
 
     void anchor_balls_to_mass();
 
@@ -71,6 +73,8 @@ private:
     sf::Music cannon_fire_sound;
     sf::Music anvil_fail_sound;
     float level_end_time = -1;
+    bool level_over = false;
+    Text level_complete_text;
 
     void create_ball_grid(vector<Ball>& game_balls);
 
