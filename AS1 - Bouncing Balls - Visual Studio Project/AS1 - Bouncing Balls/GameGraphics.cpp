@@ -31,13 +31,9 @@ Cloud::Cloud() {
             "images",
             "cloud.png" };
 
-    cloud_texture.loadFromFile(path_builder(path_components));
-    cloud.setTexture(cloud_texture);
+    file_path = path_builder(path_components);
 
-    generate_cloud();
-
-    cloud.setScale(x_scale, y_scale);
-    cloud.setColor(sf::Color(255, 255, 255, transparency));
+    load();
 }
 
 void Cloud::compute() {
@@ -53,8 +49,34 @@ void Cloud::compute() {
 
 void Cloud::render(sf::RenderWindow& window) {
     if (is_rendered) {
+        if (loaded == false) {
+            load();
+        }
         window.draw(cloud);
     }
+    else {
+        if (loaded) {
+            unload();
+        }
+    }
+}
+
+void Cloud::load() {
+    cloud_texture.loadFromFile(file_path);
+    cloud.setTexture(cloud_texture);
+
+    generate_cloud();
+
+    cloud.setScale(x_scale, y_scale);
+    cloud.setColor(sf::Color(255, 255, 255, transparency));
+    loaded = true;
+}
+
+void Cloud::unload() {
+    loaded = false;
+    sf::Texture new_cloud_texture;
+    cloud.setTexture(new_cloud_texture);
+    cloud_texture = new_cloud_texture;
 }
 
 Ground::Ground() {

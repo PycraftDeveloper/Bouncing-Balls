@@ -18,6 +18,8 @@ private:
     sf::Texture cloud_texture;
     sf::Sprite cloud;
     bool is_rendered;
+    bool loaded;
+    string file_path;
 
     void generate_cloud();
 
@@ -27,6 +29,10 @@ public:
     void compute();
 
     void render(sf::RenderWindow& window);
+
+    void load();
+
+    void unload();
 };
 
 class Ground {
