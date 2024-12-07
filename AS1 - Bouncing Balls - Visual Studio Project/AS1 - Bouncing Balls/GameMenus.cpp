@@ -56,7 +56,7 @@ void MainMenu::unload() {
     title_text.unload();
 }
 
-LevelOne::LevelOne() {
+LevelTemplate::LevelTemplate() {
     string cannon_fire_sound_path_components[4] = { "resources", "sounds", "cannon fire.ogg" };
     string anvil_fail_sound_path_components[4] = { "resources", "sounds", "anvil.ogg" };
 
@@ -74,16 +74,7 @@ LevelOne::LevelOne() {
     anvil_fail_sound.setVolume(40);
 }
 
-void LevelOne::init() {
-    mass_object.compute();
-
-    create_ball_grid(game_balls);
-
-    cannon_object.load_cannon_with_ball(game_balls);
-    cannon_object.load_cannon_with_ball(game_balls);
-}
-
-void LevelOne::create_ball_grid(vector<Ball>& game_balls) {
+void LevelTemplate::create_ball_grid(vector<Ball>& game_balls) {
     int columns = 14;
     int x_pos = Registry::ball_radius;
     int y_pos = Registry::ball_radius + mass_object.get_game_ceiling();
@@ -105,7 +96,7 @@ void LevelOne::create_ball_grid(vector<Ball>& game_balls) {
     }
 }
 
-string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
+string LevelTemplate::run_menu(sf::RenderWindow& window, PlayerInput& player_input, string current_menu) {
     // this runs once every frame
     float angle = 0;
     bool ball_in_motion = false;
@@ -232,14 +223,20 @@ string LevelOne::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
             return Constants::END_MENU;
         }
         else if (level_over) {
-            return Constants::LEVEL_TWO;
+            if (current_menu == Constants::LEVEL_ONE) {
+                return Constants::LEVEL_TWO;
+            }
+            else if (current_menu == Constants::LEVEL_TWO) {
+                Registry::game_end_state = Constants::WIN;
+                return Constants::END_MENU;
+            }
         }
     }
 
-    return Constants::LEVEL_ONE;
+    return current_menu;
 }
 
-void LevelOne::anchor_balls_to_mass() {
+void LevelTemplate::anchor_balls_to_mass() {
     for (int i = 0; i < game_balls.size() - 2; i++) {
         if (game_balls[i].get_y_position() - Registry::ball_radius <= mass_object.get_game_ceiling() + 10) {
             game_balls[i].set_anchored(true);
@@ -263,7 +260,7 @@ void LevelOne::anchor_balls_to_mass() {
     }
 }
 
-void LevelOne::handle_fire_cannon_event(float angle) {
+void LevelTemplate::handle_fire_cannon_event(float angle) {
     cannon_fire_sound.play();
     swap(game_balls[game_balls.size() - 1], game_balls[game_balls.size() - 2]);
 
@@ -275,6 +272,15 @@ void LevelOne::handle_fire_cannon_event(float angle) {
 
     cannon_object.load_cannon_with_ball(game_balls);
     swap(game_balls[game_balls.size() - 1], game_balls[game_balls.size() - 2]);
+}
+
+void LevelOne::init() {
+    mass_object.compute();
+
+    create_ball_grid(game_balls);
+
+    cannon_object.load_cannon_with_ball(game_balls);
+    cannon_object.load_cannon_with_ball(game_balls);
 }
 
 void LevelOne::reset_level() {
@@ -294,30 +300,12 @@ void LevelOne::reset_level() {
     cannon_object.load_cannon_with_ball(game_balls);
 }
 
-void LevelOne::unload() {
+void LevelTemplate::unload() {
     cannon_object.unload();
     mass_object.unload();
     left_dragon.unload();
     right_dragon.unload();
     instructions.unload();
-}
-
-LevelTwo::LevelTwo() {
-    string cannon_fire_sound_path_components[4] = { "resources", "sounds", "cannon fire.ogg" };
-    string anvil_fail_sound_path_components[4] = { "resources", "sounds", "anvil.ogg" };
-
-    for (int i = 0; i < 15; i++) { // 16
-        string file = to_string(i + 1) + ".ogg";
-        string pop_sound_path_components[4] = { "resources", "sounds", "pops", file };
-        string file_path = path_builder(pop_sound_path_components);
-        pop_sounds[i].openFromFile(file_path);
-    }
-
-    cannon_fire_sound.openFromFile(path_builder(cannon_fire_sound_path_components));
-    cannon_fire_sound.setVolume(30);
-
-    anvil_fail_sound.openFromFile(path_builder(anvil_fail_sound_path_components));
-    anvil_fail_sound.setVolume(40);
 }
 
 void LevelTwo::init() {
@@ -331,198 +319,6 @@ void LevelTwo::init() {
 
     cannon_object.load_cannon_with_ball(game_balls);
     cannon_object.load_cannon_with_ball(game_balls);
-}
-
-void LevelTwo::create_ball_grid(vector<Ball>& game_balls) {
-    int columns = 14;
-    int x_pos = Registry::ball_radius;
-    int y_pos = Registry::ball_radius + mass_object.get_game_ceiling();
-    for (int row = 0; row < 8; row++) {
-        if (row % 2 == 0) {
-            columns = 14;
-            x_pos = Registry::ball_radius;
-        }
-        else {
-            columns = 13;
-            x_pos = Registry::ball_radius * 2;
-        }
-        for (int column = 0; column < columns; column++) {
-            Ball game_ball = Ball(x_pos + mass_object.get_x_position(), y_pos);
-            game_balls.emplace_back(game_ball);
-            x_pos += Registry::ball_radius * 2;
-        }
-        y_pos += Registry::ball_tesselation_coefficient;
-    }
-}
-
-string LevelTwo::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
-    // this runs once every frame
-
-    float angle = 0;
-    bool ball_in_motion = false;
-    vector<int> garbage_ball_elements = {};
-    int index = 0;
-    int random_pop_sound_index, x_pos, y_pos;
-
-    instructions.compute();
-    right_dragon.compute(Constants::RIGHT);
-    left_dragon.compute(Constants::LEFT);
-    if (level_over == false) {
-        cannon_object.compute(window, player_input, game_balls);
-    }
-
-    left_dragon.render(window);
-    instructions.render(window);
-    right_dragon.render(window);
-
-    if (level_over == false) {
-        cannon_object.render(window);
-    }
-
-    if (level_over == false) {
-        for (auto& game_ball : game_balls) {
-            if (index == game_balls.size() - 2) {
-                angle = (cannon_object.get_rotation() - 90) * Constants::DEGREES_TO_RADIANS_CONVERSION_CONSTANT;
-
-                x_pos = -sin(angle) * Registry::ball_radius / 2;
-                y_pos = -cos(angle) * Registry::ball_radius / 2;
-                game_ball.set_position(cannon_object.get_x_position() + x_pos, cannon_object.get_y_position() - y_pos);
-            }
-
-            game_ball.compute(mass_object);
-            game_ball.render(window);
-            if (game_ball.get_popped()) {
-                garbage_ball_elements.emplace_back(index);
-            }
-            else if (game_ball.get_x_velocity() == 0 && game_ball.get_y_velocity() == 0 && index < game_balls.size() - 2) {
-                for (auto& collision_game_ball : game_balls) {
-                    game_ball.collision(collision_game_ball, game_balls);
-                }
-            }
-            index++;
-        }
-
-        game_balls[game_balls.size() - 1].render(window);
-
-        sort(garbage_ball_elements.rbegin(), garbage_ball_elements.rend());
-
-        for (int& garbage_ball : garbage_ball_elements) {
-            game_balls.erase(game_balls.begin() + garbage_ball);
-        }
-
-        anchor_balls_to_mass();
-
-        index = 0;
-        for (auto& game_ball : game_balls) {
-            if (game_ball.get_x_velocity() != 0 || game_ball.get_y_velocity() != 0) {
-                ball_in_motion = true;
-            }
-            if (game_ball.get_x_velocity() == 0 && game_ball.get_y_velocity() == 0 && index < game_balls.size() - 2) {
-                if (game_ball.get_y_position() + Registry::ball_radius >= cannon_object.get_y_position() - cannon_object.get_height() / 2) {
-                    if (game_ball.get_is_ball_to_fall() == false) {
-                        game_lost = true;
-                    }
-                }
-            }
-
-            if (game_ball.pop_sound_needs_playing()) {
-                random_pop_sound_index = rand() % 15;
-                pop_sounds[random_pop_sound_index].play();
-            }
-
-            index++;
-        }
-
-        if (mass_object.get_y_position() >= cannon_object.get_y_position() - cannon_object.get_height() / 2) {
-            game_lost = true;
-        }
-    }
-    mass_object.render(window);
-    mass_object.compute();
-
-    if (level_over == false) {
-        if (player_input.get_player_button_input() && ball_in_motion == false) {
-            handle_fire_cannon_event(angle);
-        }
-    }
-
-    if (game_balls.size() == 2) {
-        level_over = true;
-    }
-
-    if (level_end_time == -1) {
-        if (game_lost) {
-            level_end_time = Registry::run_time;
-            anvil_fail_sound.play();
-            mass_object.set_is_falling(false);
-            mass_object.set_y_position(Registry::window_size[1] - mass_object.get_height());
-            for (int i = 0; i < 15; i++) {
-                // play each pop sound once!
-                random_pop_sound_index = rand() % 15;
-                pop_sounds[random_pop_sound_index].play();
-            }
-        }
-        else if (level_over) {
-            mass_object.set_is_falling(false);
-            level_end_time = Registry::run_time;
-        }
-    }
-
-    if (level_over && game_lost == false) {
-        level_complete_text.set_position(window, -1, -1);
-        level_complete_text.render(window, "Level Complete!", 50, sf::Color(60, 176, 67), true);
-    }
-
-    if (Registry::run_time - level_end_time > 3) {
-        if (game_lost) {
-            Registry::game_end_state = Constants::LOST;
-            return Constants::END_MENU;
-        }
-        else if (level_over) {
-            Registry::game_end_state = Constants::WIN;
-            return Constants::END_MENU;
-        }
-    }
-
-    return Constants::LEVEL_TWO;
-}
-
-void LevelTwo::anchor_balls_to_mass() {
-    for (int i = 0; i < game_balls.size() - 2; i++) {
-        if (game_balls[i].get_y_position() - Registry::ball_radius <= mass_object.get_game_ceiling() + 10) {
-            game_balls[i].set_anchored(true);
-        }
-    }
-
-    bool changed = true;
-    while (changed) {
-        changed = spread_anchor_flags(game_balls);
-    }
-
-    for (int i = 0; i < game_balls.size() - 2; i++) {
-        if (game_balls[i].get_anchored() == false && game_balls[i].get_x_velocity() == 0 && game_balls[i].get_y_velocity() == 0 && game_balls[i].get_is_ball_to_fall() == false) {
-            game_balls[i].set_ball_to_fall(true);
-            Registry::score += 50;
-        }
-    }
-
-    for (int i = 0; i < game_balls.size() - 2; i++) {
-        game_balls[i].set_anchored(false);
-    }
-}
-
-void LevelTwo::handle_fire_cannon_event(float angle) {
-    cannon_fire_sound.play();
-    swap(game_balls[game_balls.size() - 2], game_balls[game_balls.size() - 1]);
-
-    float x_velocity = sin(angle) * Constants::BALL_SPEED;
-    float y_velocity = -cos(angle) * Constants::BALL_SPEED;
-
-    game_balls[game_balls.size() - 2].set_velocity(x_velocity, y_velocity);
-    //game_balls[game_balls.size() - 2].set_position(0, 0);
-
-    cannon_object.load_cannon_with_ball(game_balls);
-    swap(game_balls[game_balls.size() - 1], game_balls[game_balls.size() - 2]);
 }
 
 void LevelTwo::reset_level() {
@@ -543,14 +339,6 @@ void LevelTwo::reset_level() {
 
     cannon_object.load_cannon_with_ball(game_balls);
     cannon_object.load_cannon_with_ball(game_balls);
-}
-
-void LevelTwo::unload() {
-    cannon_object.unload();
-    mass_object.unload();
-    left_dragon.unload();
-    right_dragon.unload();
-    instructions.unload();
 }
 
 GameEndMenu::GameEndMenu() {

@@ -209,7 +209,7 @@ int main()
             }
         }
         else if (menu_navigation[0] == Constants::LEVEL_ONE) {
-            next_component = level_one.run_menu(window, player_input);
+            next_component = level_one.run_menu(window, player_input, Constants::LEVEL_ONE);
             if (next_component != Constants::LEVEL_ONE) {
                 menu_navigation[0] = next_component;
                 menu_navigation[1] = Constants::LEVEL_ONE;
@@ -222,7 +222,7 @@ int main()
             }
         }
         else if (menu_navigation[0] == Constants::LEVEL_TWO) {
-            next_component = level_two.run_menu(window, player_input);
+            next_component = level_two.run_menu(window, player_input, Constants::LEVEL_TWO);
             if (next_component != Constants::LEVEL_TWO) {
                 menu_navigation[0] = next_component;
                 menu_navigation[1] = Constants::LEVEL_TWO;

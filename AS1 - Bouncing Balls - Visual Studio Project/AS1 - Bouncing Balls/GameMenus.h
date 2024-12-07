@@ -26,8 +26,8 @@ public:
     void unload();
 };
 
-class LevelOne {
-private:
+class LevelTemplate {
+protected:
     vector<Ball> game_balls; // last 2 ALWAYS belong to the cannon for firing.
     Cannon cannon_object;
     Mass mass_object;
@@ -42,56 +42,32 @@ private:
     bool level_over = false;
     Text level_complete_text;
 
+    LevelTemplate();
+
+    void create_ball_grid(vector<Ball>& game_balls);
+
     void anchor_balls_to_mass();
 
     void handle_fire_cannon_event(float angle);
 
-    void create_ball_grid(vector<Ball>& game_balls);
-
 public:
-    LevelOne();
-
-    void init();
-
-    string run_menu(sf::RenderWindow& window, PlayerInput& player_input);
-
-    void reset_level();
+    string run_menu(sf::RenderWindow & window, PlayerInput & player_input, string current_menu);
 
     void unload();
 };
 
-class LevelTwo {
-private:
-    vector<Ball> game_balls; // last 2 ALWAYS belong to the cannon for firing.
-    Cannon cannon_object;
-    Mass mass_object;
-    bool game_lost = false;
-    LevelInstructions instructions;
-    Dragon left_dragon;
-    Dragon right_dragon;
-    sf::Music pop_sounds[15];
-    sf::Music cannon_fire_sound;
-    sf::Music anvil_fail_sound;
-    float level_end_time = -1;
-    bool level_over = false;
-    Text level_complete_text;
-
-    void create_ball_grid(vector<Ball>& game_balls);
-
-    void anchor_balls_to_mass();
-
-    void handle_fire_cannon_event(float angle);
-
+class LevelOne: public LevelTemplate {
 public:
-    LevelTwo();
-
     void init();
 
-    string run_menu(sf::RenderWindow& window, PlayerInput& player_input);
+    void reset_level();
+};
+
+class LevelTwo: public LevelTemplate {
+public:
+    void init();
 
     void reset_level();
-
-    void unload();
 };
 
 class GameEndMenu {
