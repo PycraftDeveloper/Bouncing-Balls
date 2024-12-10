@@ -19,13 +19,16 @@ Available inputs:
     * You can use the left click mouse button to fire the cannon in a level.
     * You can also use the left click mouse button to interact with buttons in game.
     * You can use the 'Enter' key for the exact same functionality as the left click mouse button.
+
+Each program in this project has been given an overview which discusses in more detail its purpose. Additionally
+for header files, focus has been put on why that component is necessary, and an overview of its purpose, whereas in the
+'.cpp'files a focus has been put on why the functionality has been written in this way as to avoid duplicating comments.
 */
 
 // include external libraries (third party content)
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <string>
-#include <iostream>
 #include <vector>
 
 // include internal libraries (first party content)
