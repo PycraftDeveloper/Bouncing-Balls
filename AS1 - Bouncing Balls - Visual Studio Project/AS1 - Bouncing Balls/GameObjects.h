@@ -63,6 +63,8 @@ private:
     bool anchored_flag = false;
     bool ball_to_fall = false;
     bool pop_sound_to_play = false;
+    float ball_fall_start_time = 0;
+    int fall_distance = 0;
 
 public:
     Ball(

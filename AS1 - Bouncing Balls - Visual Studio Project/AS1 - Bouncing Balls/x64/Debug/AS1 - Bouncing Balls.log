@@ -1,7 +1,6 @@
 ﻿  GameGraphics.cpp
   GameMenus.cpp
   GameObjects.cpp
-  Registry.cpp
   UtilityFunctions.cpp
   UtilityObjects.cpp
   main.cpp

@@ -131,6 +131,7 @@ void Ball::compute(Mass& mass) {
     int game_y_minimum = mass.get_game_ceiling();
     int game_surface_max_x = mass.get_x_position() + mass.get_width();
     int game_surface_min_x = mass.get_x_position();
+    float time_difference;
 
     radius = Registry::ball_radius;
     shape.setRadius(Registry::ball_radius);
@@ -164,11 +165,21 @@ void Ball::compute(Mass& mass) {
     y += shape_y_velocity;
 
     if (ball_to_fall) {
-        y += 5;
+        if (ball_fall_start_time == 0) {
+            ball_fall_start_time = Registry::run_time;
+        }
+        time_difference = Registry::run_time - ball_fall_start_time;
+        y += Constants::MASS_FALL_SPEED * time_difference + Constants::ACCELERATION_DUE_TO_GRAVITY * pow(time_difference, 2);
+        // s = ut + 0.5at**2
+        // u = Constants::MASS_FALL_SPEED
+        // t = time_difference
+        // a = Constants::ACCELERATION_DUE_TO_GRAVITY
     }
+    else {
 
-    if (shape_x_velocity == 0 && shape_y_velocity == 0) {
-        y += Constants::MASS_FALL_SPEED;
+        if (shape_x_velocity == 0 && shape_y_velocity == 0) {
+            y += Constants::MASS_FALL_SPEED;
+        }
     }
 }
 
