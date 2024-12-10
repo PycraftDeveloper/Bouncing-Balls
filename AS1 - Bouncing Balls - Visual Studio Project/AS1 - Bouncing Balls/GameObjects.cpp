@@ -383,7 +383,7 @@ void Cannon::load() {
 
         float window_scale = Registry::window_size[1] / 720.0;
         cannon.setScale(0.168 * window_scale, 0.168 * window_scale);
-        cannon.setOrigin(366, 366);
+        cannon.setOrigin(366, 170); // the origin is set to the centre of the original texture size.
         cannon.setRotation(0);
         unrotated_cannon_height = cannon.getGlobalBounds().height;
         first_load = false;
