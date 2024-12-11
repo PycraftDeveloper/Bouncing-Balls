@@ -1,17 +1,9 @@
 REFERENCES
 ==========
 
-https://www.novelgames.com/en/bouncing/ - 01/10/2024 - 11:56
-https://www.sfml-dev.org/documentation/2.6.1/index.php - 03/10/2024 - 14:48
 https://www.geeksforgeeks.org/cpp-functions-pass-by-reference/ - 06/10/2024 - 16:14
-https://www.geeksforgeeks.org/c-classes-and-objects/ - 06/10/2024 - 16:28
 https://www.mobygames.com/game/5518/bust-a-move/ - 12/10/2024 - 20:49
 https://www.arcade-museum.com/Videogame/puzzle-bobble - 12/10/2024 - 20:45
-https://fonts.google.com/download/next-steps?preview.text=Bouncing%20Balls - 12/10/2024 - 21:38
-https://emojidb.org/bullet-emojis - 12/10/2024 - 21:43
-https://www.researchgate.net/profile/Lesley-Lubos/publication/314578015_The_Role_of_Colors_in_Stress_Reduction/links/5baf102e92851ca9ed2e6128/The-Role-of-Colors-in-Stress-Reduction.pdf - 20/11/2024 - 12:41
-https://www.researchgate.net/profile/Rakesh-Gupta/publication/349426950_COLOR_THERAPY_IN_MENTAL_HEALTH_AND_WELL_BEING/links/6033352aa6fdcc37a84253b0/COLOR-THERAPY-IN-MENTAL-HEALTH-AND-WELL-BEING.pdf - 20/11/2024 - 12:43
-https://www.color-meanings.com/shades-of-green-color-names-html-hex-rgb-codes/ - 27/11/2024 - 15:58
 
 GAME EXTRACTION
 ===============
