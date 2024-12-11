@@ -2,7 +2,6 @@
   GameMenus.cpp
   GameObjects.cpp
   Registry.cpp
-  UtilityFunctions.cpp
   UtilityObjects.cpp
   main.cpp
   Generating Code...

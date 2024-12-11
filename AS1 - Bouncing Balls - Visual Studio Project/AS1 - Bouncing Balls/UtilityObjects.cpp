@@ -67,7 +67,7 @@ void Text::set_font_face(string new_font_face) {
     if (font_face == Constants::FONT_PLAY) {
         path_components[0] = "resources";
         path_components[1] = "fonts";
-        path_components[2] = "Lilita_One Play";
+        path_components[2] = "Play";
         path_components[3] = "Play-Regular.ttf";
     }
     else if (font_face == Constants::FONT_REGULAR) {
