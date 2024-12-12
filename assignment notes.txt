@@ -5,6 +5,8 @@ https://www.geeksforgeeks.org/cpp-functions-pass-by-reference/ - 06/10/2024 - 16
 https://www.mobygames.com/game/5518/bust-a-move/ - 12/10/2024 - 20:49
 https://www.arcade-museum.com/Videogame/puzzle-bobble - 12/10/2024 - 20:45
 
+https://cplusplus.com/doc/tutorial/files/ - 11/12/2024 - 19:50
+
 GAME EXTRACTION
 ===============
 
