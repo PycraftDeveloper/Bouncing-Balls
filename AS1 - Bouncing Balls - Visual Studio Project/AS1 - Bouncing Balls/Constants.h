@@ -20,6 +20,11 @@ namespace Constants {
     // this has been done deliberately to 'bundle' them together, as to avoid accidentally attempting
     // to update them in code, which would result in an error as all the values have been declared
     // with the 'const' constraint.
+    const string TRUE{ "true" };
+    const string FALSE{ "false" };
+    // The two constants above are used to represent boolean values as strings for loading and saving
+    // data using text files.
+
     const string MAIN_MENU{ "main menu"};
     const string LEVEL_ONE{ "level one"};
     const string LEVEL_TWO{ "level two" };

@@ -41,6 +41,8 @@ namespace Registry {
 	extern float run_time; // this is used as a method of keeping track of now long the game loop has been running for, with each frame being
 	// exactly 1/60th of a second and thus that is what this variable is incremented by each frame. This is very important for ensuring linear
 	// interpolations and game physics run smoothly.
+	extern bool play_music; // this is used to control if music should or should not be played in game.
+	extern bool play_sounds; // this is used to control if sounds should be played in the game.
 }
 
 #endif

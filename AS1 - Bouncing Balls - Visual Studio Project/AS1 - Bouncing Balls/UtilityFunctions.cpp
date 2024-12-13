@@ -1,6 +1,7 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <fstream>
 
 #include "Constants.h"
 #include "Registry.h"
@@ -102,4 +103,77 @@ int count_group_flags(vector<Ball>& game_balls) {
         }
     }
     return count;
+}
+
+string bool_to_string(bool value) {
+    if (value) {
+        return Constants::TRUE;
+    }
+    return Constants::FALSE;
+}
+
+bool string_to_bool(string text) {
+    if (text == Constants::TRUE) {
+        return true;
+    }
+    return false;
+}
+
+bool read_save_data() {
+    string line;
+    string split_line[2];
+
+    string path_components[4] = { "game_configuration",
+            "save.txt" };
+
+    ifstream game_save(path_builder(path_components));
+
+    int index = 0;
+    bool seperator_found = false;
+
+    if (game_save.is_open()) {
+        while (getline(game_save, line)) {
+            split_line[0] = "";
+            split_line[1] = "";
+            seperator_found = false;
+            for (int i = 0; i < line.size(); i++) {
+                if (seperator_found) {
+                    split_line[1] += line[i];
+                }
+                if (line[i] == ':') {
+                    seperator_found = true;
+                }
+                else if (seperator_found == false) {
+                    split_line[0] += line[i];
+                }
+            }
+            
+            index++;
+            if (split_line[0] == "Registry.play_music") {
+                Registry::play_music = string_to_bool(split_line[1]);
+            } 
+            else if (split_line[0] == "Registry.play_sounds") {
+                Registry::play_sounds = string_to_bool(split_line[1]);
+            }
+        }
+        game_save.close();
+        return true;
+    }
+    return false;
+}
+
+void write_save_data() {
+    string path_components[4] = { "game_configuration",
+            "save.txt"};
+
+    ofstream game_save(path_builder(path_components), ios::trunc);
+
+    if (game_save.is_open()) {
+        game_save << "Registry.play_music:" << bool_to_string(Registry::play_music) << endl;
+        game_save << "Registry.play_sounds:" << bool_to_string(Registry::play_sounds) << endl;
+        game_save.close();
+    }
+    else {
+        cout << "Unable to open file!!!" << endl;
+    }
 }

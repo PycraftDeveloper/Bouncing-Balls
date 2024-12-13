@@ -51,3 +51,15 @@ bool spread_anchor_flags(vector<Ball>& game_balls); // this also forms part of t
 int count_group_flags(vector<Ball>& game_balls); // this is used to count all the balls in the game_balls array that have the group
 // flag, and this is returned back to the caller. This is important as it is used to directly determine when a group of 3 or more balls has
 // been identified.
+
+bool read_save_data(); // This is used to load a save from the disk, and then modify registry values to change the configuration
+// of the game.
+
+void write_save_data(); // This is used to store any configuration changes to the disk that will need to be loaded again for the next
+// time the game starts.
+
+string bool_to_string(bool value); // This is used simply to convert a boolean value into a (human readable) string value. This is primarily used
+// in the serializing of registry data.
+
+bool string_to_bool(string text); // This is used to simply convert a (human readable) string value into a boolean. This is mainly used when loading data
+// from the disk and modifying registry values.

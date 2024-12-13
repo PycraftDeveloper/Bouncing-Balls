@@ -18,4 +18,6 @@ namespace Registry {
     int score = 0; // this sets the initial game score to 0, this is reset when the player is in the main menu as
     // it is not possible from the main menu to return to any previously played levels without first resetting them.
     float run_time = 0; // this sets the initial game run time to 0 seconds.
+    bool play_music = true; // this sets the game to play music by default
+    bool play_sounds = true; // this sets the game to play sound effects by default.
 }

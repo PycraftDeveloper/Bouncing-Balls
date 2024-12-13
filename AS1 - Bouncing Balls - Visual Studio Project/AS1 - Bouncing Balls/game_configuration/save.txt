@@ -1,0 +1,2 @@
+Registry.play_music:false
+Registry.play_sounds:false

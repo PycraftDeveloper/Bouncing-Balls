@@ -30,6 +30,7 @@ for header files, focus has been put on why that component is necessary, and an 
 #include <SFML/Audio.hpp>
 #include <string>
 #include <vector>
+#include <iostream>
 
 // include internal libraries (first party content)
 #include "GameObjects.h"
@@ -43,6 +44,10 @@ for header files, focus has been put on why that component is necessary, and an 
 int main()
 {
     srand(time(0)); // enforces random values by using a seed based on the current time
+
+    if (read_save_data() == false) {
+        write_save_data();
+    }
 
     // Create and format the Window here - resizing has been disabled due to complications with the ball
     // arrangement for the game levels.
@@ -99,7 +104,9 @@ int main()
     main_theme.openFromFile(path_builder(path_components));
     main_theme.setLoop(true);
     main_theme.setVolume(15);
-    main_theme.play();
+    if (Registry::play_music) {
+        main_theme.play();
+    }
 
     while (game_running)
     {
@@ -141,6 +148,13 @@ int main()
                     break;
                 }
             }
+        }
+
+        if (Registry::play_music && main_theme.getStatus() != sf::Music::Playing) {
+            main_theme.play();
+        }
+        else if (Registry::play_music == false && main_theme.getStatus() != sf::Music::Paused) {
+            main_theme.pause();
         }
 
         // Window focus main theme volume adjustment (start)
@@ -267,7 +281,10 @@ int main()
         }
         else if (menu_navigation[0] == Constants::QUIT) {
             // There is no quit menu, instead this just triggers the game loop to exit after completing this frame.
+            // Furthermore, the game's settings are also saved to a text file, ensuring the game restarts with the
+            // same user preference.
             game_running = false;
+            write_save_data();
         }
         // menu navigation (end)
 
