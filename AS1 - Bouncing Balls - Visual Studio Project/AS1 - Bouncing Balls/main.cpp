@@ -20,6 +20,8 @@ Available inputs:
     * You can also use the left click mouse button to interact with buttons in game.
     * You can use the 'Enter' key for the exact same functionality as the left click mouse button.
 
+It should be noted that there is no differentiation in this game between the left click mouse button and enter key.
+
 Each program in this project has been given an overview which discusses in more detail its purpose. Additionally
 for header files, focus has been put on why that component is necessary, and an overview of its purpose, whereas in the
 '.cpp'files a focus has been put on why the functionality has been written in this way as to avoid duplicating comments.
