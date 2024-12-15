@@ -1,3 +1,7 @@
+/*
+This program is used to create the basic components needed in most games and general applications.
+This is the program file, for the objects outlined in the header file 'UtilityObjects.h'.
+*/
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
@@ -20,6 +24,9 @@ void PlayerInput::update(sf::RenderWindow& window) {
         mouse_position[1] = internal_position.y;
         player_button_input = mouse.isButtonPressed(
             sf::Mouse::Button::Left);
+        // When the window is in focus, then and only then will the mouse position and player button input be
+        // calculated, this is to prevent the user from accidentally interacting with the game whilst intending to
+        // interact with something else on the system.
     }
     // enforce that when the player is not releasing the input quickly enough
     // the player input will be reset to false until the player releases the
@@ -60,7 +67,6 @@ Text::Text(string font_face) {
 }
 
 void Text::set_font_face(string new_font_face) {
-    // used to set the font for the button
     font_face = new_font_face;
     string path_components[4];
 
@@ -81,6 +87,11 @@ void Text::set_font_face(string new_font_face) {
         return;
     }
     file_path = path_builder(path_components);
+
+    // The constants representing the two fonts the game uses can be passed into this function
+    // and from this a path can be constructed. It should be noted that whilst the path could be directly
+    // associated with the constant, the approach seen here allows for easier cross platform changes by using the
+    // 'path_builder' function.
 }
 
 sf::Text Text::get_text() {
@@ -93,19 +104,24 @@ void Text::set_position(
     int x_position,
     int y_position) {
     if (loaded == false) {
+        // if the font isn't yet loaded, then it will be used in this function, so will need to be loaded
+        // immediately.
         load();
     }
 
     // sets the button position on screen. This is separate from render so 
-    // it can be called without rendering the text
+    // it can be called without rendering the text primarily this is used in the button mechanic.
 
-    if (x_position < 0) { // centre in x
+    if (x_position < 0) { // centre in x, and also handle the negative input behaviour
         x_position = -(x_position - 1) + (window.getSize().x - text.getGlobalBounds().width) / 2;
     }
 
-    if (y_position < 0) { // centre in y
+    if (y_position < 0) { // centre in y, and also handle the negative input behaviour
         y_position = -(y_position - 1) + (window.getSize().y - text.getGlobalBounds().height) / 2;
     }
+
+    // The negative input behaviour: When -1 is entered, the text is centred in that axis. If a larger negative value is
+    // entered, for example -10, then the position will be 10 pixels from the centre of the screen in that axis.
 
     position[0] = x_position;
     position[1] = y_position;
@@ -123,6 +139,8 @@ void Text::render(
     bool text_is_bold,
     bool text_is_underlined) {
     if (loaded ==false) {
+        // if the font isn't yet loaded, then it will be used in this function, so will need to be loaded
+        // immediately.
         load();
     }
 
@@ -150,6 +168,7 @@ void Text::render(
     }
 
     if (text_changed) {
+        // only when the text changes do we bother to recalculate it's data.
         text.setString(text_content);
         text.setCharacterSize(text_size);
         text.setFillColor(text_fill_color);
@@ -167,12 +186,19 @@ void Text::render(
 }
 
 void Text::load() {
+    // here the font identified earlier is loaded from the file, then associated with the text object.
+    // only once this has been done is the font considered loaded. This is to prevent the font from being used before
+    // it is ready should there be any parallel processing going on.
     font.loadFromFile(file_path);
     text.setFont(font);
     loaded = true;
 }
 
 void Text::unload() {
+    // The font is immediately considered as unloaded, ensuring that any parallel rendering doesn't break by trying to render with
+    // the font whilst it is being removed from memory. Only after the flag has been set is the new font object created (which doesn't
+    // have a font file loaded, reducing its size in memory). This is then assigned as the new font for the text object, and then overwrites the
+    // existing font object. This can only be done once all references to the original font object have been destroyed.
     loaded = false;
     sf::Font new_font;
     text.setFont(new_font);
@@ -183,6 +209,8 @@ Button::Button(string font_face) {
     content.set_font_face(font_face);
     background.setOutlineColor(sf::Color::Black);
     background.setOutlineThickness(1);
+    // Here, the button is immediately assigned a font face type, as well as some initial values for customizing the style of the button. Because all
+    // the buttons in the level will be themed similarly, there is no need for these customizations to be exposed to the rest of the game.
 }
 
 void Button::render(
@@ -193,26 +221,27 @@ void Button::render(
     int button_text_size,
     int button_padding) {
 
-    sf::Color button_color = sf::Color(33, 115, 204);
+    sf::Color button_color = sf::Color(33, 115, 204); // Sets the button background colour to a darker version of the background colour. This is done to
+    // ensure the button has a clearly defined background, whilst also ensuring the button is easy to read.
 
     // Used to actually create the button on-screen every frame
     content.render(
         window,
         button_content,
         button_text_size,
-        sf::Color::Black); // get text dimensions
-
+        sf::Color::Black);
+        
+    // get text dimensions
     // get the button size with the rect as a bounding box
     int button_x_size = content.get_text().getLocalBounds().width + button_padding;
     int button_y_size = content.get_text().getLocalBounds().height + button_padding;
     background.setSize(sf::Vector2f(button_x_size, button_y_size));
 
-    // if the button position is negative, I can use this as a way of indicating a central position
-    if (button_x_position < 0) { // centre in x
+    if (button_x_position < 0) {// centre in x, and also handle the negative input behaviour
         button_x_position = -(button_x_position - 1) + (window.getSize().x - button_x_size) / 2;
     }
 
-    if (button_y_position < 0) { // centre in y
+    if (button_y_position < 0) {// centre in y, and also handle the negative input behaviour
         button_y_position = -(button_y_position - 1) + (window.getSize().y - button_y_size) / 2;
     }
 
@@ -249,12 +278,16 @@ bool Button::compute(PlayerInput& player_input) {
 
     if (button_position[0] > background.getGlobalBounds().getPosition().x &&
         button_position[0] < background.getGlobalBounds().getPosition().x + background.getGlobalBounds().width) {
+            // check the mouse is first aligned in the x axis
 
         if (button_position[1] > background.getGlobalBounds().getPosition().y &&
             button_position[1] < background.getGlobalBounds().getPosition().y + background.getGlobalBounds().height) {
-            hovering = true;
+                // then check the mouse is aligned in the y axis before considering the mouse cursor to be inside the button hit-box.
+            hovering = true; // when the cursor is inside the button hit-box, this flag is set to true, which will adjust how the button appears
+            // when the render function is next called.
             if (player_input.get_player_button_input()) {
-                return true;
+                return true; // if the button has been clicked, or the enter key pressed, then the button has been activated and this is sent back
+                // to the caller to allow for a specific action to be performed.
             }
         }
     }
@@ -262,9 +295,9 @@ bool Button::compute(PlayerInput& player_input) {
 }
 
 void Button::load() {
-    content.load();
+    content.load(); // passes the load from the button into the text object, as this attribute wont otherwise be accessible outside the button.
 }
 
 void Button::unload() {
-    content.unload();
+    content.unload(); // passes the unload from the button into the text object, as this attribute wont otherwise be accessible outside the button.
 }
