@@ -147,37 +147,47 @@ public:
 class Cannon {
     // This class is used to define the cannon, which is located at the bottom of the level, and is used to point and shoot balls
     // (defined earlier) into the game level. This is what the end user will interact with directly in each level.
+    // The cannon is thought to 'own' the last two balls in the 'game_balls' array. This is because whilst they belong to the cannon
+    // they, when fired, become part of a larger arrangement of the balls in the scene, so its easier to consider the last two as being associated
+    // with the cannon, and thus having slightly different mechanics to the other balls in the scene. It should be noted that once fired, a new ball
+    // replaces the one fired, so the strict 'last two rule' is always enforced.
 private:
-    bool first_load = true;
+    bool first_load = true; // similar to the mass class, this is used to ensure that when the cannon is unloaded and reloaded its geometry
+    // remains at the correct scale, as the size of a sprite in SFML only changes when the texture assigned to it has different dimensions.
     sf::Texture cannon_texture;
     sf::Sprite cannon;
     float rotation = 0;
-    int unrotated_cannon_height = 0;
+    int unrotated_cannon_height = 0; // this is used to store the height of the cannon before it is rotated, as this is needed in the positioning of
+    // the balls the cannon 'owns'.
     int cannon_x_position = 0;
     int cannon_y_position = 0;
-    bool loaded = false;
-    string cannon_texture_file_path;
+    // these store the x and y position of the camera on screen. Unlike other times where positions are used, a more complex process has to be used when
+    // changing the position of the cannon as the balls 'owned' by the cannon also need their positions changed.
+    bool loaded = false; // this is used to determine if the cannon texture currently exists in RAM.
+    string cannon_texture_file_path; // this is used to store the path to the cannon texture for future loading.
 
 public:
     Cannon();
 
-    void set_position(int new_x, int new_y, vector<Ball>& game_balls);
+    void set_position(int new_x, int new_y, vector<Ball>& game_balls); // this is used to set the position of the cannon, however this is more complex
+    // than other occasions where the position of an object is updated due to the need to update the positions of other objects in the level.
 
-    void load_cannon_with_ball(vector<Ball>& game_balls);
+    void load_cannon_with_ball(vector<Ball>& game_balls); // This function is used to generate a new ball instance, and append it to the end of the game_balls
+    // vector, effectively meaning a new ball is 'owned' by the cannon.
 
-    void compute(sf::RenderWindow& window, PlayerInput& player_input, vector<Ball>& game_balls);
+    void compute(sf::RenderWindow& window, PlayerInput& player_input, vector<Ball>& game_balls); // this is used to compute the geometry of the cannon
+    // including the aiming of the cannon based on the position of the cursor.
 
-    float get_rotation();
+    float get_rotation(); // this is used to get the current rotation of the cannon, and is used to determine what angle the balls should be fired at.
 
-    void render(sf::RenderWindow& window);
+    void render(sf::RenderWindow& window); // this is used to render the cannon (but not the balls it 'owns') to the window.
 
-    void unload();
+    void unload(); // this is used to remove the cannon texture from RAM when it isn't needed.
 
-    void load();
+    void load(); // this is used to load the cannon texture into RAM for rendering.
 
     int get_x_position();
-
     int get_y_position();
-
     int get_height();
+    // these 3 getters are used to allow read only access to attributes of this class.
 };
