@@ -1,3 +1,9 @@
+/*
+This is one of the most important programs in the bouncing balls code. Here each game menu is defined, from the main menu to the
+game levels. Furthermore, this program also dictates how each level connected to each other - but not how they get there. It should
+also be noted that a lot of the functionality behind this menu is defined in the other programs and the game mechanics are largely
+defined within the game objects. This is the program file for the structure outlined in the header file: 'GameMenus.h'
+*/
 #pragma warning( disable : 4244 )
 
 #include <SFML/Graphics.hpp>

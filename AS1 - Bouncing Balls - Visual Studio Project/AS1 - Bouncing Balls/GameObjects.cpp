@@ -1,3 +1,8 @@
+/*
+This program stores each of the components used in the levels. In the game, the majority of the game mechanics are defined in their
+corresponding objects, so these are very important for the correct game mechanics. This is the program file for the structure
+outlined in the file 'GameObjects.h'.
+*/
 #pragma warning( disable : 4244 )
 #pragma warning( disable : 4305 )
 #pragma warning( disable : 4267 )
