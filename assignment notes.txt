@@ -106,7 +106,7 @@ Mechanics of the game. (single) 200 words
 Overall screen flow diagrams.
 Overall UI design. (Group these together) 150 words
 
-Pseudocode for character/NPC objects. (single) * length subject to game complexity * 200 words
+Pseudocode for character/NPC objects [Cannon, ball and mass]. (single) * length subject to game complexity * 200 words
 
 Testing w/ suitable testing table. [wait until game somewhat complete (around 1st presentation) identify issues and do some testing, then do the testing again and write up extensively after testing lesson has been taught near the end of the course] (single) * get feedback from room mates? again subject to complexity * 150 words
 
