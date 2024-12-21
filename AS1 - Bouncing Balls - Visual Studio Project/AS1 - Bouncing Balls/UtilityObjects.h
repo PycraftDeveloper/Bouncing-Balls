@@ -106,12 +106,8 @@ public:
         sf::RenderWindow& window,
         int button_x_position,
         int button_y_position,
-        string button_content,
-        int button_text_size,
-        int button_padding = 50); // This is the rendering function, and handles positioning the button, as well as the rendering of the text
-        // but using a simplified interface as not all the options defined for the text class above are necessary here. Buttons also have a padding
-        // of 50 pixels by default, which represents an additional distance around the dimensions of the rendered text. This is designed to make buttons
-        // have different sizes and make them easier to interact with.
+        string button_content); // This is the rendering function, and handles positioning the button, as well as the rendering of the text
+        // but using a simplified interface as not all the options defined for the text class above are necessary here.
 
     bool compute(PlayerInput& player_input); // called once per frame, this is used to update the state of the button, and allows the button to
     // change stylistically depending on how the user interacts with it. This is also where button activation by clicking or pressing enter whilst

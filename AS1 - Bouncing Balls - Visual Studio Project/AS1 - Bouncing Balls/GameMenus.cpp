@@ -41,8 +41,8 @@ string MainMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     left_dragon.render(window);
     right_dragon.render(window);
     title_text.render(window, "Bouncing Balls", 100, sf::Color::Black, true);
-    play_button.render(window, -1, -1, "Play!", 24, 30);
-    quit_button.render(window, -1, -101, "quit", 24, 20);
+    play_button.render(window, -1, -1, "Play!");
+    quit_button.render(window, -1, -101, "quit");
     // All the elements in the menu are rendered here - on top of the background content rendered in the main program.
 
     // identify what menu to transition to next
@@ -450,8 +450,8 @@ string GameEndMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input
     title_text.render(window, "Bouncing Balls", 100, sf::Color::Black, true);
     game_win_state.render(window, game_win_state_text_content, 50, game_win_state_text_color, true);
     game_score_result.render(window, "Your Score: " + to_string(Registry::score), 50, sf::Color::Black);
-    play_again_button.render(window, -1, -1, "Play Again!", 24, 30);
-    quit_button.render(window, -1, -101, "Quit", 24, 20);
+    play_again_button.render(window, -1, -1, "Play Again!");
+    quit_button.render(window, -1, -101, "Quit");
     // render all the graphical content to the screen.
 
     // identify what menu to transition to next, based on the button the user clicks, for which the result was identified earlier.
@@ -497,9 +497,9 @@ string PauseMenu::run_menu(
 
     instructions.render(window);
     title_text.render(window, "Bouncing Balls", 100, sf::Color::Black, true);
-    resume_button.render(window, -1, -1, "Resume Game", 24, 30);
-    main_menu_button.render(window, -1, -101, "Main Menu", 24, 20);
-    quit_button.render(window, -1, -201, "Quit", 24, 20);
+    resume_button.render(window, -1, -1, "Resume Game");
+    main_menu_button.render(window, -1, -101, "Main Menu");
+    quit_button.render(window, -1, -201, "Quit");
     // Render all the graphical content to the window.
 
     // determine which menu to transition to next, based on the results of the buttons - or stay on the current menu if the user hasn't interacted with any of the buttons.

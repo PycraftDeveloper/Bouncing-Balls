@@ -217,9 +217,7 @@ void Button::render(
     sf::RenderWindow& window,
     int button_x_position,
     int button_y_position,
-    string button_content,
-    int button_text_size,
-    int button_padding) {
+    string button_content) {
 
     sf::Color button_color = sf::Color(33, 115, 204); // Sets the button background colour to a darker version of the background colour. This is done to
     // ensure the button has a clearly defined background, whilst also ensuring the button is easy to read.
@@ -228,13 +226,13 @@ void Button::render(
     content.render(
         window,
         button_content,
-        button_text_size,
+        24,
         sf::Color::Black);
         
     // get text dimensions
     // get the button size with the rect as a bounding box
-    int button_x_size = content.get_text().getLocalBounds().width + button_padding;
-    int button_y_size = content.get_text().getLocalBounds().height + button_padding;
+    int button_x_size = 400;
+    int button_y_size = 50;
     background.setSize(sf::Vector2f(button_x_size, button_y_size));
 
     if (button_x_position < 0) {// centre in x, and also handle the negative input behaviour
@@ -252,8 +250,9 @@ void Button::render(
     // set the text position centred in the button
     content.set_position(
         window,
-        button_x_position + button_padding / 2,
-        button_y_position + button_padding / 2 - content.get_text().getLocalBounds().top);
+        button_x_position + (button_x_size - content.get_text().getGlobalBounds().width)/2,
+        button_y_position + (button_y_size - content.get_text().getGlobalBounds().height)/2 - 5); // There is a slight offset here so that the text
+        // is rendered in the right place in the y axis. I'm not too sure why its being rendered in slightly the wrong place.
 
     // draw the button rectangle to the window
     window.draw(background);
@@ -263,7 +262,7 @@ void Button::render(
     content.render(
         window,
         button_content,
-        button_text_size,
+        24,
         sf::Color::Black,
         false,
         hovering);
