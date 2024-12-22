@@ -271,16 +271,16 @@ void Button::render(
 bool Button::compute(PlayerInput& player_input) {
     // Used to actually detect collisions and mouse inputs with the button
     hovering = false;
-    int button_position[2] = {
+    int mouse_position[2] = {
         player_input.get_mouse_position()[0],
         player_input.get_mouse_position()[1] };
 
-    if (button_position[0] > background.getGlobalBounds().getPosition().x &&
-        button_position[0] < background.getGlobalBounds().getPosition().x + background.getGlobalBounds().width) {
+    if (mouse_position[0] > background.getGlobalBounds().getPosition().x &&
+        mouse_position[0] < background.getGlobalBounds().getPosition().x + background.getGlobalBounds().width) {
             // check the mouse is first aligned in the x axis
 
-        if (button_position[1] > background.getGlobalBounds().getPosition().y &&
-            button_position[1] < background.getGlobalBounds().getPosition().y + background.getGlobalBounds().height) {
+        if (mouse_position[1] > background.getGlobalBounds().getPosition().y &&
+            mouse_position[1] < background.getGlobalBounds().getPosition().y + background.getGlobalBounds().height) {
                 // then check the mouse is aligned in the y axis before considering the mouse cursor to be inside the button hit-box.
             hovering = true; // when the cursor is inside the button hit-box, this flag is set to true, which will adjust how the button appears
             // when the render function is next called.
@@ -299,4 +299,121 @@ void Button::load() {
 
 void Button::unload() {
     content.unload(); // passes the unload from the button into the text object, as this attribute wont otherwise be accessible outside the button.
+}
+
+MediaControls::MediaControls() {
+    string music_on_button_texture_path_components[4] = {
+        "resources", "images", "music_on.png"
+    };
+
+    string music_off_button_texture_path_components[4] = {
+        "resources", "images", "music_off.png"
+    };
+
+    string sound_on_button_texture_path_components[4] = {
+        "resources", "images", "sound_on.png"
+    };
+
+    string sound_off_button_texture_path_components[4] = {
+        "resources", "images", "sound_off.png"
+    };
+
+    music_on_button_texture_path = path_builder(music_on_button_texture_path_components);
+    music_off_button_texture_path = path_builder(music_off_button_texture_path_components);
+
+    sound_on_button_texture_path = path_builder(sound_on_button_texture_path_components);
+    sound_off_button_texture_path = path_builder(sound_off_button_texture_path_components);
+}
+
+void MediaControls::compute(PlayerInput& player_input) {
+    if (conditions_changed) {
+        conditions_changed = false;
+        load();
+    }
+
+    int mouse_position[2] = {
+        player_input.get_mouse_position()[0],
+        player_input.get_mouse_position()[1] };
+
+    if (mouse_position[0] > music_position[0] &&
+        mouse_position[0] < music_position[0] + music_button.getGlobalBounds().width) {
+        // check the mouse is first aligned in the x axis
+
+        if (mouse_position[1] > music_position[1] &&
+            mouse_position[1] < music_position[1] + music_button.getGlobalBounds().height) {
+            if (player_input.get_player_button_input()) {
+                Registry::play_music = Registry::play_music == false;
+                conditions_changed = true;
+            }
+        }
+    }
+
+    if (mouse_position[0] > sound_position[0] &&
+        mouse_position[0] < sound_position[0] + sound_button.getGlobalBounds().width) {
+        // check the mouse is first aligned in the x axis
+
+        if (mouse_position[1] > sound_position[1] &&
+            mouse_position[1] < sound_position[1] + sound_button.getGlobalBounds().height) {
+            if (player_input.get_player_button_input()) {
+                Registry::play_sounds = Registry::play_sounds == false;
+                conditions_changed = true;
+            }
+        }
+    }
+}
+
+void MediaControls::render(sf::RenderWindow& window, int x_position, int y_position) {
+    if (loaded == false) {
+        load();
+    }
+
+    if (x_position < 0) {// centre in x, and also handle the negative input behaviour
+        music_position[0] = -(x_position - 1) + (Registry::window_size[0] / 2) - music_button.getGlobalBounds().width;
+        sound_position[0] = -(x_position - 1) + (Registry::window_size[0] / 2);
+    }
+
+    if (y_position < 0) {// centre in y, and also handle the negative input behaviour
+        music_position[1] = -(y_position - 1) + (Registry::window_size[1] - music_button.getGlobalBounds().width) / 2;
+        sound_position[1] = -(y_position - 1) + (Registry::window_size[1] - music_button.getGlobalBounds().width) / 2;
+    }
+
+    music_button.setPosition(music_position[0], music_position[1]);
+    sound_button.setPosition(sound_position[0], sound_position[1]);
+
+    window.draw(music_button);
+    window.draw(sound_button);
+}
+
+void MediaControls::load() {
+    if (Registry::play_music) {
+        music_button_texture.loadFromFile(music_on_button_texture_path);
+    }
+    else {
+        music_button_texture.loadFromFile(music_off_button_texture_path);
+    }
+    music_button.setTexture(music_button_texture);
+
+    if (Registry::play_sounds) {
+        sound_button_texture.loadFromFile(sound_on_button_texture_path);
+    }
+    else {
+        sound_button_texture.loadFromFile(sound_off_button_texture_path);
+    }
+    sound_button.setTexture(sound_button_texture);
+
+    music_button.setScale(0.1, 0.1);
+    sound_button.setScale(0.1, 0.1);
+
+    loaded = true;
+}
+
+void MediaControls::unload() {
+    loaded = false;
+
+    sf::Texture blank_texture;
+    music_button.setTexture(blank_texture);
+    sound_button.setTexture(blank_texture);
+
+    music_button_texture = blank_texture;
+    sound_button_texture = blank_texture;
 }

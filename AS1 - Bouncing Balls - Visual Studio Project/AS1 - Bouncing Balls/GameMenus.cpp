@@ -33,6 +33,7 @@ string MainMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     right_dragon.compute(Constants::RIGHT);
     play_button_result = play_button.compute(player_input);
     quit_button_result = quit_button.compute(player_input);
+    media_controls.compute(player_input);
     // All the elements in the menu are computed here
     
     title_text.set_position(window, -1, 0);
@@ -43,6 +44,7 @@ string MainMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input) {
     title_text.render(window, "Bouncing Balls", 100, sf::Color::Black, true);
     play_button.render(window, -1, -1, "Play!");
     quit_button.render(window, -1, -101, "quit");
+    media_controls.render(window, -1, -201);
     // All the elements in the menu are rendered here - on top of the background content rendered in the main program.
 
     // identify what menu to transition to next
@@ -63,6 +65,7 @@ void MainMenu::unload() {
     play_button.unload();
     quit_button.unload();
     title_text.unload();
+    media_controls.unload();
     // This will pass unload commands to all the elements that loaded textures from files, and causes them to free up memory to save space.
 }
 

@@ -24,6 +24,7 @@ private:
     MainMenuInstructions instructions;
     Dragon left_dragon;
     Dragon right_dragon;
+    MediaControls media_controls;
 
 public:
     MainMenu(); // Used to set-up the main menu and its components.

@@ -118,3 +118,35 @@ public:
 
     void load(); // this is again not used by the button, but passes on the load instruction to the text component for reasons similar to the function above.
 };
+
+class MediaControls {
+private:
+    sf::Texture music_button_texture;
+    sf::Sprite music_button;
+
+    sf::Texture sound_button_texture;
+    sf::Sprite sound_button;
+
+    string music_on_button_texture_path;
+    string music_off_button_texture_path;
+
+    string sound_on_button_texture_path;
+    string sound_off_button_texture_path;
+
+    bool loaded = false;
+    bool conditions_changed = false;
+
+    int music_position[2] = { 0, 0 };
+    int sound_position[2] = { 0, 0 };
+
+public:
+    MediaControls();
+
+    void compute(PlayerInput& player_input);
+
+    void render(sf::RenderWindow& window, int x_position, int y_position);
+
+    void load();
+
+    void unload();
+};
