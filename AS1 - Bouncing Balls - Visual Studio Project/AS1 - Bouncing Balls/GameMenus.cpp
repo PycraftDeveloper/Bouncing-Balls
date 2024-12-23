@@ -429,6 +429,7 @@ string GameEndMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input
     right_dragon.compute(Constants::RIGHT);
     play_again_button_result = play_again_button.compute(player_input);
     quit_button_result = quit_button.compute(player_input);
+    media_controls.compute(player_input);
     // compute each of the on-screen elements, and determine if the buttons in the level have been clicked - storing the result.
 
     title_text.set_position(window, -1, 0); // here the title is rendered centred in the x axis with the -1.
@@ -455,6 +456,7 @@ string GameEndMenu::run_menu(sf::RenderWindow& window, PlayerInput& player_input
     game_score_result.render(window, "Your Score: " + to_string(Registry::score), 50, sf::Color::Black);
     play_again_button.render(window, -1, -1, "Play Again!");
     quit_button.render(window, -1, -101, "Quit");
+    media_controls.render(window, -1, -201);
     // render all the graphical content to the screen.
 
     // identify what menu to transition to next, based on the button the user clicks, for which the result was identified earlier.
@@ -477,6 +479,7 @@ void GameEndMenu::unload() {
     game_score_result.unload();
     play_again_button.unload();
     quit_button.unload();
+    media_controls.unload();
     // Unloads all graphical content to save memory.
 }
 
@@ -494,7 +497,8 @@ string PauseMenu::run_menu(
     resume_button_result = resume_button.compute(player_input);
     main_menu_button_result = main_menu_button.compute(player_input);
     quit_button_result = quit_button.compute(player_input);
-    // This section computes all the different on-screen elements, and in doing so also determines if the buttons in the mrnu have been clicked.
+    media_controls.compute(player_input);
+    // This section computes all the different on-screen elements, and in doing so also determines if the buttons in the menu have been clicked.
 
     title_text.set_position(window, -1, 0); // remember, -1 is centred in that axis.
 
@@ -503,6 +507,7 @@ string PauseMenu::run_menu(
     resume_button.render(window, -1, -1, "Resume Game");
     main_menu_button.render(window, -1, -101, "Main Menu");
     quit_button.render(window, -1, -201, "Quit");
+    media_controls.render(window, -1, -301);
     // Render all the graphical content to the window.
 
     // determine which menu to transition to next, based on the results of the buttons - or stay on the current menu if the user hasn't interacted with any of the buttons.
@@ -527,5 +532,6 @@ void PauseMenu::unload() {
     resume_button.unload();
     quit_button.unload();
     main_menu_button.unload();
+    media_controls.unload();
     // unload content loaded from disk into memory to save space. This content will only be re-loaded into memory if needed.
 }

@@ -113,6 +113,8 @@ private:
     Text game_win_state = Text(Constants::FONT_PLAY);
     Text game_score_result = Text(Constants::FONT_PLAY);
 
+    MediaControls media_controls;
+
     Button play_again_button;
     Button quit_button;
 
@@ -137,6 +139,7 @@ private:
     Button resume_button;
     Button quit_button;
     Button main_menu_button;
+    MediaControls media_controls;
 
 public:
     PauseMenu();

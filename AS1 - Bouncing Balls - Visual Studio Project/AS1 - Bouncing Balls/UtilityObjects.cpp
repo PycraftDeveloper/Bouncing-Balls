@@ -367,9 +367,13 @@ void MediaControls::render(sf::RenderWindow& window, int x_position, int y_posit
         load();
     }
 
+    // positioning equation breakdown (for negative integers ONLY):
+    // 1. Position to centre of window.
+    // 2. Apply abs offset.
+    // 3. Apply widget specific customisation
     if (x_position < 0) {// centre in x, and also handle the negative input behaviour
-        music_position[0] = -(x_position - 1) + (Registry::window_size[0] / 2) - music_button.getGlobalBounds().width;
-        sound_position[0] = -(x_position - 1) + (Registry::window_size[0] / 2);
+        music_position[0] = -(x_position - 1) + (Registry::window_size[0] / 2) - music_button.getGlobalBounds().width - 25;
+        sound_position[0] = -(x_position - 1) + (Registry::window_size[0] / 2) + 25;
     }
 
     if (y_position < 0) {// centre in y, and also handle the negative input behaviour
