@@ -120,33 +120,46 @@ public:
 };
 
 class MediaControls {
+    // This class is used to create the media controls seen in the main menu, pause menu and game end menu that allow you to turn on/off
+    // game music and sounds separately. Both of these buttons are rendered as one here, with only one texture being used for each the music and sound
+    // options. This reduces memory wastage by loading all 4 textures at once. This was initially planned to be two different widgets, or two instances of
+    // the same widget. However this idea was later scrapped as they both appear in a pair on screen, and it was much easier to place them about a central desired
+    // target than to calculate them individually. It should be noted that this widget renders two buttons, but these are NOT the same buttons as seen in the Button class
+    // as these buttons use textures instead of font/text to display content.
 private:
     sf::Texture music_button_texture;
     sf::Sprite music_button;
 
     sf::Texture sound_button_texture;
     sf::Sprite sound_button;
+    // here, the textures and sprites are defined for each of the two buttons this widget renders.
 
     string music_on_button_texture_path;
     string music_off_button_texture_path;
 
     string sound_on_button_texture_path;
     string sound_off_button_texture_path;
+    // Despite only having two places for textures, all four paths are stored by the class, so that the textures can be swapped
+    // out as needed.
 
-    bool loaded = false;
-    bool conditions_changed = false;
+    bool loaded = false;// This is used to determine if the button textures exist yet in RAM.
+    bool conditions_changed = false; // This is used to determine if the button textures that exist in RAM need to be refreshed.
 
     int music_position[2] = { 0, 0 };
     int sound_position[2] = { 0, 0 };
+    // These store the positions for each of the two buttons used in this window, in the form (x, y).
 
 public:
     MediaControls();
 
-    void compute(PlayerInput& player_input);
+    void compute(PlayerInput& player_input); // This method handles user interaction, as well as completely managing the input events, unlike the button class
+    // which returns a value to be interpreted by the caller. This method therefore also handles the changes to the Registry settings allowing this widget to function.
 
-    void render(sf::RenderWindow& window, int x_position, int y_position);
+    void render(sf::RenderWindow& window, int x_position, int y_position); // This method is used to render the widgets on screen, and more importantly, also controls where
+    // about each of the two buttons should be placed, relative to a specified central position in the window.
 
-    void load();
+    void load(); // This is used to load both the textures used by the buttons. This also controls adjusting the size of the widgets so they fit properly into the window.
+    // This method is also used to strategically reload textures when the relevant registry states are changed.
 
-    void unload();
+    void unload(); // This is used to unload both button textures, to reduce this widgets size in memory.
 };

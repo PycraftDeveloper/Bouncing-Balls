@@ -317,75 +317,101 @@ MediaControls::MediaControls() {
     string sound_off_button_texture_path_components[4] = {
         "resources", "images", "sound_off.png"
     };
+    // These four arrays store the folder/file names that can be constructed into a fully qualified path that points to the texture location on the system.
 
     music_on_button_texture_path = path_builder(music_on_button_texture_path_components);
     music_off_button_texture_path = path_builder(music_off_button_texture_path_components);
 
     sound_on_button_texture_path = path_builder(sound_on_button_texture_path_components);
     sound_off_button_texture_path = path_builder(sound_off_button_texture_path_components);
+    // Here, all four paths are constructed and stored into the strings defined in the class, so that the right textures can be easily accessed in the load method.
 }
 
 void MediaControls::compute(PlayerInput& player_input) {
     if (conditions_changed) {
         conditions_changed = false;
         load();
-    }
+    } // This is used to selectively reload the textures used for each button when their corresponding registry states are changed. - resetting the flag.
 
     int mouse_position[2] = {
         player_input.get_mouse_position()[0],
         player_input.get_mouse_position()[1] };
+    // This is used to store the mouse's current position in a 2D array.
 
+    // Music button & Mouse pointer collision detection - start
     if (mouse_position[0] > music_position[0] &&
         mouse_position[0] < music_position[0] + music_button.getGlobalBounds().width) {
         // check the mouse is first aligned in the x axis
 
         if (mouse_position[1] > music_position[1] &&
             mouse_position[1] < music_position[1] + music_button.getGlobalBounds().height) {
+
+            // check the mouse is first aligned in the y axis
             if (player_input.get_player_button_input()) {
+                // There is no hovering behaviour here - to reduce the game's overall size - so only when the user clicks the mouse or presses the
+                // 'enter' key does anything happen.
                 Registry::play_music = Registry::play_music == false;
+                // The registry Boolean value is flipped.
                 conditions_changed = true;
+                // The button needs its texture changed, so this flag is set so it occurs in the next frame.
             }
         }
     }
+    // Music button & Mouse pointer collision detection - end
 
+    // Sound button & Mouse pointer collision detection - start
     if (mouse_position[0] > sound_position[0] &&
         mouse_position[0] < sound_position[0] + sound_button.getGlobalBounds().width) {
-        // check the mouse is first aligned in the x axis
 
         if (mouse_position[1] > sound_position[1] &&
             mouse_position[1] < sound_position[1] + sound_button.getGlobalBounds().height) {
+
             if (player_input.get_player_button_input()) {
                 Registry::play_sounds = Registry::play_sounds == false;
                 conditions_changed = true;
             }
         }
     }
+    // Sound button & Mouse pointer collision detection - end
 }
 
 void MediaControls::render(sf::RenderWindow& window, int x_position, int y_position) {
     if (loaded == false) {
         load();
-    }
+    } // load the required textures if they do not already exist in RAM.
 
     // positioning equation breakdown (for negative integers ONLY):
     // 1. Position to centre of window.
     // 2. Apply abs offset.
     // 3. Apply widget specific customisation
+
     if (x_position < 0) {// centre in x, and also handle the negative input behaviour
         music_position[0] = -(x_position - 1) + (Registry::window_size[0] / 2) - music_button.getGlobalBounds().width - 25;
         sound_position[0] = -(x_position - 1) + (Registry::window_size[0] / 2) + 25;
+    }
+    else {
+        music_position[0] = x_position - 25;
+        music_position[0] = x_position + 25;
     }
 
     if (y_position < 0) {// centre in y, and also handle the negative input behaviour
         music_position[1] = -(y_position - 1) + (Registry::window_size[1] - music_button.getGlobalBounds().width) / 2;
         sound_position[1] = -(y_position - 1) + (Registry::window_size[1] - music_button.getGlobalBounds().width) / 2;
     }
+    else {
+        music_position[1] = y_position;
+        sound_position[1] = y_position;
+    }
+    // In the button class, the values passed in for position where modified directly. Here this doesn't happen and array elements are updated to it is important to
+    // ensure that the widget can be placed using non-negative values!
 
+    // sets the position of each widget to the positions determined above! Remember, each button has its own position so they don't appear in the same place.
     music_button.setPosition(music_position[0], music_position[1]);
     sound_button.setPosition(sound_position[0], sound_position[1]);
 
     window.draw(music_button);
     window.draw(sound_button);
+    // The buttons are drawn on-screen.
 }
 
 void MediaControls::load() {
@@ -396,6 +422,8 @@ void MediaControls::load() {
         music_button_texture.loadFromFile(music_off_button_texture_path);
     }
     music_button.setTexture(music_button_texture);
+    // This loads the correct music texture into RAM by reading the registry state - in the same way that the music player does to ensure they both represent
+    // the same thing correctly. Any existing value is overwritten to reduce memory wastage.
 
     if (Registry::play_sounds) {
         sound_button_texture.loadFromFile(sound_on_button_texture_path);
@@ -404,9 +432,13 @@ void MediaControls::load() {
         sound_button_texture.loadFromFile(sound_off_button_texture_path);
     }
     sound_button.setTexture(sound_button_texture);
+    // This loads the correct sound texture into RAM by reading the same memory state as the one used in sound playback - this is identical in functionality to the
+    // code immediately above.
 
     music_button.setScale(0.1, 0.1);
     sound_button.setScale(0.1, 0.1);
+    // Resizes the widgets to fit correctly on-screen. Because the sprite's size has changed, there is no need to only apply this once, as the texture re-applied will
+    // reset the sprite back to its original size.
 
     loaded = true;
 }
@@ -420,4 +452,5 @@ void MediaControls::unload() {
 
     music_button_texture = blank_texture;
     sound_button_texture = blank_texture;
+    // This unloads both textures, using the same blank texture - after first having removed all association with the texture to ensure proper removal.
 }
