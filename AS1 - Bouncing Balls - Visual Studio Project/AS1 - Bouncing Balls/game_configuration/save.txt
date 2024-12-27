@@ -1,2 +1,2 @@
-Registry.play_music:true
-Registry.play_sounds:false
+Registry.play_music:false
+Registry.play_sounds:true
