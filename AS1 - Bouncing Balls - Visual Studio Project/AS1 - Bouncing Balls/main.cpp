@@ -217,7 +217,7 @@ int main()
                 // if the next component is not the main menu, the levels need to be reset and the main menu can be unloaded.
                 // when unloading something, the textures for the object are removed from memory to save on space in RAM.
                 menu_navigation[0] = next_component;
-                menu_navigation[1] = Constants::MAIN_MENU;
+                menu_navigation[1] = Constants::MAIN_MENU; 
                 // the menu_navigation bit here is important. This will overwrite the second element of the menu_navigation array with
                 // the current menu and set the first element to the next menu to use. This ensures on the next iteration of the game loop,
                 // another menu is instead used, and if the previous menu needed to be returned to (for example in the pause menu) then the second element

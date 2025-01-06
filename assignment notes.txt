@@ -7,9 +7,9 @@ https://www.arcade-museum.com/Videogame/puzzle-bobble - 12/10/2024 - 20:45
 
 https://cplusplus.com/doc/tutorial/files/ - 11/12/2024 - 19:50
 
-IMPORTANT
-=========
-Display game score on top left corner. 100 pts per 3 balls popped. Test size for 3,000,000 pts
+IMPORTANT / REVIEW FEEDBACK
+===========================
+Focus on pseudocode for: Ball/Mass/Cannon/Level One/Level Two/main
 
 GAME EXTRACTION
 ===============

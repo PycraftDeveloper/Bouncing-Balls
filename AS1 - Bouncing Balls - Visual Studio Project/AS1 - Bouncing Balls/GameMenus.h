@@ -62,6 +62,7 @@ protected:
     bool level_over = false; // This is used to determine if the level has ended or not. Here no differentiation if made between a win or loose condition as this variable is
     // largely in charge of managing the transition between menus.
     Text level_complete_text;
+    Text score_text;
 
     LevelTemplate();
 

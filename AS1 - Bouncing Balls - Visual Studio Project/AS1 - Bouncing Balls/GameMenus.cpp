@@ -143,11 +143,10 @@ string LevelTemplate::run_menu(sf::RenderWindow& window, PlayerInput& player_inp
     right_dragon.render(window);
 
     if (level_over == false) {
-        cannon_object.render(window);
-    } // When the game is over, the cannon isn't rendered, because the mass either obscures it, or its no longer needed.
-
-    if (level_over == false) {
-        // A lot of the code here will only run when the level isn't over.
+        // Tthe code here will only run when the level isn't over.
+        cannon_object.render(window); // When the game is over, the cannon isn't rendered, because the mass either obscures it, or its no longer needed.
+        score_text.set_position(window, 0, 0);
+        score_text.render(window, "Score: " + to_string(Registry::score), 30, sf::Color::Black);
         for (auto& game_ball : game_balls) {
             if (index == game_balls.size() - 2) {
                 angle = (cannon_object.get_rotation() - 90) * Constants::DEGREES_TO_RADIANS_CONVERSION_CONSTANT;
@@ -183,6 +182,7 @@ string LevelTemplate::run_menu(sf::RenderWindow& window, PlayerInput& player_inp
 
         for (int& garbage_ball : garbage_ball_elements) {
             game_balls.erase(game_balls.begin() + garbage_ball);
+            Registry::score += 10; // each ball popped is worth 10 points.
         } // the balls no longer needed are removed from the scene, freeing up RAM.
 
         anchor_balls_to_mass(); // Now all the remaining balls in the scene are checked to ensure they are in some whay connected to the mass at the top, otherwise they
@@ -302,7 +302,6 @@ void LevelTemplate::anchor_balls_to_mass() {
     for (int i = 0; i < game_balls.size() - 2; i++) {
         if (game_balls[i].get_anchored() == false && game_balls[i].get_x_velocity() == 0 && game_balls[i].get_y_velocity() == 0 && game_balls[i].get_is_ball_to_fall() == false) {
             game_balls[i].set_ball_to_fall(true);
-            Registry::score += 50;
         }
     } // Then any balls that don't have the flag, and naturally aren't currently being fired by the cannon, then the ball is set to fall. If the ball is being set to fall
     // for the first time, then it also adds 50 points to the score - once per ball.
@@ -377,6 +376,8 @@ void LevelTemplate::unload() {
     left_dragon.unload();
     right_dragon.unload();
     instructions.unload();
+    score_text.unload();
+    level_complete_text.unload();
     // Passes an unload instruction through to all the game objects that loaded a texture from disk into RAM, so this space can be freed.
 }
 
