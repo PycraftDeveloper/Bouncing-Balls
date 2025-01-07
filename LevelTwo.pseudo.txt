@@ -1,0 +1,37 @@
+CLASS LevelTwo INHERITS FROM LevelTemplate
+    PUBLIC
+        PROCEDURE init
+            DECLARE ball_diameter
+            ball_diameter <- 2 * Registry ball_radius
+
+            set vertical mass offset to -2 * ball_diameter
+            compute mass object
+
+            create a grid of balls passing in the level identifier to generate the correct number of rows
+
+            load cannon with ball
+            load cannon with ball
+        END PROCEDURE
+
+        PROCEDURE reset_level
+            DECLARE ball_diameter
+            ball_diameter <- 2 * Registry ball_radius
+
+            game_lost <- FALSE
+            level_over <- FALSE
+            level_end_time <- -1
+
+            reset mass object
+
+            clear all elements from game_balls vector
+
+            set vertical mass offset to -2 * ball_diameter
+            compute mass object
+
+            create a grid of balls passing in the level identifier to generate the correct number of rows
+
+            load cannon with ball
+            load cannon with ball
+        END PROCEDURE
+
+END CLASS

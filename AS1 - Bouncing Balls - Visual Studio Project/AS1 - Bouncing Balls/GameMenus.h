@@ -66,7 +66,7 @@ protected:
 
     LevelTemplate();
 
-    void create_ball_grid(vector<Ball>& game_balls); // This is used to create a basic arrangement of balls for each level, this is automatically overridden in the
+    void create_ball_grid(vector<Ball>& game_balls, string current_level); // This is used to create a basic arrangement of balls for each level, this is automatically overridden in the
     // second level using polymorphism to allow for the additional 2 rows of balls.
 
     void anchor_balls_to_mass(); // This method is used to ensure that all the balls directly connected to the mass, or connected to balls connected to the mass

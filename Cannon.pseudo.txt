@@ -1,0 +1,112 @@
+CLASS Cannon
+    PRIVATE
+        first_load <- TRUE
+        cannon_texture
+        cannon AS sprite
+        rotation <- 0
+        unrotated_cannon_height <- 0
+        cannon_x_position <- 0
+        cannon_y_position <- 0
+        loaded <- FALSE
+        cannon_texture_file_path
+
+    PUBLIC
+        CONSTRUCTOR Cannon
+            DECLARE cannon_texture_path_components AS a one-dimensional array of 4 elements
+            cannon_texture_path_components <- ["resources", "images", "cannon.png"]
+            cannon_texture_file_path <- ARRAY_TO_PATH(cannon_texture_path_components)
+        END CONSTRUCTOR
+
+        PROCEDURE set_position(new_x, new_y, game_balls)
+            cannon_x_position <- new_x
+            cannon_y_position <- new_y
+
+            set cannon position to (new_x, new_y)
+
+            IF the size of the game balls vector is greater than or equal to two THEN
+                FOR i <- 0 TO get size of game_balls - 2
+                    set game balls at index i to position (new_x, new_y)
+                END FOR
+            END IF
+        END PROCEDURE
+
+        PROCEDURE load_cannon_with_ball(game_balls)
+            DECLARE game_ball AS Ball WITH POSITION (cannon position)
+            add game_ball to the end of the game_balls vector
+        END PROCEDURE
+
+        PROCEDURE compute(window, player_input, game_balls)
+            DECLARE cannon_width
+            cannon_width <- get cannon sprite horizontal size
+
+            DECLARE cannon_height
+            cannon_height <- get cannon sprite vertical size
+
+            DECLARE opposite
+            opposite <- (get mouse x position) - (get cannon x position)
+
+            DECLARE adjacent
+            adjacent <- abs((get mouse y position) - (get cannon y position))
+
+            DECLARE new_rotation
+            new_rotation <- 90 + arctan(opposite / adjacent) * Constants RADIANS_TO_DEGREES_CONVERSION_CONSTANT
+
+            IF the angle is between 170 degrees AND 10 degrees THEN
+                rotation <- new_rotation
+                rotate cannon sprite by rotation
+            END IF
+
+            set_position(Registry window_size[0] / 2, (Registry window_size) - unrotated_cannon_height / 2, game_balls)
+        END PROCEDURE
+
+        FUNCTION get_rotation
+            RETURN rotation
+        END FUNCTION
+
+        PROCEDURE render(window)
+            IF loaded is false THEN
+                load
+            END IF
+            draw the cannon sprite to the window
+        END PROCEDURE
+
+        PROCEDURE unload
+            loaded <- FALSE
+            DECLARE new_cannon_texture
+            set cannon sprite texture to new_cannon_texture
+            set cannon texture to new_cannon_texture
+        END PROCEDURE
+
+        PROCEDURE load
+            load cannon_texture_file_path into cannon_texture
+            set cannon sprite texture to cannon_texture
+
+            IF first load THEN
+                set cannon position to (-500, -500)
+                set cannon scale to (0.168, 0.168)
+
+                DECLARE window_scale
+                window_scale <- Registry window_size[1] / 720
+
+                set cannon scale to (0.168 * window_scale, 0.168 * window_scale)
+                set cannon origin to (366, 170)
+                set cannon rotation to 0 degrees
+                first_load <- FALSE
+            END IF
+
+            loaded <- TRUE
+        END PROCEDURE
+
+        FUNCTION get_x_position
+            RETURN cannon_x_position
+        END FUNCTION
+
+        FUNCTION get_y_position
+            RETURN cannon_y_position
+        END FUNCTION
+
+        FUNCTION get_height
+            RETURN get cannon sprite vertical size
+        END FUNCTION
+
+END CLASS

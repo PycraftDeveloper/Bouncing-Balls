@@ -91,13 +91,19 @@ LevelTemplate::LevelTemplate() {
     // then other content loaded from disk.
 }
 
-void LevelTemplate::create_ball_grid(vector<Ball>& game_balls) {
+void LevelTemplate::create_ball_grid(vector<Ball>& game_balls, string current_level) {
     int columns = 14;
+    int rows = 6;
+
+    if (current_level == Constants::LEVEL_TWO) {
+        rows = 8;
+    }
+
     int x_pos = Registry::ball_radius;
     int y_pos = Registry::ball_radius + mass_object.get_game_ceiling();
     // This sets the initial x and y positions for the ball to the top-left corner of the window (with a bit of padding to ensure the whole ball is
     // visible immediately).
-    for (int row = 0; row < 6; row++) {
+    for (int row = 0; row < rows; row++) {
         if (row % 2 == 0) {
             columns = 14;
             x_pos = Registry::ball_radius;
@@ -143,7 +149,7 @@ string LevelTemplate::run_menu(sf::RenderWindow& window, PlayerInput& player_inp
     right_dragon.render(window);
 
     if (level_over == false) {
-        // Tthe code here will only run when the level isn't over.
+        // The code here will only run when the level isn't over.
         cannon_object.render(window); // When the game is over, the cannon isn't rendered, because the mass either obscures it, or its no longer needed.
         score_text.set_position(window, 0, 0);
         score_text.render(window, "Score: " + to_string(Registry::score), 30, sf::Color::Black);
@@ -244,7 +250,7 @@ string LevelTemplate::run_menu(sf::RenderWindow& window, PlayerInput& player_inp
             if (Registry::play_sounds) {
                 anvil_fail_sound.play();
                 for (int i = 0; i < 15; i++) {
-                    // play each pop sound once!
+                    // play 15 random pop sounds (to indicate the mass squished all the balls)
                     random_pop_sound_index = rand() % 15;
                     pop_sounds[random_pop_sound_index].play();
                 }
@@ -344,7 +350,7 @@ void LevelTemplate::handle_fire_cannon_event(float angle) {
 void LevelOne::init() {
     mass_object.compute(); // The mass object is computed so the game ceiling can be calculated for the game grid arrangement.
 
-    create_ball_grid(game_balls); // The ball arrangement is created, then two further balls are added for the cannon. This is important
+    create_ball_grid(game_balls, Constants::LEVEL_ONE); // The ball arrangement is created, then two further balls are added for the cannon. This is important
     // as the cannon's balls are always the last two.
 
     cannon_object.load_cannon_with_ball(game_balls);
@@ -364,7 +370,7 @@ void LevelOne::reset_level() {
     // Then basically re-initializes the class again
     mass_object.compute();
 
-    create_ball_grid(game_balls);
+    create_ball_grid(game_balls, Constants::LEVEL_ONE);
 
     cannon_object.load_cannon_with_ball(game_balls);
     cannon_object.load_cannon_with_ball(game_balls);
@@ -391,7 +397,7 @@ void LevelTwo::init() {
     // Everything below this is identical to the set-up for level one, just with a few extra rows of balls.
     mass_object.compute();
 
-    create_ball_grid(game_balls);
+    create_ball_grid(game_balls, Constants::LEVEL_TWO);
 
     cannon_object.load_cannon_with_ball(game_balls);
     cannon_object.load_cannon_with_ball(game_balls);
@@ -411,7 +417,7 @@ void LevelTwo::reset_level() {
     mass_object.set_vertical_offset(-2 * ball_diameter);
     mass_object.compute();
 
-    create_ball_grid(game_balls);
+    create_ball_grid(game_balls, Constants::LEVEL_TWO);
 
     cannon_object.load_cannon_with_ball(game_balls);
     cannon_object.load_cannon_with_ball(game_balls);

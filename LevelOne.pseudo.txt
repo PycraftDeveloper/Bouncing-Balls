@@ -1,0 +1,29 @@
+CLASS LevelOne INHERITS FROM LevelTemplate
+    PUBLIC
+        PROCEDURE init
+            compute mass object
+
+            create a grid of balls passing in the level identifier to generate the correct number of rows
+
+            load cannon with ball
+            load cannon with ball
+        END PROCEDURE
+
+        PROCEDURE reset_level
+            game_lost <- FALSE
+            level_over <- FALSE
+            level_end_time <- -1
+
+            reset mass object
+
+            clear all elements from game_balls vector
+
+            compute mass object
+
+            create a grid of balls passing in the level identifier to generate the correct number of rows
+
+            load cannon with ball
+            load cannon with ball
+        END PROCEDURE
+
+END CLASS

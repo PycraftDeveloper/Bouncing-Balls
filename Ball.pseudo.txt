@@ -1,0 +1,247 @@
+CLASS Ball
+    PRIVATE
+        x
+        y
+        radius
+        color
+        shape_x_velocity <- 0
+        shape_y_velocity <- 0
+        shape AS CircleShape
+        popped <- FALSE
+        group_flag <- FALSE
+        anchored_flag <- FALSE
+        ball_to_fall <- FALSE
+        pop_sound_to_play <- FALSE
+        ball_fall_start_time <- 0
+        fall_distance <- 0
+
+    PUBLIC
+        CONSTRUCTOR Ball(x, y)
+            Ball x <- x
+            Ball y <- y
+
+            color <- RANDOM CHOICE FROM ["Red", "Blue", "Yellow"]
+            set shape fill color to color
+
+            radius <- Registry ball_radius
+            set shape radius to radius
+
+            set shape origin to the centre of the circle
+
+            set point count to an optimal quantity
+
+            set shape position to (x, y)
+        END CONSTRUCTOR
+
+        PROCEDURE set_velocity(x_velocity, y_velocity)
+            shape_x_velocity <- x_velocity
+            shape_y_velocity <- y_velocity
+        END PROCEDURE
+
+        PROCEDURE set_position(new_x, new_y)
+            x <- new_x
+            y <- new_y
+        END PROCEDURE
+
+        PROCEDURE compute(mass)
+            DECLARE game_y_minimum
+            game_y_minimum <- get game ceiling from mass
+
+            DECLARE game_surface_max_x
+            game_surface_max_x <- get mass x position + get mass width
+
+            DECLARE game_surface_min_x
+            game_surface_min_x <- get mass x position
+
+            DECLARE time_difference
+
+            radius <- Registry ball_radius
+            set shape radius to radius
+
+            IF the shape's x position is less than game_surface_min_x OR the shape's x position is greater than the game_surface_max_x THEN
+                shape_x_velocity <- shape_x_velocity * -1
+            END IF
+
+            IF the shape's x position is less than the game ceiling THEN
+                shape_x_velocity <- 0
+                shape_y_velocity <- 0
+            END IF
+
+            IF the shape's x position is less than game_surface_min_x THEN
+                x <- radius + game_surface_min_x
+            END IF
+
+            IF the shape's x position is more than game_surface_max_x THEN
+                x <- game_surface_max_x - radius
+            END IF
+
+            IF the shape's y position is less than the game_y_minimum THEN
+                y <- radius + game_y_minimum
+            END IF
+
+            IF the shape is placed vertically off the bottom of the screen THEN
+                popped <- TRUE
+                y <- -100
+                shape_x_velocity <- 0
+                shape_y_velocity <- 0
+            END IF
+
+            x <- x + shape_x_velocity
+            y <- y + shape_y_velocity
+
+            IF ball is falling THEN
+                IF the ball_fall_start_time is 0 THEN
+                    ball_fall_start_time <- Registry run_time
+                END IF
+
+                time_difference <- Registry run time - ball_fall_start_time
+                y <- y + Constants MASS_FALL_SPEED * time_difference + Constants ACCELERATION_DUE_TO_GRAVITY * time_difference**2
+            ELSE
+                IF the shape has no velocity THEN
+                    y <- y + Constants MASS_FALL_SPEED
+                END IF
+            END IF
+        END PROCEDURE
+
+        FUNCTION check_collision_with_flag_ball(ball)
+            IF the ball has the same color AND the ball has the group flag AND the current group flag is FALSE AND the current ball isn't falling THEN
+                DECLARE distance
+                distance <- (PYTHAGOREAN DISTANCE FROM x, y TO ball x, ball y) - 3
+                IF the distance implies the balls are in collision THEN
+                    RETURN TRUE
+                END IF
+            END IF
+            RETURN FALSE
+        END FUNCTION
+
+        FUNCTION check_collision_with_anchor_ball(ball)
+            IF the ball is anchored AND the current ball is not anchored AND the ball isn't falling THEN
+                DECLARE distance
+                distance <- (PYTHAGOREAN DISTANCE FROM x, y TO ball x, ball y) - 3
+                IF the distance implies the balls are in collision THEN
+                    RETURN TRUE
+                END IF
+            END IF
+            RETURN FALSE
+        END FUNCTION
+
+        PROCEDURE collision(ball, game_balls)
+            IF the ball hasn't been popped AND isn't falling AND the current ball isn't falling THEN
+                DECLARE distance
+                distance <- (PYTHAGOREAN DISTANCE FROM x, y TO ball x, ball y)
+
+                IF the distance implies the balls are inside each other THEN
+                    DECLARE angle
+                    angle <- arctan2(y - ball y, x - ball x)
+
+                    DECLARE sin_angle
+                    sin_angle <- sin(angle)
+
+                    DECLARE cos_angle
+                    cos_angle <- cos(angle)
+
+                    DECLARE overlap
+                    overlap <- 0.5 * ((radius + ball radius) - distance)
+
+                    IF the current ball has no velocity AND the ball has no velocity THEN
+                        x <- x + cos_angle * overlap
+                        y <- y + sin_angle * overlap
+                        ball x <- ball x - cos_angle * overlap
+                        ball y <- ball y - sin_angle * overlap
+                    ELSE
+                        ball x <- ball x - cos_angle * overlap * 2
+                        ball y <- ball y - sin_angle * overlap * 2
+                    END IF
+
+                    IF the ball has velocity THEN
+                        ball group_flag <- TRUE
+
+                        spread group flags
+                        spread group flags
+                        spread group flags
+
+                        IF the number of group flags in the game_balls vector is more than or equal to three THEN
+                            DECLARE changed
+                            changed <- TRUE
+
+                            WHILE changed DO
+                                changed <- result of spread group flags
+                            END WHILE
+
+                            FOR i <- 0 TO get size of game_balls - 2
+                                IF the ball at index i has a group flag THEN
+                                    game_balls[i] popped <- TRUE
+                                    pop_sound_to_play <- TRUE
+                                    game_balls[i] pop_sound_to_play <- TRUE
+                                END IF
+                            END FOR
+                    ELSE
+                        FOR i <- 0 TO get size of game_balls - 2
+                            game_balls[i] group_flag <- FALSE
+                        END FOR
+                    END IF
+
+                    shape_x_velocity <- 0
+                    shape_y_velocity <- 0
+                    ball shape_x_velocity <- 0
+                    ball shape_y_velocity <- 0
+                END IF
+            END IF
+        END PROCEDURE
+
+        PROCEDURE render(window)
+            set shape position to (x, y)
+            IF the object hasn't been popped THEN
+                draw the shape to the window
+            END IF
+        END PROCEDURE
+
+        FUNCTION pop_sound_needs_playing
+            IF pop sound needs to play THEN
+                pop_sound_needs_playing <- FALSE
+                RETURN TRUE
+            END IF
+            RETURN FALSE
+        END FUNCTION
+
+        FUNCTION get_popped
+            RETURN popped
+        END FUNCTION
+
+        FUNCTION get_x_velocity
+            RETURN shape_x_velocity
+        END FUNCTION
+
+        FUNCTION get_y_velocity
+            RETURN shape_y_velocity
+        END FUNCTION
+
+        FUNCTION get_y_position
+            RETURN y
+        END FUNCTION
+
+        FUNCTION get_anchored
+            RETURN anchored_flag
+        END FUNCTION
+
+        FUNCTION get_is_ball_to_fall
+            RETURN ball_to_fall
+        END FUNCTION
+
+        FUNCTION get_group_flag
+            RETURN group_flag
+        END FUNCTION
+
+        PROCEDURE set_anchored(is_anchored)
+            anchored_flag <- is_anchored
+        END PROCEDURE
+
+        PROCEDURE set_ball_to_fall(is_to_fall)
+            ball_to_fall <- is_to_fall
+        END PROCEDURE
+
+        PROCEDURE set_group_flag(is_grouped)
+            group_flag <- is_grouped
+        END PROCEDURE
+
+END CLASS
