@@ -88,7 +88,7 @@ void Text::set_font_face(string new_font_face) {
     }
     file_path = path_builder(path_components);
 
-    // The constants representing the two fonts the game uses can be passed into this function
+    // The constants representing the two fonts the game uses can be passed into this procedure
     // and from this a path can be constructed. It should be noted that whilst the path could be directly
     // associated with the constant, the approach seen here allows for easier cross platform changes by using the
     // 'path_builder' function.
@@ -104,7 +104,7 @@ void Text::set_position(
     int x_position,
     int y_position) {
     if (loaded == false) {
-        // if the font isn't yet loaded, then it will be used in this function, so will need to be loaded
+        // if the font isn't yet loaded, then it will be used in this procedure, so will need to be loaded
         // immediately.
         load();
     }
@@ -139,7 +139,7 @@ void Text::render(
     bool text_is_bold,
     bool text_is_underlined) {
     if (loaded ==false) {
-        // if the font isn't yet loaded, then it will be used in this function, so will need to be loaded
+        // if the font isn't yet loaded, then it will be used in this procedure, so will need to be loaded
         // immediately.
         load();
     }
@@ -283,7 +283,7 @@ bool Button::compute(PlayerInput& player_input) {
             mouse_position[1] < background.getGlobalBounds().getPosition().y + background.getGlobalBounds().height) {
                 // then check the mouse is aligned in the y axis before considering the mouse cursor to be inside the button hit-box.
             hovering = true; // when the cursor is inside the button hit-box, this flag is set to true, which will adjust how the button appears
-            // when the render function is next called.
+            // when the render procedure is next called.
             if (player_input.get_player_button_input()) {
                 return true; // if the button has been clicked, or the enter key pressed, then the button has been activated and this is sent back
                 // to the caller to allow for a specific action to be performed.

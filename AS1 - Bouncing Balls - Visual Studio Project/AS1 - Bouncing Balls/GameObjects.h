@@ -65,7 +65,7 @@ public:
     void unload(); // removed the mass texture from RAM when no longer needed, saving on RAM usage.
 
     void set_is_falling(bool is_falling); // used to control when to, and when not to allow the mass to fall. This is also reset with the
-    // reset function.
+    // reset procedure.
 
     void set_y_position(int y_position); // used to set the y-position of the mass on screen. 
 };
@@ -172,7 +172,7 @@ public:
     void set_position(int new_x, int new_y, vector<Ball>& game_balls); // this is used to set the position of the cannon, however this is more complex
     // than other occasions where the position of an object is updated due to the need to update the positions of other objects in the level.
 
-    void load_cannon_with_ball(vector<Ball>& game_balls); // This function is used to generate a new ball instance, and append it to the end of the game_balls
+    void load_cannon_with_ball(vector<Ball>& game_balls); // This procedure is used to generate a new ball instance, and append it to the end of the game_balls
     // vector, effectively meaning a new ball is 'owned' by the cannon.
 
     void compute(sf::RenderWindow& window, PlayerInput& player_input, vector<Ball>& game_balls); // this is used to compute the geometry of the cannon

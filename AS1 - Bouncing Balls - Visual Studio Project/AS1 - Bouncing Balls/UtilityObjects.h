@@ -106,7 +106,7 @@ public:
         sf::RenderWindow& window,
         int button_x_position,
         int button_y_position,
-        string button_content); // This is the rendering function, and handles positioning the button, as well as the rendering of the text
+        string button_content); // This is the rendering procedure, and handles positioning the button, as well as the rendering of the text
         // but using a simplified interface as not all the options defined for the text class above are necessary here.
 
     bool compute(PlayerInput& player_input); // called once per frame, this is used to update the state of the button, and allows the button to
@@ -116,7 +116,7 @@ public:
     void unload(); // this is used not by the button its self, but as a way to unload the text object that it uses. The button object its self
     // has no elements loaded from the disk, so none with a size significant enough to warrant deleting to free up space.
 
-    void load(); // this is again not used by the button, but passes on the load instruction to the text component for reasons similar to the function above.
+    void load(); // this is again not used by the button, but passes on the load instruction to the text component for reasons similar to the procedure above.
 };
 
 class MediaControls {

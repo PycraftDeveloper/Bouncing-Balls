@@ -71,13 +71,12 @@ namespace Constants {
 
     const sf::Color SKY_BLUE{ sf::Color(192, 211, 234) }; // this represents the colour of the background in the game, and has
     // specifically been picked as blue as it is well regarded as a relaxing colour:
-    // https://www.researchgate.net/profile/Lesley-Lubos/publication/314578015_The_Role_of_Colors_in_Stress_Reduction/links/5baf102e92851ca9ed2e6128/The-Role-of-Colors-in-Stress-Reduction.pdf
-    // accessed 10/12/2024 @ 15:45 AND 20/11/2024 @ 12:41
+    // (6, Lubos. L, 2012)
 
 
     const float ACCELERATION_DUE_TO_GRAVITY = 9.806; // this is a physics constant and represents an approximation for the acceleration
     // experienced by an object in free-fall in earth's gravitational field at a distance of 6.38 million meters from its centre in units: m/s**2.
-    // https://physics.nist.gov/cgi-bin/cuu/Value?gn accessed 10/12/2024 @ 15:51.
+    // (19, 19.	NIST, National Institute of Standards and Technology, 2022)
 }
 
 #endif

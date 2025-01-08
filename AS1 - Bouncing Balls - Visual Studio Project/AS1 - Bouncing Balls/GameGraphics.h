@@ -38,7 +38,7 @@ private:
     bool loaded; // used to determine if the cloud texture exists in RAM.
     string file_path; // the path to the texture file on the disk.
 
-    void generate_cloud(); // this function is used to generate random attributes for the cloud when it is 'reset'. This is very important
+    void generate_cloud(); // this procedure is used to generate random attributes for the cloud when it is 'reset'. This is very important
     // as it primarily is used to hide the fact that clouds are re-used repeatedly in the game.
 
 public:

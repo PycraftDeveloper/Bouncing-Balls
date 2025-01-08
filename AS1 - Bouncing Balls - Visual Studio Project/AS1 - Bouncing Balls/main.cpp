@@ -24,7 +24,7 @@ It should be noted that there is no differentiation in this game between the lef
 
 Each program in this project has been given an overview which discusses in more detail its purpose. Additionally
 for header files, focus has been put on why that component is necessary, and an overview of its purpose, whereas in the
-'.cpp'files a focus has been put on why the functionality has been written in this way as to avoid duplicating comments.
+'.cpp' files a focus has been put on why the functionality has been written in this way as to avoid duplicating comments.
 */
 
 // include external libraries (third party content)
