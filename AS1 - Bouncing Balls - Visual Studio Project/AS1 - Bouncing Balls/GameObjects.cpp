@@ -20,6 +20,7 @@ outlined in the file 'GameObjects.h'.
 using namespace std;
 
 Mass::Mass() {
+    // The constructor here is simple, as it simply is used to create the operating system path to the file containing the anvil texture.
     string mass_texture_path_components[4] = { "resources", "images", "anvil.png" };
     mass_texture_file_path = path_builder(mass_texture_path_components);
 }
