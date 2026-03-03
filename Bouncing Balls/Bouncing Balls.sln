@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AS1 - Bouncing Balls", "AS1 - Bouncing Balls\AS1 - Bouncing Balls.vcxproj", "{5E50C8E6-1E26-4D1D-AE28-681ACA4C2279}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bouncing Balls", "Bouncing Balls\Bouncing Balls.vcxproj", "{5E50C8E6-1E26-4D1D-AE28-681ACA4C2279}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
