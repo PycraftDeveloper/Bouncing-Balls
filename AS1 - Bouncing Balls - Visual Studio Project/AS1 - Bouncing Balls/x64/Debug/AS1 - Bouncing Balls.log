@@ -1,2 +1,9 @@
-﻿  GameMenus.cpp
-  AS1 - Bouncing Balls.vcxproj -> D:\University\Assignments\Simester 1\CSY1079 - Programming 2D Computer Games\AS1 - Bouncing Balls - Visual Studio Project\x64\Debug\AS1 - Bouncing Balls.exe
+﻿  GameGraphics.cpp
+  GameMenus.cpp
+  GameObjects.cpp
+  main.cpp
+  Registry.cpp
+  UtilityFunctions.cpp
+  UtilityObjects.cpp
+  Generating Code...
+LINK : fatal error LNK1104: cannot open file 'sfml-system-d.lib'
