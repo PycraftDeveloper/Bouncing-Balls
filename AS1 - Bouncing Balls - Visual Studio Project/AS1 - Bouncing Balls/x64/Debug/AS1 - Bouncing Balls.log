@@ -1,9 +1,0 @@
-﻿  GameGraphics.cpp
-  GameMenus.cpp
-  GameObjects.cpp
-  main.cpp
-  Registry.cpp
-  UtilityFunctions.cpp
-  UtilityObjects.cpp
-  Generating Code...
-LINK : fatal error LNK1104: cannot open file 'sfml-system-d.lib'
