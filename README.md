@@ -17,8 +17,6 @@ In this game the goal is simple, aim your cannon using the mouse and click to fi
 
 There are two levels - good luck!
 
-_Note: All the assets here have been created by me (a programmer) for the game, they may not be very good but there shouldn't be any copyright issues (even with the audio)._
-
 ## Installation
 
 You can download the latest version of the game from the releases section.
